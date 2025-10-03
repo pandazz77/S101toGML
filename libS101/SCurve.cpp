@@ -3,7 +3,11 @@
 #include "GeoPoint.h"
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 
 
 SCurve::SCurve() 
@@ -104,7 +108,7 @@ double SCurve::GetY(int i)
 //			scaler->WorldToDevice_F(m_pPoints[i].x, m_pPoints[i].y, &points[i].x, &points[i].y); 
 //		}
 //
-//		//¸Þ¸ð¸® ´©¼ö
+//		//ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		factory->CreatePathGeometry(&newGeometry);
 //
 //		ID2D1GeometrySink *pSink = nullptr;

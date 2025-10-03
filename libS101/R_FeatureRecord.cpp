@@ -14,7 +14,11 @@
 #include "DRDirectoryInfoWriter.h"
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 
 R_FeatureRecord::R_FeatureRecord(void)
 {
@@ -67,7 +71,7 @@ R_FeatureRecord::~R_FeatureRecord(void)
 	//delete m_cs;
 	//m_cs = nullptr;
 
-	//	[Text Placement È°¿ë ¿¬±¸]
+	//	[Text Placement È°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½]
 	delete m_textBearing;
 	m_textBearing = nullptr;
 }

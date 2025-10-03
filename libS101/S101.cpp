@@ -47,10 +47,13 @@
 #include <iomanip>
 #include <vector>
 
+#ifdef _WIN32
 #undef _WINDOWS_
 #include <afxext.h>
-
 #include <crtdbg.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 
 #if _DEBUG
 #define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
@@ -62,8 +65,8 @@ namespace libS101
 	std::unordered_map<std::string, pugi::xml_node*> objectPugiXmlElementMap;
 	std::wstring get_feature_id(int id, int ENCODING = 0)
 	{
-		wchar_t numChar[5];
-		wsprintf(numChar, L"%04d", id);
+        wchar_t numChar[16];
+        std::swprintf(numChar, sizeof(numChar)/sizeof(numChar[0]), L"%04d", id);
 		std::wstringstream wss;
 		wss << L"FEATURE_ID_" << std::setw(4) << numChar;
 		return wss.str();
@@ -71,8 +74,8 @@ namespace libS101
 
 	std::wstring get_information_id(int id, int ENCODING = 0)
 	{
-		wchar_t numChar[5];
-		wsprintf(numChar, L"%04d", id);
+        wchar_t numChar[16];
+        std::swprintf(numChar, sizeof(numChar)/sizeof(numChar[0]), L"%04d", id);
 		std::wstringstream wss;
 		wss << L"INFO_ID_" << std::setw(4) << numChar;
 		return wss.str();
@@ -80,8 +83,8 @@ namespace libS101
 
 	std::string get_feature_id_string(int id)
 	{
-		char numChar[5];
-		sprintf_s(numChar, "%04d", id);
+        char numChar[16];
+        std::snprintf(numChar, sizeof(numChar), "%04d", id);
 		std::stringstream ss;
 		ss << "FEATURE_ID_" << std::setw(4) << numChar;
 		return ss.str();
@@ -89,8 +92,8 @@ namespace libS101
 
 	std::string get_information_id_string(int id)
 	{
-		char numChar[5];
-		sprintf_s(numChar, "%04d", id);
+        char numChar[16];
+        std::snprintf(numChar, sizeof(numChar), "%04d", id);
 		std::stringstream ss;
 		ss << "INFO_ID_" << std::setw(4) << numChar;
 		return ss.str();
@@ -188,7 +191,7 @@ namespace libS101
 
 
 #pragma warning(disable:4018)
-	bool S101::Open(CString _filepath) // Dataset ½ÃÀÛ, .000 ÆÄÀÏÀÐÀ½
+	bool S101::Open(CString _filepath) // Dataset ï¿½ï¿½ï¿½ï¿½, .000 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 
 		SetFilePath(_filepath);
@@ -710,7 +713,7 @@ namespace libS101
 					std::string inputText = "";
 					inputText = pugi::as_utf8(attr->m_atvl);
 
-					if (attr->m_paix == 0) //½ÉÇÃ ±×³É Ãß°¡ÇÒ°æ¿ì
+					if (attr->m_paix == 0) //ï¿½ï¿½ï¿½ï¿½ ï¿½×³ï¿½ ï¿½ß°ï¿½ï¿½Ò°ï¿½ï¿½
 					{
 						parentNode.append_move(pElement);
 						pElement.append_child(pugi::node_pcdata).set_value(inputText.c_str());
@@ -725,7 +728,7 @@ namespace libS101
 							auto ischild = parent.append_move(pElement);
 							if (!ischild)
 							{
-								OutputDebugString(L"ÀÚ½ÄÈ­¿¡ ½ÇÆÐÇß½À´Ï´Ù.");
+								OutputDebugString(L"ï¿½Ú½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.");
 							}
 						}
 
@@ -1333,7 +1336,7 @@ namespace libS101
 		fe->m_geometry = new SMultiPoint();
 		SMultiPoint* geo = (SMultiPoint*)fe->m_geometry;
 
-		//¿©±â¼­ ¸Þ¸ð¸® ´©¼ö
+		//ï¿½ï¿½ï¿½â¼­ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 		geo->m_numPoints = cnt;
 		if (!geo->m_pPoints) geo->m_pPoints = new std::vector<GeoPointZ>(geo->m_numPoints);//new GeoPointZ[geo->m_numPoints];
 		else
@@ -2327,9 +2330,9 @@ namespace libS101
 		return nullptr;
 	}
 
-	std::string S101::CStringToString(CString str)
+        std::string S101::CStringToString(CString str)
 	{
-		CT2CA convertedString(str);
+                CT2CA convertedString(str, CP_UTF8);
 		return std::string(convertedString);
 	}
 

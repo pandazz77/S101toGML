@@ -4,13 +4,17 @@
 #include "MBR.h"
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 //#include "..\\GeoMetryLibrary\\MBR.h"
 
 class SpatialObject;
 class Scaler;
 
-//·¹ÀÌ¾î µé¾î°¥Á¤º¸¸¦ ÀúÀåÇÒ Class
+//ï¿½ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½î°¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Class
 class Layer
 {
 
@@ -21,9 +25,9 @@ public:
 public:
 	bool	      On;
 	bool		Info;
-	//Á¤º¸ ·¹ÀÌ¾î¸¦ ±×¸±Áö ¾È ±×¸±Áö °áÁ¤ÇÕ´Ï´Ù.
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾î¸¦ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 	//bool		InfoOn;
-	// ¿µ¿ªÁ¤º¸
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	MBR			  m_mbr;
 	SpatialObject *m_spatialObject = nullptr;
 

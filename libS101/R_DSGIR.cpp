@@ -7,7 +7,11 @@
 #include "DRDirectoryInfoWriter.h"
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 
 R_DSGIR::R_DSGIR()
 {

@@ -3,7 +3,11 @@
 #include <vector>
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 struct ATTR;
 
 class F_ATTR : Field

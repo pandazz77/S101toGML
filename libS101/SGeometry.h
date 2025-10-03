@@ -3,7 +3,11 @@
 #include <unordered_map>
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 
 class SSurface;
 class Symbol;
@@ -20,7 +24,7 @@ public:
 public:
 	static int sizeOfPoint;
 
-	// ¸Þ·Î¸® ÇÒ´ç°ú È¸¼ö¸¦ ÃÖ¼ÒÈ­ ÇÏ±â À§ÇØ CPoint¹è¿­µµ °¡Áö°í ÀÖ´Â´Ù.
+	// ï¿½Þ·Î¸ï¿½ ï¿½Ò´ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½È­ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ CPointï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.
 	static POINT   *viewPoints;
 
 	// 1 : Point 

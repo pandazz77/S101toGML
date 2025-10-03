@@ -5,7 +5,11 @@
 #include <vector>
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 
 
 // Dataset Identification Field
@@ -18,15 +22,15 @@ public:
 
 public:
 	RecordName m_name;
-	CString m_ensp; //encodingSpecification(°íÁ¤°ª ÀÖÀ½) //S-100 Part 10a
-	CString m_ened; //encodingSpecificationEdition(°íÁ¤°ª ÀÖÀ½) //1.1
-	CString m_prsp;	//productIdentifier(°íÁ¤°ª ÀÖÀ½) //INT.IHO.S-101.1.0
-	CString m_pred; //productEdition(°íÁ¤°ª ÀÖÀ½) //1.0
-	CString m_prof; //applicationProfile(°íÁ¤°ª ÀÖÀ½) //1
+	CString m_ensp; //encodingSpecification(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) //S-100 Part 10a
+	CString m_ened; //encodingSpecificationEdition(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) //1.1
+	CString m_prsp;	//productIdentifier(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) //INT.IHO.S-101.1.0
+	CString m_pred; //productEdition(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) //1.0
+	CString m_prof; //applicationProfile(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) //1
 	CString m_dsnm; //datasetFileIdentifier
 	CString m_dstl; //datasetTitle
 	CString m_dsrd; //datasetReferenceDate
-	CString m_dslg; //datasetLanguage(°íÁ¤°ª ÀÖÀ½) //EN
+	CString m_dslg; //datasetLanguage(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½) //EN
 	CString m_dsab; //datasetAbstract
 	CString m_dsed; //dataset Edition
 	CArray<int> m_dstc;

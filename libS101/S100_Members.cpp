@@ -36,7 +36,7 @@ namespace S100
 		}
 		std::wstring member=value.substr(index +2,3);
 
-		auto result=GetProductAsString((S100_DataProduct)_wtoi(member.c_str()));
+    auto result=GetProductAsString((S100_DataProduct)std::wcstol(member.c_str(), nullptr, 10));
 		return result;
 	}
 }

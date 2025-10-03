@@ -3,10 +3,16 @@
 #include "NonPrintableCharacter.h"
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 #include <cmath>
+#ifdef _WIN32
 #include <atlbase.h>
 #include <atlconv.h>
+#endif
 #include <algorithm>
 #include <bitset> // Convert the 32-bit binary encoding into hexadecimal
 

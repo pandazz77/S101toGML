@@ -3,7 +3,11 @@
 #include "DRDirectory.h"
 #include "DRReader.h"
 
+#ifdef _WIN32
 #include <atlstr.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 
 struct DRDirectoryWriter : public DRDirectory
 {

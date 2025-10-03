@@ -4,7 +4,11 @@
 #include "F_SRID.h"
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 #include <list>
 class F_INAS;
 class F_RIAS;
@@ -19,7 +23,7 @@ public:
 public:
 	F_SRID m_srid;
 	std::list<F_INAS*> m_inas;
-	std::list<F_RIAS*> m_rias; // Base ÀÏ¶§´Â 1°³ ÀÌ»ó ÇÊ¼ö
+	std::list<F_RIAS*> m_rias; // Base ï¿½Ï¶ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½Ê¼ï¿½
 
 public:
 	BOOL ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);

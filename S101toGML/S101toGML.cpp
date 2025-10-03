@@ -8,23 +8,24 @@
 #include <iostream>
 
 
+#ifdef _WIN32
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-
 CWinApp theApp;
+#endif
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
 	int nRetCode = 0;
-	HMODULE hModule = ::GetModuleHandle(nullptr);
+    HMODULE hModule = (HMODULE)::GetModuleHandle(nullptr);
 
 	CString filepath;
 	CString savepath;
 
-#if _DEBUG
+#if defined(_WIN32) && defined(_DEBUG)
 
 	char path[128];
 	if (GetCurrentDirectoryA(128, path) > 0)
@@ -33,7 +34,7 @@ int main(int argc, char* argv[])
 		savepath.Format(_T("%S\\File\\test.gml"), path);
 	}
 
-	if (!AfxWinInit(hModule, nullptr, ::GetCommandLine(), 0))
+    if (!AfxWinInit(hModule, nullptr, ::GetCommandLine(), 0))
 	{
 		std::cout << "MFC initialization failed" << std::endl;
 		nRetCode = 1;
@@ -61,7 +62,7 @@ int main(int argc, char* argv[])
 
 
 
-#else
+#else // non-debug or non-Windows
 	if (argc < 3)
 	{
 		std::cout << " Please enter all the routes. " << std::endl;
@@ -93,13 +94,7 @@ int main(int argc, char* argv[])
 		std::cout << "Value : " << savepath << std::endl;
 	}
 
-	if (!AfxWinInit(hModule, nullptr, ::GetCommandLine(), 0))
-	{
-		std::cout << "MFC initialization failed" << std::endl;
-		nRetCode = 1;
-	}
-	else
-	{
+    {
 		libS101::S101 a;
 
 		if (a.Open(filepath))
@@ -116,8 +111,8 @@ int main(int argc, char* argv[])
 		a.Save(savepath, _T(""));
 		std::cout << "gml Success" << std::endl;
 
-	}
-	return 0;
+    }
+    return 0;
 #endif // _DEBUG
 
 

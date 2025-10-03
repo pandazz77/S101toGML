@@ -2,7 +2,11 @@
 #include <string>
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 
 void buf2charArr(CString& dest, BYTE*& buf);
 void buf2charArr(std::wstring& dest, BYTE*& buf);

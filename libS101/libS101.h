@@ -1,7 +1,11 @@
 #pragma once
 
-#ifdef LIBS101_EXPORTS
-#define LIBS101_API __declspec(dllexport) 
+#ifdef _WIN32
+#  ifdef LIBS101_EXPORTS
+#    define LIBS101_API __declspec(dllexport) 
+#  else
+#    define LIBS101_API __declspec(dllimport) 
+#  endif
 #else
-#define LIBS101_API __declspec(dllimport) 
+#  define LIBS101_API
 #endif

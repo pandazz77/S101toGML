@@ -1,9 +1,9 @@
 #include "pch.h"
 #include "ENCCommon.h"
 
-unsigned ENCCommon::DrawingType = 0;		    // 1 :¡®main_PaperChart.xsl¡¯- includes all the COMMON entries plus PAPER_CHART symbols and SYMBOLIZED_BOUNDARIES.
-									// 2 :¡®main_SimpleSymbols¡¯ - includes all the COMMON entries plus SIMPLIFIED symbols and SYMBOLIZED _BOUNDARIES.	
-									// 3 :¡®main_Simplified.xsl¡¯- includes all the COMMON entries plus SIMPLIFIED symbols and PLAIN_BOUNDARIES.
+unsigned ENCCommon::DrawingType = 0;		    // 1 :ï¿½ï¿½main_PaperChart.xslï¿½ï¿½- includes all the COMMON entries plus PAPER_CHART symbols and SYMBOLIZED_BOUNDARIES.
+									// 2 :ï¿½ï¿½main_SimpleSymbolsï¿½ï¿½ - includes all the COMMON entries plus SIMPLIFIED symbols and SYMBOLIZED _BOUNDARIES.	
+									// 3 :ï¿½ï¿½main_Simplified.xslï¿½ï¿½- includes all the COMMON entries plus SIMPLIFIED symbols and PLAIN_BOUNDARIES.
 bool ENCCommon::SymbolizedAreaBoundary = true;
 bool ENCCommon::SeabedAreaType = false;
 
@@ -50,18 +50,22 @@ std::unordered_map<int, bool> ENCCommon::objectDisplaySettings;
 std::unordered_map<std::wstring, bool> ENCCommon::featureDisplaySettings;
 
 int ENCCommon::DISPLAY_MODE = GeoMetryLibrary::DisplayModeTable::all;
-int ENCCommon::m_eColorTable = GeoMetryLibrary::ColorTable::Day; //½ÉÇÃ¿¡µðÅÍ Àû¿ë Å×¸¶
+int ENCCommon::m_eColorTable = GeoMetryLibrary::ColorTable::Day; //ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½
 int ENCCommon::UNIT_DISTANCE = GeoMetryLibrary::UnitDistance::unitDistance_km;
 int ENCCommon::m_ReportingData = GeoMetryLibrary::ReportingData::None;
 int ENCCommon::m_UserMode = GeoMetryLibrary::UserMode::User_Mode;
 
 
+#ifdef _WIN32
 __int64 ENCCommon::OVER_GROUP = 0x7FFFFFFF;
+#else
+long long ENCCommon::OVER_GROUP = 0x7FFFFFFF;
+#endif
 
 BOOL ENCCommon::SHOW_TEXT_PLACEMENT = FALSE;
 BOOL ENCCommon::SHOW_UNCERTAINTY = FALSE;
 
-std::wstring ENCCommon::DISPLAY_FONT_NAME = L"¸¼Àº °íµñ";
+std::wstring ENCCommon::DISPLAY_FONT_NAME = L"Sans-Serif";
 int ENCCommon::DISPLAY_FONT_SIZE = 15;
 
 float ENCCommon::DISPLAY_SYMBOL_SCALE = 5;
@@ -81,7 +85,7 @@ double ENCCommon::S111_LREF = 50;
 double ENCCommon::S111_SHIGH = 50;
 double ENCCommon::S111_Alpha = 1;
 
-// Scale °ª¿¡ µû¸¥ ½Éº¼ »çÀÌÁî º¯È­ - »èÁ¦(ÇöÀç´Â »ç¿ëÇÏÁö ¸øÇÔ)
+// Scale ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Éºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ - ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 //bool   APPLY_SYMBOL_SIZE_TEST_BY_SCALE = false;
 
 bool   ENCCommon::APPLY_DATA_COVERAGE_SCALE = false;
@@ -326,7 +330,7 @@ bool ENCCommon::USING_MTP = false;
 //	t.append("\n");
 //	ofs.write(t.c_str(), t.size());
 //
-//	//Setting ¾²´Â°÷
+//	//Setting ï¿½ï¿½ï¿½Â°ï¿½
 //	t = "m_eColorTable\t";
 //	t.append(_bstr_t((int)ENCCommon::m_eColorTable));
 //	t.append("\n");
@@ -380,8 +384,8 @@ bool ENCCommon::USING_MTP = false;
 
 //bool ENCCommon::Open(std::wstring filePath)
 //{
-//	//ÇÁ·ÎÁ§Æ®°¡ ·Îµå µÉ °æ¿ì È­¸éÀ» ÃÊ±âÈ­ÇÕ´Ï´Ù. 
-//	ENCCommon::objectDisplaySettings.clear();  // ¼³Á¤ ÃÊ±âÈ­
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½Õ´Ï´ï¿½. 
+//	ENCCommon::objectDisplaySettings.clear();  // ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 //	for (int i = 1; i < 99999; i++)
 //	{
 //		CGeoObject* obj = ENCGeometry::pObject->GetObjectFromCode(i);
@@ -403,7 +407,7 @@ bool ENCCommon::USING_MTP = false;
 //
 //	if (!ifs.is_open())
 //	{
-//		OutputDebugString(_T("¼³Á¤ÆÄÀÏ(settings.txt)À» ·ÎµåÇÏÁö ¸øÇß½À´Ï´Ù!"));
+//		OutputDebugString(_T("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(settings.txt)ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½!"));
 //		return false;
 //	}
 //
@@ -791,7 +795,7 @@ bool ENCCommon::USING_MTP = false;
 //					}
 //				}
 //			}
-//			//Day Dusk Night¸¦ ºÒ·¯¿É´Ï´Ù.
+//			//Day Dusk Nightï¿½ï¿½ ï¿½Ò·ï¿½ï¿½É´Ï´ï¿½.
 //			else if (token.compare("m_eColorTable") == 0)
 //			{
 //				if (pstringTokenizer->hasMoreTokens())

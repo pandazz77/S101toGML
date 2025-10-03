@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "XML_Attribute.h"
 
-#include "..\\extlibs\\pugixml\\include\\pugixml.hpp"
+#include <pugixml.hpp>
 
 XML_Attribute::XML_Attribute()
 {

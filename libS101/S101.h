@@ -13,7 +13,7 @@
 #include <vector>
 #include <list>
 
-#include "..\\extlibs\\pugixml\\include\\pugixml.hpp"
+#include <pugixml.hpp>
 
 class R_InformationRecord;
 class R_PointRecord;
@@ -35,7 +35,7 @@ class GeoPoint;
 namespace libS101
 {
 	// aka GISLibrary::S101Cell
-	class LIBS101_API S101 : public S100SpatialObject
+    class S101 : public S100SpatialObject
 	{
 	public:
 		S101();
@@ -50,7 +50,7 @@ namespace libS101
 		// Dataset Coordinate Reference System Record 
 		// Base : O
 		// Update : X
-		// Comment : ¾÷µ¥ÀÌÆ® ÆÄÀÏÀÏ ¶© ¾ø´Â ·¹ÄÚµå ÀÌ¹Ç·Î Æ÷ÀÎÅÍ µîÀ¸·Î º¯°æ ÇÊ¿ä
+		// Comment : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
 		R_DSCRS m_dscrs;
 
 		std::vector<R_InformationRecord*> vecInformation;

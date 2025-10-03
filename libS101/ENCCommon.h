@@ -47,27 +47,27 @@ class ENCCommon
 {
 public:
 	// true = 1  
-	// false = 0 (default, ÀÓ½Ã)
+	// false = 0 (default, ï¿½Ó½ï¿½)
 	static bool SymbolizedAreaBoundary;
 
 	// true = 1  
-	// false = 0 (default, ÀÓ½Ã)
+	// false = 0 (default, ï¿½Ó½ï¿½)
 	static bool SeabedAreaType;
 
 	static bool TWO_SHADES;
 	static bool USE_SPATIAL_QUERY;
 	static bool SHALLOW_PATTERN;
 
-	//  true¸é ¼ö½É Ç¥½Ã
-	// false¸é ¼ö½É Ç¥½Ã ¾ÈÇÔ
+	//  trueï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
+	// falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	static bool SOUNDING;
 
-	//  true¸é µî´ë ºÒºû Ç¥½Ã
-	// false¸é µî´ë ºÒºû Ç¥½Ã ¾ÈÇÔ
+	//  trueï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Òºï¿½ Ç¥ï¿½ï¿½
+	// falseï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Òºï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	static bool LIGHTS;
 
-	//  ture¸é Depth contour Ç¥½Ã
-	// false¸é Depth contour Ç¥½Ã ¾ÈÇÔ
+	//  tureï¿½ï¿½ Depth contour Ç¥ï¿½ï¿½
+	// falseï¿½ï¿½ Depth contour Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	static bool CONTOUR_LABELS;
 
 	static bool	TEXTOUT;
@@ -76,11 +76,11 @@ public:
 
 	static bool	FULL_SECTORS;
 
-	// true¸é scale min Àû¿ë
-	// false¸é scale min Àû¿ë ¾ÈÇÔ
+	// trueï¿½ï¿½ scale min ï¿½ï¿½ï¿½ï¿½
+	// falseï¿½ï¿½ scale min ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	static bool APPLY_SCALE_MIN;
 
-	// true = National Object Name Ç¥Ãâ
+	// true = National Object Name Ç¥ï¿½ï¿½
 	static bool SHOW_NOBJNM;
 
 	static bool AVOID_CLUTTER;
@@ -102,7 +102,11 @@ public:
 
 	static unsigned DrawingType;		    // paper  = 1
 										// simple = 0
-	static __int64 OVER_GROUP;
+        #ifdef _WIN32
+        static __int64 OVER_GROUP;
+        #else
+        static long long OVER_GROUP;
+        #endif
 
 	static std::wstring DISPLAY_FONT_NAME;
 
@@ -132,8 +136,8 @@ public:
 
 	static float DISPLAY_SYMBOL_SCALE;
 
-	// true: ÇöÀç È­¸éÀÇ Áß½ÉÁ¡ (À¯µ¿)
-	// false: AREA ÀüÃ¼ ¿µ¿ªÀÇ Áß½ÉÁ¡ (°íÁ¤)
+	// true: ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½)
+	// false: AREA ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½)
 	static bool AREA_SYMBOL_DYNAMIC_POSITION_MODE;
 
 	static int INTEROPERABILITY_LEVEL; //DISTANCE_TAGS;
@@ -144,18 +148,18 @@ public:
 	// Show wreck/obstruction/rock's uncertainty
 	static BOOL SHOW_UNCERTAINTY;
 
-	// Under/Over scale ½Ã ½Éº¼ Å©±â º¯°æ Test
+	// Under/Over scale ï¿½ï¿½ ï¿½Éºï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Test
 	static int T_APPLY_OVER_N_UNDER_SCALE;
 	static int T_CURRENT_SCALE;
 
-	// DETECTION ¸ðµå ¼³Á¤
+	// DETECTION ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	static bool DETECTION_MODE;
 
 
 	static bool SIMPLIFIED_POINT_SYMBOL;
 	static bool AUTOSELECTION_CATALOGUE;
 	static bool S111_SHOW_NODATA;
-	static bool Show_INFORM01; //inform01 Á¤º¸¸¦ Ç¥ÃâÇÏ°Å³ª ¼û±é´Ï´Ù
+	static bool Show_INFORM01; //inform01 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ï°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
 	
 	static bool S111_THINNING;
 

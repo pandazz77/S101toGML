@@ -23,7 +23,11 @@ public:
 	int RCID = 0;
 
 public:
-	__int64 GetName();
+#ifdef _WIN32
+        __int64 GetName();
+#else
+        long long GetName();
+#endif
 	int GetLength();
 	std::wstring GetRCIDasWstring();
 };

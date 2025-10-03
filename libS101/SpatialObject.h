@@ -3,7 +3,11 @@
 #include "Namespace_GISLibrary.h"
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 #include <string>
 
 class Layer;
@@ -17,11 +21,11 @@ public:
 
 public:
 	Layer* m_pLayer = nullptr;
-	S100_FileType m_FileType; // ÆÄÀÏ Å¸ÀÔ : SHP, S-57, S-101, GML Áö¿ø
+	S100_FileType m_FileType; // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ : SHP, S-57, S-101, GML ï¿½ï¿½ï¿½ï¿½
 
 private:
-	CString m_FilePath; // ÆÄÀÏ ÀüÃ¼ °æ·Î (ÀÌ¸§ Æ÷ÇÔ)
-	CString m_FileName; // ÆÄÀÏ ÀÌ¸§ (È®ÀåÀÚ Æ÷ÇÔ)
+	CString m_FilePath; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ (ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	CString m_FileName; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ (È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
 
 public:
 	virtual bool Open(CString _filepath);

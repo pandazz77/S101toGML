@@ -7,7 +7,11 @@
 #include "MBR.h"
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 SSurface::SSurface()
 {
 	type = 3;
@@ -246,7 +250,7 @@ SSurface::~SSurface()
 //		ID2D1PathGeometry* newGeometry = nullptr;
 //		auto points = new D2D1_POINT_2F[m_numPoints];
 //
-//		 //¸Þ¸ð¸® ´©¼ö(¾ÆÁÖ ¾à°£)
+//		 //ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½à°£)
 //		for (int i = 0; i < m_numPoints; i++)
 //		{
 //			scaler->WorldToDevice_F(m_pPoints[i].x, m_pPoints[i].y, &points[i].x, &points[i].y);
@@ -254,7 +258,7 @@ SSurface::~SSurface()
 //
 //		if (m_numParts == 1)
 //		{
-//			//¸Þ¸ð¸® ´©¼ö
+//			//ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 //			auto result = factory->CreatePathGeometry((ID2D1PathGeometry **)&newGeometry);
 //			if (SUCCEEDED(result))
 //			{
@@ -280,7 +284,7 @@ SSurface::~SSurface()
 //			ID2D1PathGeometry **segGeometry = new ID2D1PathGeometry*[m_numParts];
 //			for (int i = 0; i < m_numParts; i++)
 //			{
-//				//¸Þ¸ð¸® ´©¼ö
+//				//ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 //				auto result = factory->CreatePathGeometry(&segGeometry[i]);
 //				if (SUCCEEDED(result))
 //				{
@@ -301,7 +305,7 @@ SSurface::~SSurface()
 //				}
 //			}
 //
-//			//´©¼ö È®ÀÎ ºÒ°¡
+//			//ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½Ò°ï¿½
 //			auto result = factory->CreateGeometryGroup(
 //				D2D1_FILL_MODE_ALTERNATE,
 //				(ID2D1Geometry **)segGeometry,

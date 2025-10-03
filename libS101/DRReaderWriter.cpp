@@ -2,7 +2,11 @@
 #include "DRReaderWriter.h"
 
 #undef _WINDOWS_
+#ifdef _WIN32
 #include <afxext.h>
+#else
+#include "compat/compat_mfc.h"
+#endif
 
 DRReaderWriter::DRReaderWriter(void)
 {

@@ -11,7 +11,11 @@ public:
 	virtual ~F_MASK();
 
 public:
-	std::unordered_map<__int64, MASK*> m_arr;
+        #ifdef _WIN32
+        std::unordered_map<__int64, MASK*> m_arr;
+        #else
+        std::unordered_map<long long, MASK*> m_arr;
+        #endif
 
 public:
 	void ReadField(BYTE *&buf);
