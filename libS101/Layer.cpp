@@ -3,6 +3,8 @@
 #include "S100Utilities.h"
 #include "S100CatalogFile.h"
 
+#include <filesystem>
+
 Layer::Layer(void)
 {
 	On = true;
@@ -57,7 +59,7 @@ bool Layer::Open(CString _filepath)
 	}
 	else
 	{
-		::GetModuleFileName(nullptr, strFolderPath.GetBuffer(MAX_PATH), MAX_PATH);
+		strFolderPath = std::filesystem::current_path().string();
 		strFolderPath.ReleaseBuffer();
 		if (strFolderPath.Find('\\') != -1)
 		{

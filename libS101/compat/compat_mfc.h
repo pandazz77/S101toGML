@@ -171,16 +171,6 @@ private:
     }
 };
 
-// Stubs
-inline bool AfxWinInit(void*, void*, const wchar_t*, int) { return true; }
-inline void* GetModuleHandle(void*) { return nullptr; }
-inline unsigned long GetCurrentDirectoryA(unsigned long, char*) { return 0; }
-inline const wchar_t* GetCommandLine() { return L""; }
-inline unsigned long GetModuleFileName(void*, wchar_t* buffer, unsigned long size) {
-    if (buffer && size > 0) buffer[0] = L'\0';
-    return 0;
-}
-
 inline void OutputDebugString(const wchar_t* s) {
     if (s) std::fwprintf(stderr, L"%ls", s);
 }
