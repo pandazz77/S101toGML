@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "R_CurveRecord.h"
 #include "F_PTAS.h"
 #include "F_SEGH.h"

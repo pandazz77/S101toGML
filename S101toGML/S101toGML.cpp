@@ -1,6 +1,5 @@
 // S101toGML.cpp : This file contains the 'main' function. Program execution begins and ends there.
-#include "pch.h"
-#include "framework.h"
+
 #include "S101toGML.h"
 
 #include "../libS101/S101.h"

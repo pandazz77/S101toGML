@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "F_SPAS.h"
 #include "SPAS.h"
 #include "ISO8211Fuc.h"

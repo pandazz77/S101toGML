@@ -1,5 +1,7 @@
 #pragma once
 
+#include "compat_mfc.h"
+
 class DDR
 {
 public:

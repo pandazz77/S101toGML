@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "S100Utilities.h"
 
 #include <string>

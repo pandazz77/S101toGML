@@ -1,5 +1,6 @@
-#include "pch.h"
+#include <cstdint>
 #include "ObjectName.h"
+#include "compat_mfc.h"
 
 ObjectName::ObjectName(void)
 {

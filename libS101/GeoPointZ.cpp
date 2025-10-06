@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "GeoPointZ.h"
 
 #include <sstream>
@@ -36,7 +36,7 @@ double GeoPointZ::GetZ()
 //	//CPoint point;
 //	POINT point;
 //	scaler->WorldToDevice(x + offset, y, &(point.x), &(point.y));
-//	// Æú¸®°ï »öÀ» ¹Ù²Ù´Â ºÎºÐ
+//	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Ù´ï¿½ ï¿½Îºï¿½
 ////	CBrush newBrush = CBrush(RGB(165, 191, 221));
 ////	CBrush *oldBrush = pDC->SelectObject(&newBrush);
 //	//pDC->Ellipse(point.x - 2, point.y - 2, point.x + 2, point.y + 2);

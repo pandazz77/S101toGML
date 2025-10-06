@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "R_DSGIR.h"
 #include "F_ATTR.h"
 #include "CodeWithNumericCode.h"

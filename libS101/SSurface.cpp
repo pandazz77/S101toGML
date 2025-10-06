@@ -1,4 +1,4 @@
-#include "pch.h"
+
 
 #include "SSurface.h"
 #include "SCurve.h"

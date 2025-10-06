@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "R_PointRecord.h"
 #include "F_C2IT.h"
 #include "F_C3IT.h"

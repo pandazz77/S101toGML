@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "F_C3IT.h"
 #include "ISO8211Fuc.h"
 #include "NonPrintableCharacter.h"

@@ -1,5 +1,6 @@
-#include "pch.h"
+
 #include "XML_Attribute.h"
+#include "compat_mfc.h"
 
 #include <pugixml.hpp>
 

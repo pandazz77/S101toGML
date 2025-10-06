@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "compat_mfc.h"
 #include "RecordName.h"
 
 #include <string>

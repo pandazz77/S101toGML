@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "DRDirectoryInfoWriter.h"
 #include "DRDirectoryWriter.h"
 

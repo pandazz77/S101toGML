@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "S100SpatialObject.h"
 //#include "S100Layer.h"
 

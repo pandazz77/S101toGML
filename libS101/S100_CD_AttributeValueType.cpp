@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "S100_CD_AttributeValueType.h"
 
 #include <pugixml.hpp>

@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "SPoint.h"
 
 SPoint::SPoint()

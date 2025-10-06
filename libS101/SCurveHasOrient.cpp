@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "SCurveHasOrient.h"
 
 SCurveHasOrient::SCurveHasOrient(bool _parentOrient, SCurve* _curve)

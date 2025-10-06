@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "Geometry.h"
 
 Geometry::Geometry() 
@@ -80,7 +80,7 @@ MBR& Geometry::GetMBRRef()
 //
 //POINT Geometry::GetOffsetPointOnLine(POINT _p1, POINT _p2, double offset)
 //{
-//	double angle = GetAngle(_p1, _p2);  // ¶óÀÎÀÌ xÃàÀÇ ¾çÀÇ ¹æÇâ°ú ÀÌ·ç´Â °¢µµ
+//	double angle = GetAngle(_p1, _p2);  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ xï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //
 //	POINT returnValue;
 //	returnValue.x = (LONG)(_p1.x + offset * cos(angle));
@@ -91,7 +91,7 @@ MBR& Geometry::GetMBRRef()
 //
 //void Geometry::DrawCompositeLineOnLine(CDC *pDC, POINT _p1, POINT _p2, Symbol* _symbol)
 //{
-//	int symbolWidth = _symbol->CoverXmax - _symbol->CoverXmin;  // ÆÐÅÏ ½Åº¼ CoverÀÇ Æø   
+//	int symbolWidth = _symbol->CoverXmax - _symbol->CoverXmin;  // ï¿½ï¿½ï¿½ï¿½ ï¿½Åºï¿½ Coverï¿½ï¿½ ï¿½ï¿½   
 //
 //	POINT tmpP1, tmpP2;
 //	tmpP1.x = _p1.x;
@@ -112,14 +112,14 @@ MBR& Geometry::GetMBRRef()
 //		_symbol->Draw(pDC, CPoint(LONG(p.x), LONG(p.y)), angle);
 //	}
 //
-//	// Composite lineÀ» ±×¸®°í ºó °ø°£À» Composite line»öÀ» »ç¿ëÇÏ¿© ¶óÀÎÀ¸·Î Ã¤¿î´Ù.
-//	p = GetOffsetPointOnLine(tmpP1, tmpP2, symbolWidth * symbolCount); // Composite lineÀ» ¸ðµÎ ±×¸° µÚÀÇ À§Ä¡
+//	// Composite lineï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Composite lineï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½.
+//	p = GetOffsetPointOnLine(tmpP1, tmpP2, symbolWidth * symbolCount); // Composite lineï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 //
-//	// p°¡ LineÀ§¿¡ ÀÖ´Â °æ¿ì(x¹üÀ§¸¸ °Ë»çÇÑ´Ù)
+//	// pï¿½ï¿½ Lineï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½(xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ñ´ï¿½)
 //	if ((p.x >= _p1.x) && (p.x <= _p2.x) || (p.x <= _p1.x) && (p.x >= _p2.x))
 //	{
-//		// ¶óÀÎÀº SymbolÀÇ Ã¹¹øÂ° »ö°ú 
-//		// SymbolÀÌ °¡Áö°í ÀÖ´Â Ã¹¹øÂ° VectorÀÇ µÎ²²·Î ±×¸°´Ù.
+//		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Symbolï¿½ï¿½ Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ 
+//		// Symbolï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ Ã¹ï¿½ï¿½Â° Vectorï¿½ï¿½ ï¿½Î²ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½.
 //		CPen newPen(PS_SOLID, _symbol->vector[0]->width, _symbol->color[0].color);
 //		CPen *oldPen = pDC->SelectObject(&newPen);
 //		pDC->MoveTo(p.x, p.y);
@@ -321,23 +321,23 @@ inline void swap(int &val1, int &val2)
 //		GetViewLineInPolyline(_p, _count, viewPort);
 //	}
 //
-//	double centerDistance = GetDistanceOfPolyline(_p, _count) / 2; // Æú¸®¶óÀÎÀÇ ½ÃÀÛÁ¡ºÎÅÍ Æú¸®¶óÀÎÀÇ Áß°£ÁöÁ¡ ±îÁöÀÇ °Å¸®
+//	double centerDistance = GetDistanceOfPolyline(_p, _count) / 2; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½
 //
 //	if (centerDistance == 0)
 //	{
 //		return NULL;
 //	}
 //
-//	double accumulatedDistance = 0;								   // ´©Àû°Å¸®
+//	double accumulatedDistance = 0;								   // ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½
 //	POINT *returnValue = new POINT;
 //
-//	for (int i = 0; i < (_count - 1); i++)						   // 0¹øÂ° Á¡ºÎÅÍ ´ÙÀ½ Á¡À¸·Î ÀÌµ¿ÇÏ¸é¼­ ´©Àû°Å¸®¸¦ ÃøÁ¤ÇÑ´Ù
+//	for (int i = 0; i < (_count - 1); i++)						   // 0ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï¸é¼­ ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 //	{
-//		accumulatedDistance += GetDistance(_p[i], _p[i + 1]);      // ´ÙÀºÁ¡À¸·Î ÀÌµ¿ÇÏ¸é¼­ ´©Àû°Å¸®¸¦ ÃøÁ¤
+//		accumulatedDistance += GetDistance(_p[i], _p[i + 1]);      // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï¸é¼­ ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //
-//		if (accumulatedDistance >= centerDistance)				   // ´©Àû°Å¸®°¡ Áß°£°Å¸®º¸´Ù Å©´Ù¸é Áß°£Á¡À» Áö³­°ÍÀÌ´Ù.
+//		if (accumulatedDistance >= centerDistance)				   // ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½Ù¸ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 //		{
-//			*returnValue = GetOffsetPointOnLine(_p[i + 1], _p[i], accumulatedDistance - centerDistance); // Áö³ª¿Â °Å¸®¸¸Å­ µ¹¾Æ°£´Ù.
+//			*returnValue = GetOffsetPointOnLine(_p[i + 1], _p[i], accumulatedDistance - centerDistance); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½Å­ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½.
 //			break;
 //		}
 //	}

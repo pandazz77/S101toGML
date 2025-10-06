@@ -1,11 +1,11 @@
-#include "pch.h"
+
 #include "GeoCommonFuc.h"
 #include "MBR.h"
 #include "ENCCommon.h"
 
 #include <cmath>
 
-//projection : Åõ¿µ¹ý
+//projection : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void projection(double &x, double &y)
 {
 	if (ENCCommon::USING_MTP)

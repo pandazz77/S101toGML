@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "GeoPoint.h"
 
 GeoPoint::GeoPoint()

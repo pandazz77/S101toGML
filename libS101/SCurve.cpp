@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "SCurve.h"
 #include "GeoPoint.h"
 

@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "F_SEGH.h"
 #include "NonPrintableCharacter.h"
 

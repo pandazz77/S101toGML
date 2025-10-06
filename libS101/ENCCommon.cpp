@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "ENCCommon.h"
 
 unsigned ENCCommon::DrawingType = 0;		    // 1 :��main_PaperChart.xsl��- includes all the COMMON entries plus PAPER_CHART symbols and SYMBOLIZED_BOUNDARIES.

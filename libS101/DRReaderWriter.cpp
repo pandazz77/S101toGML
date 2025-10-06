@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "DRReaderWriter.h"
 
 #undef _WINDOWS_

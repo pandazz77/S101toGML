@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "SCompositeCurve.h"
 #include "SCurve.h"
 

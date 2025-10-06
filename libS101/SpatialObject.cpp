@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "SpatialObject.h"
 
 SpatialObject::SpatialObject(void)
@@ -35,7 +35,7 @@ void SpatialObject::SetFilePath(CString& value)
 	int index= value.ReverseFind('\\');
 	auto name= value.Mid(index + 1);
 
-	//ÆÄÀÏ ÀÌ¸§, È®ÀåÀÚ Æ÷ÇÔ
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½, È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	SetFileName(name);
 }
 

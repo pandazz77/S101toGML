@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "S100CatalogFile.h"
 
 S100CatalogFile::S100CatalogFile()

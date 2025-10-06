@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "SMultiPoint.h"
 
 #include <stdexcept>

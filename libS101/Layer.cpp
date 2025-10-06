@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "Layer.h"
 #include "S100Utilities.h"
 #include "S100CatalogFile.h"

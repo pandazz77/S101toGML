@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "F_PTAS.h"
 #include "PTAS.h"
 #include "ISO8211Fuc.h"
