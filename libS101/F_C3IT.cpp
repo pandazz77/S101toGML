@@ -16,7 +16,7 @@ int F_C3IT::GetSize()
 	return 13;
 }
 
-void F_C3IT::ReadField(BYTE *&buf)
+void F_C3IT::ReadField(std::uint8_t *&buf)
 {
 	m_vcid = *(buf++);
 	m_ycoo = buf2int(buf, 4);

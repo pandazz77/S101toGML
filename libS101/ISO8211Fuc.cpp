@@ -18,8 +18,8 @@
 
 
 
-BYTE tBYTEArr[1024];
-void buf2charArr(CString &dest, BYTE*& buf)
+std::uint8_t tBYTEArr[1024];
+void buf2charArr(CString &dest, std::uint8_t*& buf)
 {
 	;
 	int i = 0;
@@ -38,7 +38,7 @@ void buf2charArr(CString &dest, BYTE*& buf)
 	buf++;
 }
 
-void buf2charArr(std::wstring &dest, BYTE*& buf)
+void buf2charArr(std::wstring &dest, std::uint8_t*& buf)
 {
 	//;
 	int i = 0;
@@ -58,7 +58,7 @@ void buf2charArr(std::wstring &dest, BYTE*& buf)
 	buf++;
 }
 
-void buf2charArr(CString &dest, BYTE*& buf, int len)
+void buf2charArr(CString &dest, std::uint8_t*& buf, int len)
 {
 	for(int i = 0; i < len; i++)
 	{
@@ -67,7 +67,7 @@ void buf2charArr(CString &dest, BYTE*& buf, int len)
 }
 
 
-void buf2charArr(std::wstring &dest, BYTE*& buf, int len)
+void buf2charArr(std::wstring &dest, std::uint8_t*& buf, int len)
 {
 //	;
 	int i = 0;
@@ -80,9 +80,9 @@ void buf2charArr(std::wstring &dest, BYTE*& buf, int len)
 	dest = ATL::CA2W((char*)tBYTEArr, CP_UTF8);
 }
 
-DWORD buf2uint(BYTE*& buf, int size)
+std::uint32_t buf2uint(std::uint8_t*& buf, int size)
 {
-	DWORD ret = 0;
+	std::uint32_t ret = 0;
 	//for(int i = 0; i < size; i++)
 	//{
 	//	ret |= ((*(buf++))<<(8*i))&(0xff<<(8*i));
@@ -95,9 +95,9 @@ DWORD buf2uint(BYTE*& buf, int size)
 	return ret;
 }
 
-DWORD buf2int(BYTE*& buf, int size)
+std::uint32_t buf2int(std::uint8_t*& buf, int size)
 {
-	DWORD ret = 0;
+	std::uint32_t ret = 0;
 	//for(int i = 0; i < size; i++)
 	//{
 	//	ret |= ((*(buf++))<<(8*i))&(0xff<<(8*i));
@@ -111,9 +111,9 @@ DWORD buf2int(BYTE*& buf, int size)
 }
 
 char TEMP_BUF256[1024];
-DWORD atoi(BYTE*& buf, int len)
+std::uint32_t atoi(std::uint8_t*& buf, int len)
 {
-	DWORD ret = 0;
+	std::uint32_t ret = 0;
 	for(int i=0; i< len;i++)
 	{
 		ret = ret * 10 + *(buf++) - '0';
@@ -121,7 +121,7 @@ DWORD atoi(BYTE*& buf, int len)
 	return ret;
 }
 
-double buf2double(BYTE*& buf, int size)
+double buf2double(std::uint8_t*& buf, int size)
 {
 	double ret = 0;
 	memcpy_s(&ret, 8, buf, 8);

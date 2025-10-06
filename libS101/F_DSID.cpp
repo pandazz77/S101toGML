@@ -24,7 +24,7 @@ F_DSID::F_DSID(void)
 F_DSID::~F_DSID(void)
 {
 }
-void F_DSID::ReadField(BYTE *&buf)
+void F_DSID::ReadField(std::uint8_t *&buf)
 {
 	m_name.RCNM = *(buf++);
 	m_name.RCID = buf2uint(buf, 4);
@@ -51,39 +51,39 @@ bool F_DSID::Save(libS101::File *file)
 	file->write(&m_name.RCNM, 1);
 	file->write(&m_name.RCID, 4);
 	CT2CA outputString(m_ensp, CP_UTF8);
-	file->write(outputString, (UINT)::strlen(outputString));
+	file->write(outputString, (std::uint32_t)::strlen(outputString));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	CT2CA outputString2(m_ened, CP_UTF8);
-	file->write(outputString2, (UINT)::strlen(outputString2));
+	file->write(outputString2, (std::uint32_t)::strlen(outputString2));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	CT2CA outputString3(m_prsp, CP_UTF8);
-	file->write(outputString3, (UINT)::strlen(outputString3));
+	file->write(outputString3, (std::uint32_t)::strlen(outputString3));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	CT2CA outputString4(m_pred, CP_UTF8);
-	file->write(outputString4, (UINT)::strlen(outputString4));
+	file->write(outputString4, (std::uint32_t)::strlen(outputString4));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	CT2CA outputString5(m_prof, CP_UTF8);
-	file->write(outputString5, (UINT)::strlen(outputString5));
+	file->write(outputString5, (std::uint32_t)::strlen(outputString5));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	CT2CA outputString6(m_dsnm, CP_UTF8);
-	file->write(outputString6, (UINT)::strlen(outputString6));
+	file->write(outputString6, (std::uint32_t)::strlen(outputString6));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	CT2CA outputString7(m_dstl, CP_UTF8);
-	file->write(outputString7, (UINT)::strlen(outputString7));
+	file->write(outputString7, (std::uint32_t)::strlen(outputString7));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
 	CT2CA outputString8(m_dsrd, CP_UTF8);
 	int size = (int)::strlen(outputString8);
-	file->write(outputString8, (UINT)::strlen(outputString8));
+	file->write(outputString8, (std::uint32_t)::strlen(outputString8));
 
 	CT2CA outputString9(m_dslg, CP_UTF8);
-	file->write(outputString9, (UINT)::strlen(outputString9));
+	file->write(outputString9, (std::uint32_t)::strlen(outputString9));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	CT2CA outputString10(m_dsab, CP_UTF8);
-	file->write(outputString10, (UINT)::strlen(outputString10));
+	file->write(outputString10, (std::uint32_t)::strlen(outputString10));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	CT2CA outputString11(m_dsed, CP_UTF8);
-	file->write(outputString11, (UINT)::strlen(outputString11));
+	file->write(outputString11, (std::uint32_t)::strlen(outputString11));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	
 	for(int i=0;i < m_dstc.size();i++)

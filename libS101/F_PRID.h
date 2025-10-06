@@ -14,7 +14,7 @@ public:
 	int m_ruin;
 
 public:
-	void ReadField(BYTE *&buf);
+	void ReadField(std::uint8_t *&buf);
 	bool Save(libS101::File *file);
 	int GetFieldLength();
 };

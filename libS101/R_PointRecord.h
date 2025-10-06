@@ -24,7 +24,7 @@ public:
 	F_C3IT* m_c3it = nullptr;
 
 public:
-	bool ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
+	bool ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf);
 	bool Save(libS101::File *file);
 	int GetRCID();
 	std::wstring GetRCIDasWstring();

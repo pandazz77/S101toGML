@@ -18,7 +18,7 @@ F_C2IL::~F_C2IL()
 	m_arr.clear();
 }
 
-void F_C2IL::ReadField(BYTE *&buf)
+void F_C2IL::ReadField(std::uint8_t *&buf)
 {
 	while (*buf != 0x1E)
 	{
@@ -30,7 +30,7 @@ void F_C2IL::ReadField(BYTE *&buf)
 	}
 }
 
-void F_C2IL::ReadField(BYTE *&buf, int loopCnt)
+void F_C2IL::ReadField(std::uint8_t *&buf, int loopCnt)
 {
 	for (int i = 0; i < loopCnt; i++)
 	{

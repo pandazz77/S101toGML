@@ -30,7 +30,7 @@ R_CompositeRecord::~R_CompositeRecord(void)
 }
 
 
-bool R_CompositeRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_CompositeRecord::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 {
 	;
 	int i = 0, j = 0;

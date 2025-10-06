@@ -201,14 +201,14 @@ namespace libS101
 		file.open(CT2CA(_filepath,CP_UTF8),std::ios::in);
 		if (file.is_open())
 		{
-			BYTE* pBuf = nullptr;
-			BYTE* sBuf = nullptr;
-			BYTE* endOfBuf = nullptr;
+			std::uint8_t* pBuf = nullptr;
+			std::uint8_t* sBuf = nullptr;
+			std::uint8_t* endOfBuf = nullptr;
 
 
 			long long fileLength = file.length();
 
-			pBuf = new BYTE[(unsigned int)fileLength];
+			pBuf = new std::uint8_t[(unsigned int)fileLength];
 			sBuf = pBuf;
 
 			file.read(pBuf, (unsigned)fileLength);
@@ -536,7 +536,7 @@ namespace libS101
 			for (auto i = fr->m_fasc.begin(); i != fr->m_fasc.end(); i++)
 			{
 				F_FASC* f_fasc = *i;
-				_int64 key = ((_int64)100) << 32 | f_fasc->m_name.RCID;
+				std::int64_t key = ((std::int64_t)100) << 32 | f_fasc->m_name.RCID;
 				std::string iid = get_feature_id_string(fr->m_frid.m_name.RCID);
 
 				auto dstFeatureXpath = "/S201:DataSet/member/S201:*[@gml:id='" + iid + "']";
@@ -1034,42 +1034,42 @@ namespace libS101
 		}
 	}
 
-	void  S101::InsertInformationRecord(__int64 key, R_InformationRecord* record)
+	void  S101::InsertInformationRecord(std::int64_t key, R_InformationRecord* record)
 	{
 		vecInformation.push_back(record);
 	}
 
-	void  S101::InsertPointRecord(__int64 key, R_PointRecord* record)
+	void  S101::InsertPointRecord(std::int64_t key, R_PointRecord* record)
 	{
 		vecPoint.push_back(record);
 	}
 
-	void  S101::InsertMultiPointRecord(__int64 key, R_MultiPointRecord* record)
+	void  S101::InsertMultiPointRecord(std::int64_t key, R_MultiPointRecord* record)
 	{
 		vecMultiPoint.push_back(record);
 	}
 
-	void  S101::InsertCurveRecord(__int64 key, R_CurveRecord* record)
+	void  S101::InsertCurveRecord(std::int64_t key, R_CurveRecord* record)
 	{
 		vecCurve.push_back(record);
 	}
 
-	void  S101::InsertCompositeCurveRecord(__int64 key, R_CompositeRecord* record)
+	void  S101::InsertCompositeCurveRecord(std::int64_t key, R_CompositeRecord* record)
 	{
 		vecComposite.push_back(record);
 	}
 
-	void  S101::InsertSurfaceRecord(__int64 key, R_SurfaceRecord* record)
+	void  S101::InsertSurfaceRecord(std::int64_t key, R_SurfaceRecord* record)
 	{
 		vecSurface.push_back(record);
 	}
 
-	void  S101::InsertFeatureRecord(__int64 key, R_FeatureRecord* record)
+	void  S101::InsertFeatureRecord(std::int64_t key, R_FeatureRecord* record)
 	{
 		vecFeature.push_back(record);
 	}
 
-	bool S101::ReadDDR(BYTE*& buf)
+	bool S101::ReadDDR(std::uint8_t*& buf)
 	{
 		int size = atoi(buf, 5);
 		buf -= 5;
@@ -1231,7 +1231,7 @@ namespace libS101
 		fe->m_curveList.clear();
 		SPAS* spas = NULL;
 		R_PointRecord* r;
-		__int64 iKey;
+		std::int64_t iKey;
 
 		GeoPoint geoArr;
 
@@ -1243,7 +1243,7 @@ namespace libS101
 			{
 				SPAS* spas = *itor;
 
-				iKey = ((__int64)spas->m_name.RCNM) << 32 | spas->m_name.RCID;
+				iKey = ((std::int64_t)spas->m_name.RCNM) << 32 | spas->m_name.RCID;
 
 				r = findPointRecord(iKey);
 
@@ -1305,7 +1305,7 @@ namespace libS101
 	{
 		fe->m_curveList.clear();
 		R_MultiPointRecord* r;
-		__int64 iKey;
+		std::int64_t iKey;
 
 		std::vector<GeoPointZ> geoArr;
 
@@ -1318,7 +1318,7 @@ namespace libS101
 			{
 				SPAS* spas = *itor;
 
-				iKey = ((__int64)spas->m_name.RCNM) << 32 | spas->m_name.RCID;
+				iKey = ((std::int64_t)spas->m_name.RCNM) << 32 | spas->m_name.RCID;
 
 				r = findMultiPointRecord(iKey);
 				if (r != nullptr) {
@@ -1371,7 +1371,7 @@ namespace libS101
 
 		R_CompositeRecord* ccr = nullptr;
 
-		__int64 iKey = 0;
+		std::int64_t iKey = 0;
 
 		if (fe->m_geometry)
 		{
@@ -1386,7 +1386,7 @@ namespace libS101
 			for (auto j = spasParent->m_arr.begin(); j != spasParent->m_arr.end(); j++)
 			{
 				SPAS* spas = *j;
-				iKey = ((__int64)spas->m_name.RCNM) << 32 | spas->m_name.RCID;
+				iKey = ((std::int64_t)spas->m_name.RCNM) << 32 | spas->m_name.RCID;
 
 				ccr = findCompositeRecord(iKey);
 				if (ccr != nullptr)
@@ -1418,7 +1418,7 @@ namespace libS101
 		{
 			OrientedCurveRecord* ocr = &(*c);
 
-			__int64 iKey = ((__int64)ocr->m_pCurveRecord->m_crid.m_name.RCNM) << 32 | ocr->m_pCurveRecord->m_crid.m_name.RCID;
+			std::int64_t iKey = ((std::int64_t)ocr->m_pCurveRecord->m_crid.m_name.RCNM) << 32 | ocr->m_pCurveRecord->m_crid.m_name.RCID;
 			auto curveIter = m_curveMap.find(iKey);
 
 			bool bOrnt = ocr->m_orient == 1 ? true : false;
@@ -1447,14 +1447,14 @@ namespace libS101
 		IC2D* c2di = NULL;
 		R_PointRecord* spr = nullptr, * epr = nullptr;
 		GeoPoint gp;
-		__int64 iKey;
+		std::int64_t iKey;
 		int coordinateIndex = 0;
 
 		for (auto i = r->m_ptas->m_arr.begin(); i != r->m_ptas->m_arr.end(); i++)
 		{
 			auto ptas = *i;
 
-			iKey = ((__int64)ptas->m_name.RCNM) << 32 | ptas->m_name.RCID;
+			iKey = ((std::int64_t)ptas->m_name.RCNM) << 32 | ptas->m_name.RCID;
 			if (ptas->m_topi == 1 /*&& ORNT == 1 ||*/	// Beginning node , forward
 				/*ptas->m_topi == 2 && ORNT == 2*/		// End node, reverse
 				)
@@ -1542,7 +1542,7 @@ namespace libS101
 		fe->m_curveList.clear();
 
 		R_SurfaceRecord* sr;
-		__int64 iKey;
+		std::int64_t iKey;
 		std::vector<POINT> vecPoint;
 		std::vector<int> boundaryList;
 
@@ -1709,7 +1709,7 @@ namespace libS101
 	{
 		R_CurveRecord* cr = NULL;
 		R_CompositeRecord* ccr = NULL;
-		__int64 iKey;
+		std::int64_t iKey;
 
 		// forward
 		if (1 == ornt)
@@ -1727,7 +1727,7 @@ namespace libS101
 
 					if (cuco->m_name.RCNM == 120)
 					{
-						iKey = ((__int64)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
+						iKey = ((std::int64_t)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
 						cr = findCurveRecord(iKey);
 						if (cr != nullptr)
 						{
@@ -1736,7 +1736,7 @@ namespace libS101
 					}
 					else if (cuco->m_name.RCNM == 125)
 					{
-						iKey = ((__int64)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
+						iKey = ((std::int64_t)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
 						ccr = findCompositeRecord(iKey);
 						if (ccr != nullptr) {
 							GetFullCurveData(fe, ccr, cuco->m_ornt);
@@ -1760,7 +1760,7 @@ namespace libS101
 
 					if (cuco->m_name.RCNM == 120)
 					{
-						iKey = ((__int64)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
+						iKey = ((std::int64_t)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
 						cr = findCurveRecord(iKey);
 						if (cr != nullptr)
 						{
@@ -1769,7 +1769,7 @@ namespace libS101
 					}
 					else if (cuco->m_name.RCNM == 125)
 					{
-						iKey = ((__int64)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
+						iKey = ((std::int64_t)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
 						ccr = findCompositeRecord(iKey);
 						if (ccr != nullptr) {
 							GetFullCurveData(fe, ccr, cuco->m_ornt);
@@ -1786,7 +1786,7 @@ namespace libS101
 	{
 		R_CurveRecord* cr = NULL;
 		R_CompositeRecord* ccr = NULL;
-		__int64 iKey;
+		std::int64_t iKey;
 
 		for (auto itorParent = r->m_rias.begin(); itorParent != r->m_rias.end(); itorParent++)
 		{
@@ -1799,7 +1799,7 @@ namespace libS101
 				if (rias->m_ornt == 2)
 					ornt = (ornt == 2) ? 1 : 2;
 
-				iKey = ((__int64)rias->m_name.RCNM) << 32 | rias->m_name.RCID;
+				iKey = ((std::int64_t)rias->m_name.RCNM) << 32 | rias->m_name.RCID;
 				if (rias->m_name.RCNM == 120)
 				{
 					cr = findCurveRecord(iKey);
@@ -1898,13 +1898,13 @@ namespace libS101
 		IC2D* c2di = NULL;
 		R_PointRecord* spr = nullptr, * epr = nullptr;
 		GeoPoint gp;
-		__int64 iKey;
+		std::int64_t iKey;
 
 		for (auto i = r->m_ptas->m_arr.begin(); i != r->m_ptas->m_arr.end(); i++)
 		{
 			auto ptas = *i;
 
-			iKey = ((__int64)ptas->m_name.RCNM) << 32 | ptas->m_name.RCID;
+			iKey = ((std::int64_t)ptas->m_name.RCNM) << 32 | ptas->m_name.RCID;
 			if (ptas->m_topi == 1 && ORNT == 1 ||	// Beginning node , forward
 				ptas->m_topi == 2 && ORNT == 2		// End node, reverse
 				)
@@ -2076,7 +2076,7 @@ namespace libS101
 		CUCO* cuco = NULL;
 		R_CurveRecord* cr = NULL;
 		R_CompositeRecord* ccr = NULL;
-		__int64 iKey;
+		std::int64_t iKey;
 
 		if (ORNT == 1)
 		{
@@ -2089,7 +2089,7 @@ namespace libS101
 					cuco = *itor;
 					if (cuco->m_name.RCNM == 120)
 					{
-						iKey = ((__int64)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
+						iKey = ((std::int64_t)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
 						cr = findCurveRecord(iKey);
 						if (cr != nullptr)
 						{
@@ -2098,7 +2098,7 @@ namespace libS101
 					}
 					else if (cuco->m_name.RCNM == 125)
 					{
-						iKey = ((__int64)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
+						iKey = ((std::int64_t)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
 						ccr = findCompositeRecord(iKey);
 						if (ccr != nullptr) {
 							GetFullSpatialData(ccr, geoArr, cuco->m_ornt);
@@ -2116,7 +2116,7 @@ namespace libS101
 				for (auto itor = cucoParent->m_arr.rbegin(); itor != cucoParent->m_arr.rend(); itor++)
 				{
 					cuco = *itor;
-					iKey = ((__int64)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
+					iKey = ((std::int64_t)cuco->m_name.RCNM) << 32 | cuco->m_name.RCID;
 
 					unsigned ornt = 1;
 					if (cuco->m_ornt == 2)
@@ -2189,7 +2189,7 @@ namespace libS101
 		RIAS* rias = NULL;
 		R_CurveRecord* cr = NULL;
 		R_CompositeRecord* ccr = NULL;
-		__int64 iKey;
+		std::int64_t iKey;
 
 		///////////////////////////////
 		// for blank interior area
@@ -2210,7 +2210,7 @@ namespace libS101
 					sp = (int)geoArr.size();
 				}
 
-				iKey = ((__int64)rias->m_name.RCNM) << 32 | rias->m_name.RCID;
+				iKey = ((std::int64_t)rias->m_name.RCNM) << 32 | rias->m_name.RCID;
 				if (rias->m_name.RCNM == 120)
 				{
 					cr = findCurveRecord(iKey);

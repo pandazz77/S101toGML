@@ -54,7 +54,7 @@ R_CurveRecord::~R_CurveRecord()
 }
 
 #pragma warning(disable:4018)
-bool R_CurveRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_CurveRecord::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 {
 	for (int i = 0; i < dir->m_count; i++)
 	{

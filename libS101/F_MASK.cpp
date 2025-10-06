@@ -19,7 +19,7 @@ F_MASK::~F_MASK(void)
 		delete mask;
 	}
 }
-void F_MASK::ReadField(BYTE *&buf)
+void F_MASK::ReadField(std::uint8_t *&buf)
 {
 	while (*buf != 0x1E)
 	{
@@ -31,12 +31,12 @@ void F_MASK::ReadField(BYTE *&buf)
 
 		//m_arr.AddTail(mask);
 		m_arr.insert(
-			std::unordered_map<__int64, MASK*>::value_type((__int64)mask->m_name.GetName(), mask)
+			std::unordered_map<std::int64_t, MASK*>::value_type((std::int64_t)mask->m_name.GetName(), mask)
 			);
 	}
 }
 
-void F_MASK::ReadField(BYTE *&buf, int loopCnt)
+void F_MASK::ReadField(std::uint8_t *&buf, int loopCnt)
 {
 	for(int i = 0; i < loopCnt; i++)
 	{
@@ -47,7 +47,7 @@ void F_MASK::ReadField(BYTE *&buf, int loopCnt)
 		mask->m_muin = *(buf++);
 		
 		m_arr.insert(
-			std::unordered_map<__int64, MASK*>::value_type((__int64)mask->m_name.GetName(), mask)
+			std::unordered_map<std::int64_t, MASK*>::value_type((std::int64_t)mask->m_name.GetName(), mask)
 			);
 	}
 }

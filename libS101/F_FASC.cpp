@@ -14,7 +14,7 @@ F_FASC::~F_FASC(void)
 	for (auto itor = m_arr.begin(); itor != m_arr.end(); itor++)
 		delete *itor;
 }
-void F_FASC::ReadField(BYTE *&buf)
+void F_FASC::ReadField(std::uint8_t *&buf)
 {
 	m_name.RCNM = *(buf++);
 	m_name.RCID = buf2uint(buf, 4);
@@ -35,7 +35,7 @@ void F_FASC::ReadField(BYTE *&buf)
 	//}
 }
 
-void F_FASC::ReadField(BYTE *&buf, int loopCnt)
+void F_FASC::ReadField(std::uint8_t *&buf, int loopCnt)
 {
 	m_name.RCNM = *(buf++);
 	m_name.RCID = buf2uint(buf, 4);
@@ -74,7 +74,7 @@ bool F_FASC::Save(libS101::File *file)
 		file->write(&cont->m_paix, 2);
 		file->write(&cont->m_atin, 1);
 		CT2CA outputString(cont->m_atvl, CP_UTF8);
-		file->write(outputString, (UINT)::strlen(outputString));
+		file->write(outputString, (std::uint32_t)::strlen(outputString));
 		file->write(&NonPrintableCharacter::unitTerminator, 1);
 	}
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);

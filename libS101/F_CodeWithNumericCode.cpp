@@ -18,7 +18,7 @@ F_CodeWithNumericCode::~F_CodeWithNumericCode()
 	}
 }
 
-void F_CodeWithNumericCode::ReadField(BYTE *&buf)
+void F_CodeWithNumericCode::ReadField(std::uint8_t *&buf)
 {
 	while (*buf != 0x1E)
 	{
@@ -31,7 +31,7 @@ void F_CodeWithNumericCode::ReadField(BYTE *&buf)
 	}
 }
 
-void F_CodeWithNumericCode::ReadField(BYTE *&buf, int loopCnt)
+void F_CodeWithNumericCode::ReadField(std::uint8_t *&buf, int loopCnt)
 {
 	for (int i = 0; i < loopCnt; i++)
 	{
@@ -51,7 +51,7 @@ bool F_CodeWithNumericCode::Save(libS101::File *file)
 	{
 		CodeWithNumericCode *cnc = itor->second;
 		CT2CA outputString(cnc->m_code, CP_UTF8);
-		file->write(outputString, (UINT)::strlen(outputString));
+		file->write(outputString, (std::uint32_t)::strlen(outputString));
 		file->write(&NonPrintableCharacter::unitTerminator, 1);
 		file->write(&cnc->m_nmcd, 2);
 	}

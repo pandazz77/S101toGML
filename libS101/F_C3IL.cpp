@@ -15,7 +15,7 @@ F_C3IL::~F_C3IL()
 		delete *itor;
 }
 
-void F_C3IL::ReadField(BYTE *&buf)
+void F_C3IL::ReadField(std::uint8_t *&buf)
 {
 	m_vcid = *(buf++);
 	while (*buf != 0x1E)
@@ -30,7 +30,7 @@ void F_C3IL::ReadField(BYTE *&buf)
 	}
 }
 
-void F_C3IL::ReadField(BYTE *&buf, int loopCnt)
+void F_C3IL::ReadField(std::uint8_t *&buf, int loopCnt)
 {
 	m_vcid = *(buf++);
 	for (int i = 0; i < loopCnt; i++)

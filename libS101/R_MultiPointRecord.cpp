@@ -37,7 +37,7 @@ R_MultiPointRecord::~R_MultiPointRecord(void)
 }
 
 #pragma warning(disable:4018)
-bool R_MultiPointRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_MultiPointRecord::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 {
 	;
 	int i = 0, j = 0, cnt;

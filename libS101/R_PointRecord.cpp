@@ -23,7 +23,7 @@ R_PointRecord::~R_PointRecord(void)
 	}
 }
 
-bool R_PointRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_PointRecord::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 {	
 	;
 	int i = 0, j = 0;

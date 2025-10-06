@@ -57,7 +57,7 @@ int ENCCommon::m_UserMode = GeoMetryLibrary::UserMode::User_Mode;
 
 
 #ifdef _WIN32
-__int64 ENCCommon::OVER_GROUP = 0x7FFFFFFF;
+std::int64_t ENCCommon::OVER_GROUP = 0x7FFFFFFF;
 #else
 long long ENCCommon::OVER_GROUP = 0x7FFFFFFF;
 #endif
@@ -124,9 +124,9 @@ bool   ENCCommon::AREA_SYMBOL_DYNAMIC_POSITION_MODE = true;
 #define OVERGROUP_CON30 viewGroup >= 62010 && viewGroup <= 62020
 #define OVERGROUP_CON31 true
 
-//__int64 ENCCommon::GetOverGroup(int viewGroup)
+//std::int64_t ENCCommon::GetOverGroup(int viewGroup)
 //{
-//	__int64 curOverGroup;
+//	std::int64_t curOverGroup;
 //	if (OVERGROUP_CON1) { curOverGroup = 0x00000001 << 0; }
 //	else if (OVERGROUP_CON2) { curOverGroup = 0x00000001 << 1; }
 //	else if (OVERGROUP_CON3) { curOverGroup = 0x00000001 << 2; }

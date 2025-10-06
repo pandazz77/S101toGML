@@ -90,13 +90,13 @@ void DRReaderWriter::SetByteInfo()
 	str.Format(TEXT("%05d"), m_recordLength);
 	for(i = 0; i < 5; i++)
 	{
-		b_recordLength[i] = (BYTE)str[i];
+		b_recordLength[i] = (std::uint8_t)str[i];
 	}
 
 	str.Format(TEXT("%05d"), m_fieldAreaLoc);
 	for(i = 0; i < 5; i++)
 	{
-		b_baseAddressOfFieldArea[i] = (BYTE)str[i];
+		b_baseAddressOfFieldArea[i] = (std::uint8_t)str[i];
 	}
 
 	b_fieldAreaLoc = '0' + m_fieldLength;

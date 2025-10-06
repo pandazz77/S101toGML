@@ -12,14 +12,14 @@ public:
 
 public:
         #ifdef _WIN32
-        std::unordered_map<__int64, MASK*> m_arr;
+        std::unordered_map<std::int64_t, MASK*> m_arr;
         #else
         std::unordered_map<long long, MASK*> m_arr;
         #endif
 
 public:
-	void ReadField(BYTE *&buf);
-	void ReadField(BYTE *&buf, int loopCnt);
+	void ReadField(std::uint8_t *&buf);
+	void ReadField(std::uint8_t *&buf, int loopCnt);
 	bool Save(libS101::File *file);
 	int GetFieldLength();
 

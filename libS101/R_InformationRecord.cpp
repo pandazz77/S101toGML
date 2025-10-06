@@ -29,7 +29,7 @@ R_InformationRecord::~R_InformationRecord(void)
 	m_attr.clear();
 }
 
-bool R_InformationRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_InformationRecord::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 {
 	;
 	int i = 0, j = 0, cnt;
@@ -50,7 +50,7 @@ bool R_InformationRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 		{
 			cnt = 0;
 			j = 0;
-			BYTE *sIndex = buf;
+			std::uint8_t *sIndex = buf;
 
 			int head = 0;
 			for (j = 1; j < dir->GetDirectory(i)->length; j++)

@@ -15,7 +15,7 @@ F_PRID::F_PRID(void)
 F_PRID::~F_PRID(void)
 {
 }
-void F_PRID::ReadField(BYTE *&buf)
+void F_PRID::ReadField(std::uint8_t *&buf)
 {
 	m_name.RCNM = *(buf++);
 	m_name.RCID = buf2uint(buf, 4);

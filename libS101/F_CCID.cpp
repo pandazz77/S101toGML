@@ -15,7 +15,7 @@ F_CCID::F_CCID(void)
 F_CCID::~F_CCID(void)
 {
 }
-void F_CCID::ReadField(BYTE *&buf)
+void F_CCID::ReadField(std::uint8_t *&buf)
 {
 	m_name.RCNM = *(buf++);
 	m_name.RCID = buf2uint(buf, 4);

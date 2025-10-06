@@ -22,7 +22,7 @@ F_MRID::F_MRID(void)
 F_MRID::~F_MRID(void)
 {
 }
-void F_MRID::ReadField(BYTE *&buf)
+void F_MRID::ReadField(std::uint8_t *&buf)
 {
 	m_name.RCNM = *(buf++);
 	m_name.RCID = buf2uint(buf, 4);

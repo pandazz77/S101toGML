@@ -28,6 +28,6 @@ public:
 	F_VDAT* m_vdat = nullptr;
 
 public:
-	bool ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
+	bool ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf);
 	bool Save(libS101::File *file);
 };

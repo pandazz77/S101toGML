@@ -17,7 +17,7 @@ F_ATTR::~F_ATTR()
 	}
 }
 
-void F_ATTR::ReadField(BYTE *&buf)
+void F_ATTR::ReadField(std::uint8_t *&buf)
 {
 	while (*buf != 0x1E)
 	{
@@ -33,7 +33,7 @@ void F_ATTR::ReadField(BYTE *&buf)
 	}
 }
 
-void F_ATTR::ReadField(BYTE *&buf, int loopCnt)
+void F_ATTR::ReadField(std::uint8_t *&buf, int loopCnt)
 {
 	for(int i = 0; i < loopCnt; i++)
 	{
@@ -64,7 +64,7 @@ bool F_ATTR::Save(libS101::File *file)
 		file->write(&attr->m_paix, 2);
 		file->write(&attr->m_atin, 1);
 		CT2CA outputString(attr->m_atvl, CP_UTF8);
-		file->write(outputString, (UINT)::strlen(outputString));
+		file->write(outputString, (std::uint32_t)::strlen(outputString));
 		file->write(&NonPrintableCharacter::unitTerminator, 1);
 	}
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);

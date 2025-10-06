@@ -14,13 +14,6 @@
 #include <vector>
 #include <list>
 
-typedef unsigned char BYTE;
-typedef uint32_t DWORD;
-typedef uint16_t WORD;
-typedef unsigned int UINT;
-typedef long long __int64;
-typedef long long _int64;
-
 struct tagPOINT { 
     long x; long y; 
     tagPOINT() : x(0), y(0) {}

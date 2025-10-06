@@ -8,14 +8,14 @@
 #include "compat/compat_mfc.h"
 #endif
 
-void buf2charArr(CString& dest, BYTE*& buf);
-void buf2charArr(std::wstring& dest, BYTE*& buf);
-void buf2charArr(CString& dest, BYTE*& buf, int len);
-void buf2charArr(std::wstring& dest, BYTE*& buf, int len);
-DWORD buf2uint(BYTE*& buf, int len);
-double buf2double(BYTE*& buf, int size);
-DWORD buf2int(BYTE*& buf, int len);
-DWORD atoi(BYTE*& buf, int len);
+void buf2charArr(CString& dest, std::uint8_t*& buf);
+void buf2charArr(std::wstring& dest, std::uint8_t*& buf);
+void buf2charArr(CString& dest, std::uint8_t*& buf, int len);
+void buf2charArr(std::wstring& dest, std::uint8_t*& buf, int len);
+std::uint32_t buf2uint(std::uint8_t*& buf, int len);
+double buf2double(std::uint8_t*& buf, int size);
+std::uint32_t buf2int(std::uint8_t*& buf, int len);
+std::uint32_t atoi(std::uint8_t*& buf, int len);
 
 
 int asNumeric( wchar_t wch );

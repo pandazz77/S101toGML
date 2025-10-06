@@ -15,7 +15,7 @@ F_CRID::~F_CRID(void)
 {
 }
 
-void F_CRID::ReadField(BYTE *&buf)
+void F_CRID::ReadField(std::uint8_t *&buf)
 {
 	m_name.RCNM = *(buf++);
 	m_name.RCID = buf2uint(buf, 4);

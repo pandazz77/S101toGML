@@ -15,7 +15,7 @@ public:
 	
 public:
 	// CurveRecord ID (RCNM + RCID)
-	__int64 m_id = 0;
+	std::int64_t m_id = 0;
 
 	int m_numPoints = 0;
 

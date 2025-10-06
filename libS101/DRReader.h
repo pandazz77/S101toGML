@@ -23,6 +23,6 @@ public:
 	int m_fieldPosition;
 
 public:
-	bool ReadReader(BYTE*& buf);
+	bool ReadReader(std::uint8_t*& buf);
 	//bool ReadReader(ifstream *ifs, char* buf);
 };

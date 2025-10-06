@@ -10,5 +10,5 @@ public:
 	virtual ~Record();
 
 public:
-	virtual bool ReadRecord(DRDirectoryInfo* dir, BYTE*& buf) {	return true; };
+	virtual bool ReadRecord(DRDirectoryInfo* dir, std::uint8_t*& buf) {	return true; };
 };

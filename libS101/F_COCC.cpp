@@ -12,7 +12,7 @@ F_COCC::~F_COCC()
 {
 }
 
-void F_COCC::ReadField(BYTE *&buf)
+void F_COCC::ReadField(std::uint8_t *&buf)
 {
 	m_coui = buf2uint(buf, 1);
 	m_coix = buf2uint(buf, 2);

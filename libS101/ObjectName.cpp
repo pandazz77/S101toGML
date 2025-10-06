@@ -14,9 +14,9 @@ ObjectName::~ObjectName(void)
 {
 }
 
-__int64 ObjectName::GetName()
+std::int64_t ObjectName::GetName()
 {
-	return ((__int64)m_agen) << 48 | ((__int64)m_fidn) << 16 | m_fids;
+	return ((std::int64_t)m_agen) << 48 | ((std::int64_t)m_fidn) << 16 | m_fids;
 }
 
 int ObjectName::GetLength()

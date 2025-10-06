@@ -16,7 +16,7 @@ F_SPAS::~F_SPAS(void)
 		delete *itor;
 	}
 }
-void F_SPAS::ReadField(BYTE *&buf)
+void F_SPAS::ReadField(std::uint8_t *&buf)
 {
 	while(*buf != 0x1E)
 	{
@@ -31,7 +31,7 @@ void F_SPAS::ReadField(BYTE *&buf)
 		m_arr.push_back(spas);
 	}
 }
-void F_SPAS::ReadField(BYTE *&buf, int loopCnt)
+void F_SPAS::ReadField(std::uint8_t *&buf, int loopCnt)
 {
 	for(int i = 0; i < loopCnt; i++)
 	{

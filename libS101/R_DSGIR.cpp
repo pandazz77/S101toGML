@@ -58,7 +58,7 @@ R_DSGIR::~R_DSGIR()
 }
 
 #pragma warning(disable:4018)
-bool R_DSGIR::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_DSGIR::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 {
 	//;
 	for (unsigned i = 0; i < dir->m_count; i++)

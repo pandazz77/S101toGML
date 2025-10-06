@@ -30,7 +30,7 @@ R_DSCRS::~R_DSCRS()
 
 #pragma warning(disable:4244)
 #pragma warning(disable:4018)
-bool R_DSCRS::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_DSCRS::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 {
 	;
 	for(unsigned i = 0; i < dir->m_count; i++)

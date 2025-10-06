@@ -18,7 +18,7 @@ F_CRSH::F_CRSH(void)
 F_CRSH::~F_CRSH(void)
 {
 }
-void F_CRSH::ReadField(BYTE *&buf)
+void F_CRSH::ReadField(std::uint8_t *&buf)
 {
 	m_crix = *(buf++);
 	m_crst = *(buf++);
@@ -37,17 +37,17 @@ bool F_CRSH::Save(libS101::File *file)
 	file->write(&m_csty, 1);
 	
 	CT2CA outputString(m_crnm, CP_UTF8);
-	file->write(outputString, (UINT)::strlen(outputString));
+	file->write(outputString, (std::uint32_t)::strlen(outputString));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	
 	CT2CA outputString2(m_crsi, CP_UTF8);
-	file->write(outputString2, (UINT)::strlen(outputString2));
+	file->write(outputString2, (std::uint32_t)::strlen(outputString2));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
 	file->write(&m_crss, 1);
 
 	CT2CA outputString3(m_scri, CP_UTF8);
-	file->write(outputString3, (UINT)::strlen(outputString3));
+	file->write(outputString3, (std::uint32_t)::strlen(outputString3));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);

@@ -105,7 +105,7 @@ public:
 	static unsigned DrawingType;		    // paper  = 1
 										// simple = 0
         #ifdef _WIN32
-        static __int64 OVER_GROUP;
+        static std::int64_t OVER_GROUP;
         #else
         static long long OVER_GROUP;
         #endif
@@ -168,7 +168,7 @@ public:
 	static bool USING_MTP;
 
 public:
-	//static __int64 GetOverGroup(int viewGroup);
+	//static std::int64_t GetOverGroup(int viewGroup);
 	//static bool Save(std::wstring filePath);
 	//static bool Open(std::wstring filePath);
 };

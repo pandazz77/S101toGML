@@ -15,14 +15,14 @@ F_SECC::~F_SECC()
 {
 }
 
-void F_SECC::ReadField(BYTE *&buf)
+void F_SECC::ReadField(std::uint8_t *&buf)
 {
 	*m_seui = *(buf++);
 	*m_seix = buf2uint(buf, 2);
 	*m_nseg = buf2uint(buf, 2);
 }
 
-void F_SECC::ReadField(BYTE *&buf, int loopCnt)
+void F_SECC::ReadField(std::uint8_t *&buf, int loopCnt)
 {
 	*m_seui = *(buf++);
 	*m_seix = buf2uint(buf, 2);

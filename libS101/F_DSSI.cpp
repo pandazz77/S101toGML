@@ -24,7 +24,7 @@ F_DSSI::~F_DSSI(void)
 {
 }
 
-void F_DSSI::ReadField(BYTE *&buf)
+void F_DSSI::ReadField(std::uint8_t *&buf)
 {
 	m_dcox = buf2double(buf, 8);
 	//m_dcox = 0;

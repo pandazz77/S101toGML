@@ -21,12 +21,12 @@ DRDirectoryWriter::DRDirectoryWriter(DRReader leader, DRDirectory& dir)
 	str.Format(TEXT("%09d"), this->length);
 	for (i = 0; i < this->lengthCipher; i++)
 	{
-		b_length[i] = (BYTE)str[9 - this->lengthCipher + i];
+		b_length[i] = (std::uint8_t)str[9 - this->lengthCipher + i];
 	}
 	str.Format(TEXT("%09d"), this->pos);
 	for (i = 0; i < this->posCipher; i++)
 	{
-		b_pos[i] = (BYTE)str[9 - this->posCipher + i];
+		b_pos[i] = (std::uint8_t)str[9 - this->posCipher + i];
 	}
 }
 

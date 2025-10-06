@@ -20,6 +20,6 @@ public:
 	int lengthCipher;
 	int posCipher;
 
-	BYTE b_length[9];
-	BYTE b_pos[9];
+	std::uint8_t b_length[9];
+	std::uint8_t b_pos[9];
 };

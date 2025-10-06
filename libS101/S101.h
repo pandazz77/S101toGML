@@ -62,22 +62,22 @@ namespace libS101
 		std::vector<R_FeatureRecord*> vecFeature;
 
 	private:
-		std::unordered_map<__int64, SCurve*> m_curveMap;
+		std::unordered_map<std::int64_t, SCurve*> m_curveMap;
 
 	public:
 		bool Open(CString _filepath);
 		void Save(CString _filepath, CString extend);
 
 	private:
-		void InsertInformationRecord(__int64 key, R_InformationRecord* record);
-		void InsertPointRecord(__int64 key, R_PointRecord* record);
-		void InsertMultiPointRecord(__int64 key, R_MultiPointRecord* record);
-		void InsertCurveRecord(__int64 key, R_CurveRecord* record);
-		void InsertCompositeCurveRecord(__int64 key, R_CompositeRecord* record);
-		void InsertSurfaceRecord(__int64 key, R_SurfaceRecord* record);
-		void InsertFeatureRecord(__int64 key, R_FeatureRecord* record);
+		void InsertInformationRecord(std::int64_t key, R_InformationRecord* record);
+		void InsertPointRecord(std::int64_t key, R_PointRecord* record);
+		void InsertMultiPointRecord(std::int64_t key, R_MultiPointRecord* record);
+		void InsertCurveRecord(std::int64_t key, R_CurveRecord* record);
+		void InsertCompositeCurveRecord(std::int64_t key, R_CompositeRecord* record);
+		void InsertSurfaceRecord(std::int64_t key, R_SurfaceRecord* record);
+		void InsertFeatureRecord(std::int64_t key, R_FeatureRecord* record);
 
-		bool ReadDDR(BYTE*& buf);
+		bool ReadDDR(std::uint8_t*& buf);
 		void SetInformationsType(pugi::xml_document* doc, pugi::xml_node parentNode, std::string productNamespace);
 		void GmlifileMakeByPugi(CString _filePath);
 		void SetFeaturesType(pugi::xml_document* document, pugi::xml_node parentNode, std::string productNamespace);

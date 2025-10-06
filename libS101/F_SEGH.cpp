@@ -17,7 +17,7 @@ F_SEGH::F_SEGH(void)
 F_SEGH::~F_SEGH(void)
 {
 }
-void F_SEGH::ReadField(BYTE *&buf)
+void F_SEGH::ReadField(std::uint8_t *&buf)
 {
 	m_intp = *(buf++);
 	//m_circ = *(buf++);

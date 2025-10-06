@@ -26,7 +26,7 @@ R_SurfaceRecord::~R_SurfaceRecord(void)
 	}
 }
 
-bool R_SurfaceRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_SurfaceRecord::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 {
 	;
 	for(int i = 0; i < dir->m_count; i++)

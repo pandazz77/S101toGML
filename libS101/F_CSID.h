@@ -12,8 +12,8 @@ public:
 	int m_ncrc;
 
 public:
-	void ReadField(BYTE *&buf);
-	void ReadField(BYTE *&buf, int loopCnt);
+	void ReadField(std::uint8_t *&buf);
+	void ReadField(std::uint8_t *&buf, int loopCnt);
 	bool Save(libS101::File *file);
 	int GetFieldLength();
 };

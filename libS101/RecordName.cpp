@@ -11,9 +11,9 @@ RecordName::~RecordName(void)
 {
 }
 
-__int64 RecordName::GetName()
+std::int64_t RecordName::GetName()
 {
-	return ((__int64)RCNM) << 32 | RCID;
+	return ((std::int64_t)RCNM) << 32 | RCID;
 }
 
 int RecordName::GetLength()

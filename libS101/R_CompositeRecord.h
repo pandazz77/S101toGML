@@ -23,7 +23,7 @@ public:
 	std::list<F_CUCO*> m_cuco;
 
 public:
-	bool ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
+	bool ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf);
 	bool Save(libS101::File *file);
 	int GetRCID();
 	std::wstring GetRCIDasWstring();

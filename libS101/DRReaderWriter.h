@@ -17,20 +17,20 @@ public:
 	virtual ~DRReaderWriter(void);
 
 public:
-	BYTE b_recordLength[5];
-	BYTE b_interchangeLevel;
-	BYTE b_leaderIdentifier;
-	BYTE b_inLineCodeExtensionIndicator;
-	BYTE b_versionNumber;
-	BYTE b_applicationIndicator;
-	BYTE b_fieldControlLength[2];
-	BYTE b_baseAddressOfFieldArea[5];
-	BYTE b_extendedCharacterSetIndicator[3];
+	std::uint8_t b_recordLength[5];
+	std::uint8_t b_interchangeLevel;
+	std::uint8_t b_leaderIdentifier;
+	std::uint8_t b_inLineCodeExtensionIndicator;
+	std::uint8_t b_versionNumber;
+	std::uint8_t b_applicationIndicator;
+	std::uint8_t b_fieldControlLength[2];
+	std::uint8_t b_baseAddressOfFieldArea[5];
+	std::uint8_t b_extendedCharacterSetIndicator[3];
 
-	BYTE b_fieldAreaLoc;
-	BYTE b_fieldLength;
-	BYTE b_Reserved;
-	BYTE b_fieldPosition;
+	std::uint8_t b_fieldAreaLoc;
+	std::uint8_t b_fieldLength;
+	std::uint8_t b_Reserved;
+	std::uint8_t b_fieldPosition;
 
 public:
 	bool WriteDRReader(libS101::File* file);

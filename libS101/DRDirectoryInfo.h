@@ -19,7 +19,7 @@ public:
 	int m_count = 0;
 
 public:
-	bool ReadDir(DRReader drReader, BYTE*& buf);
+	bool ReadDir(DRReader drReader, std::uint8_t*& buf);
 	DRDirectory* GetDirectory(int count);
 	void ReAllocateDirectory(int count);
 	void Delete();

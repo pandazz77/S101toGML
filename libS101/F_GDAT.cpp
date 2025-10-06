@@ -54,7 +54,7 @@ F_GDAT::~F_GDAT()
 {
 }
 
-void F_GDAT::ReadField(BYTE *&buf)
+void F_GDAT::ReadField(std::uint8_t *&buf)
 {
 	buf2charArr(m_dtnm, buf);
 	buf2charArr(m_elnm, buf);
@@ -68,11 +68,11 @@ void F_GDAT::ReadField(BYTE *&buf)
 bool F_GDAT::Save(libS101::File *file)
 {
 	CT2CA outputString(m_dtnm, CP_UTF8);
-	file->write(outputString, (UINT)::strlen(outputString));
+	file->write(outputString, (std::uint32_t)::strlen(outputString));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
 	CT2CA outputString2(m_elnm, CP_UTF8);
-	file->write(outputString2, (UINT)::strlen(outputString2));
+	file->write(outputString2, (std::uint32_t)::strlen(outputString2));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
 	file->write(&m_esma, 8);
@@ -80,7 +80,7 @@ bool F_GDAT::Save(libS101::File *file)
 	file->write(&m_espm, 8);
 
 	CT2CA outputString3(m_cmnm, CP_UTF8);
-	file->write(outputString3, (UINT)::strlen(outputString3));
+	file->write(outputString3, (std::uint32_t)::strlen(outputString3));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
 	file->write(&m_cmgl, 8);

@@ -13,7 +13,7 @@ F_CSAX::~F_CSAX(void)
 	for(CSAX *csax: m_arr)
 		delete csax;
 }
-void F_CSAX::ReadField(BYTE *&buf)
+void F_CSAX::ReadField(std::uint8_t *&buf)
 {
 	while(*buf != 0x1E){
 		CSAX *csax = new CSAX();
@@ -25,7 +25,7 @@ void F_CSAX::ReadField(BYTE *&buf)
 	}
 }
 
-void F_CSAX::ReadField(BYTE *&buf, int loopCnt)
+void F_CSAX::ReadField(std::uint8_t *&buf, int loopCnt)
 {
 	for(int i = 0;i < loopCnt; i++)
 	{

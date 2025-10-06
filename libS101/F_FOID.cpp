@@ -15,7 +15,7 @@ F_FOID::~F_FOID(void)
 {
 }
 
-void F_FOID::ReadField(BYTE *&buf)
+void F_FOID::ReadField(std::uint8_t *&buf)
 {
 	m_objName.m_agen = buf2uint(buf, 2);
 	m_objName.m_fidn = buf2uint(buf, 4);
