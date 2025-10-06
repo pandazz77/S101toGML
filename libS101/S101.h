@@ -15,8 +15,6 @@
 #include <vector>
 #include <list>
 
-#include <pugixml.hpp>
-
 class R_InformationRecord;
 class R_PointRecord;
 class R_MultiPointRecord;
@@ -70,29 +68,6 @@ namespace libS101
 		bool Open(libS101::String _filepath);
 		void Save(libS101::String _filepath, libS101::String extend);
 
-	private:
-		void InsertInformationRecord(std::int64_t key, R_InformationRecord* record);
-		void InsertPointRecord(std::int64_t key, R_PointRecord* record);
-		void InsertMultiPointRecord(std::int64_t key, R_MultiPointRecord* record);
-		void InsertCurveRecord(std::int64_t key, R_CurveRecord* record);
-		void InsertCompositeCurveRecord(std::int64_t key, R_CompositeRecord* record);
-		void InsertSurfaceRecord(std::int64_t key, R_SurfaceRecord* record);
-		void InsertFeatureRecord(std::int64_t key, R_FeatureRecord* record);
-
-		bool ReadDDR(std::uint8_t*& buf);
-		void SetInformationsType(pugi::xml_document* doc, pugi::xml_node parentNode, std::string productNamespace);
-		void GmlifileMakeByPugi(libS101::String _filePath);
-		void SetFeaturesType(pugi::xml_document* document, pugi::xml_node parentNode, std::string productNamespace);
-		void SetVector(pugi::xml_node parentNode, R_FeatureRecord* fr);
-		void SetVectorPointsType(pugi::xml_node parentNode, SPoint* p);
-		void SetVectorMultiPointsType(pugi::xml_node parentNode, SMultiPoint* p);
-		void SetVectorCurvesType(pugi::xml_node parentNode, SCurve* p);
-		void SetVectorCompositeCurvesType(pugi::xml_node parentNode, SCompositeCurve* p);
-		void SetVectorSurfacesType(pugi::xml_node parentNode, SSurface* p);
-		void SetFeaturesTypeRelation_v2(pugi::xml_node rootNode);
-		void SetInformationsTypeRelation_v2(pugi::xml_node parentNode);
-		void SetAttributeType(pugi::xml_document* doc, pugi::xml_node parentNode, std::list<F_ATTR*>* f_attrList);
-	
 		std::string GetEncodingSpecificationToString();
 		libS101::String GetEncodingSpecification();
 
@@ -124,6 +99,17 @@ namespace libS101
 
 		libS101::String GetDatasetAbstract();
 		std::string GetDatasetAbstractToString();
+
+	private:
+		void InsertInformationRecord(std::int64_t key, R_InformationRecord* record);
+		void InsertPointRecord(std::int64_t key, R_PointRecord* record);
+		void InsertMultiPointRecord(std::int64_t key, R_MultiPointRecord* record);
+		void InsertCurveRecord(std::int64_t key, R_CurveRecord* record);
+		void InsertCompositeCurveRecord(std::int64_t key, R_CompositeRecord* record);
+		void InsertSurfaceRecord(std::int64_t key, R_SurfaceRecord* record);
+		void InsertFeatureRecord(std::int64_t key, R_FeatureRecord* record);
+
+		bool ReadDDR(std::uint8_t*& buf);
 
 		bool MakeFullSpatialData();
 		bool MakePointData(R_FeatureRecord* fe);

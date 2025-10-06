@@ -10,6 +10,13 @@ file(GLOB HDRS
     ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp
 )
 
-add_library(${PROJECT_NAME} STATIC ${SRCS} ${HDRS})
+file(GLOB SRCS_GML
+    ${CMAKE_CURRENT_SOURCE_DIR}/S101GML/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/S101GML/*.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/S101GML/*.hpp
+)
+include_directories(S101GML)
+
+add_library(${PROJECT_NAME} STATIC ${SRCS} ${HDRS} ${SRCS_GML})
 target_link_libraries(${PROJECT_NAME} pugixml clipper)
-target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/S101GML)
