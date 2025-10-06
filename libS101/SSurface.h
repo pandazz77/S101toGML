@@ -3,6 +3,9 @@
 #include "SCurveHasOrient.h"
 #include "Point.h"
 
+#include <vector>
+#include <list>
+
 class Scaler;
 class GeoPoint;
 class MBR;

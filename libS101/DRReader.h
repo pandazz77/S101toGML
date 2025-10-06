@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "compat/compat_mfc.h"
+
 
 class DRReader
 {

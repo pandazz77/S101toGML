@@ -41,7 +41,7 @@ double GeoPointZ::GetZ()
 ////	CBrush *oldBrush = pDC->SelectObject(&newBrush);
 //	//pDC->Ellipse(point.x - 2, point.y - 2, point.x + 2, point.y + 2);
 ////	libS101::String str;
-////	str.Format(_T("%0.1lf"),z);
+////	str.Format(L"%0.1lf",z);
 //
 ////	pDC->TextOutW(point.x - 15, point.y - 30, str, str.GetLength());
 //	std::wstringstream streamVal;

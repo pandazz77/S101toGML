@@ -1,6 +1,8 @@
 #pragma once
 #include "Field.h"
 
+#include <vector>
+
 struct CSAX;
 class F_CSAX : Field
 {

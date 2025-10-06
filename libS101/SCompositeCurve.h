@@ -3,6 +3,8 @@
 #include "SGeometry.h"
 #include "SCurveHasOrient.h"
 
+#include <list>
+
 class SCompositeCurve : public SGeometry
 {
 public:

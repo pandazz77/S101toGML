@@ -2,7 +2,7 @@
 #ifdef _WIN32
 #include <atlstr.h>
 #else
-#include "compat/compat_mfc.h"
+
 #endif
 
 #include "String.h"

@@ -407,7 +407,7 @@ bool ENCCommon::USING_MTP = false;
 //
 //	if (!ifs.is_open())
 //	{
-//		S100Utilities::OutputDebugString(_T("��������(settings.txt)�� �ε����� ���߽��ϴ�!"));
+//		S100Utilities::OutputDebugString(L"��������(settings.txt)�� �ε����� ���߽��ϴ�!");
 //		return false;
 //	}
 //

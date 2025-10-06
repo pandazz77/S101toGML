@@ -3,7 +3,7 @@
 #include <unordered_map>
 #include <string>
 
-#include "compat_mfc.h"
+
 
 namespace GeoMetryLibrary
 {

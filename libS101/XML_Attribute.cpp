@@ -1,6 +1,7 @@
 
 #include "XML_Attribute.h"
-#include "compat_mfc.h"
+
+#include <string.h>
 
 #include <pugixml.hpp>
 

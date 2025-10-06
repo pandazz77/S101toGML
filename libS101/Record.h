@@ -1,6 +1,6 @@
 #pragma once
 
-#include "compat_mfc.h"
+#include <cstdint>
 
 class DRDirectoryInfo;
 class Record

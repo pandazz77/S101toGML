@@ -68,7 +68,7 @@ int main(int argc, char* argv[])
 			return -1;
 		}
 
-		a.Save(savepath, _T(""));
+		a.Save(savepath, L"");
 		std::cout << "gml Success" << std::endl;
 
     }

@@ -54,7 +54,7 @@
 #include <afxext.h>
 #include <crtdbg.h>
 #else
-#include "compat/compat_mfc.h"
+
 #endif
 
 #if _DEBUG

@@ -7,7 +7,7 @@
 #ifdef _WIN32
 #include <afxext.h>
 #else
-#include "compat/compat_mfc.h"
+
 #endif
 
 class SSurface;

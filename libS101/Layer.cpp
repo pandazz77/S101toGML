@@ -53,7 +53,7 @@ bool Layer::Open(libS101::String _filepath)
 	m_spatialObject->m_pLayer = this;
 
 	libS101::String strFolderPath;
-	if (_filepath.find(TEXT(":\\")) > 0)
+	if (_filepath.find(L":\\") > 0)
 	{
 		strFolderPath = _filepath;
 	}
@@ -69,7 +69,7 @@ bool Layer::Open(libS101::String _filepath)
 				if (ch == '\\') break;
 			}
 		}
-		strFolderPath.append(TEXT("\\") + _filepath);
+		strFolderPath.append(L"\\" + _filepath);
 	}
 	return m_spatialObject->Open(strFolderPath);
 }

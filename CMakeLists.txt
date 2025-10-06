@@ -30,14 +30,6 @@ if(NOT PUGIXML_INCLUDE_DIR OR NOT PUGIXML_LIBRARY)
     FetchContent_MakeAvailable(pugixml)
 endif()
 
-# Compatibility layer for Linux (MFC/Win32 shims)
-add_library(compat_mfc STATIC
-    libS101/compat/compat_mfc.cpp
-)
-target_include_directories(compat_mfc PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/libS101/compat
-)
-
 # Collect libS101 sources
 file(GLOB LIBS101_SOURCES
     libS101/*.cpp
@@ -50,16 +42,15 @@ add_library(libS101 STATIC ${LIBS101_SOURCES})
 target_include_directories(libS101 PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/libS101
     ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/Clipper/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/libS101/compat
 )
 if(PUGIXML_INCLUDE_DIR)
     target_include_directories(libS101 PUBLIC ${PUGIXML_INCLUDE_DIR})
 endif()
 
 if(TARGET pugixml)
-    target_link_libraries(libS101 PUBLIC clipper compat_mfc pugixml)
+    target_link_libraries(libS101 PUBLIC clipper pugixml)
 else()
-    target_link_libraries(libS101 PUBLIC clipper compat_mfc ${PUGIXML_LIBRARY})
+    target_link_libraries(libS101 PUBLIC clipper ${PUGIXML_LIBRARY})
 endif()
 
 if(UNIX)

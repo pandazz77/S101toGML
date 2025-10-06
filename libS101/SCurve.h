@@ -2,6 +2,8 @@
 
 #include "SGeometry.h"
 
+#include <cstdint>
+
 class GeoPoint;
 class ID2D1PathGeometry;
 class ID2D1Factory1;

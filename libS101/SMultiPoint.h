@@ -3,6 +3,8 @@
 #include "SGeometry.h"
 #include "GeoPointZ.h"
 
+#include <vector>
+
 class SMultiPoint : public SGeometry
 {
 public:
