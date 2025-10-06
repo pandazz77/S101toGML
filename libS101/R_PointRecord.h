@@ -19,13 +19,13 @@ public:
 
 public:
 	F_PRID m_prid;
-	std::list<F_INAS*> m_inas; // vector·Î º¯°æ ÇÊ¿ä
+	std::list<F_INAS*> m_inas; // vectorï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½
 	F_C2IT* m_c2it = nullptr;
 	F_C3IT* m_c3it = nullptr;
 
 public:
 	BOOL ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
-	BOOL Save(CFile *file);
+	BOOL Save(libS101::File *file);
 	int GetRCID();
 	std::wstring GetRCIDasWstring();
 

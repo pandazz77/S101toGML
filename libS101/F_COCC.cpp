@@ -19,13 +19,13 @@ void F_COCC::ReadField(BYTE *&buf)
 	m_ncor = buf2uint(buf, 2);
 }
 
-BOOL F_COCC::Save(CFile *file)
+BOOL F_COCC::Save(libS101::File *file)
 {
-	file->Write(&m_coui, 1);
-	file->Write(&m_coix, 2);
-	file->Write(&m_ncor, 2);
+	file->write(&m_coui, 1);
+	file->write(&m_coix, 2);
+	file->write(&m_ncor, 2);
 
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 	return TRUE;
 }
 

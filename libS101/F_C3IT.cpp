@@ -24,14 +24,14 @@ void F_C3IT::ReadField(BYTE *&buf)
 	m_zcoo = buf2int(buf, 4);
 }
 
-BOOL F_C3IT::Save(CFile *file)
+BOOL F_C3IT::Save(libS101::File *file)
 {
-	file->Write(&m_vcid, 1);
-	file->Write(&m_ycoo, 4);
-	file->Write(&m_xcoo, 4);
-	file->Write(&m_zcoo, 4);
+	file->write(&m_vcid, 1);
+	file->write(&m_ycoo, 4);
+	file->write(&m_xcoo, 4);
+	file->write(&m_zcoo, 4);
 
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 	
 	return TRUE;
 }

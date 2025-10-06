@@ -52,20 +52,20 @@ public:
 	/*
 	* False Easting
 	* b48
-	* False easting (Units of measurement according to the coordinate axis ¡®Easting¡¯
+	* False easting (Units of measurement according to the coordinate axis ï¿½ï¿½Eastingï¿½ï¿½
 	*/
 	double m_feas;
 	/*
 	* False Northing
 	* b48
-	* False northing (Units of measurement according to the coordinate axis ¡®Northing¡¯
+	* False northing (Units of measurement according to the coordinate axis ï¿½ï¿½Northingï¿½ï¿½
 	*/
 	double m_fnor;
 
 public:
 	void ReadField(BYTE *&buf);
 	void ReadField(BYTE *&buf, int loopCnt);
-	BOOL Save(CFile *file);
+	BOOL Save(libS101::File *file);
 	int GetFieldLength();
 
 	static int GetSize();

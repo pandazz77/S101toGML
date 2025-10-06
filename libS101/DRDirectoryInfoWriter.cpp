@@ -24,18 +24,18 @@ DRDirectoryInfoWriter::~DRDirectoryInfoWriter(void)
 {
 }
 
-BOOL DRDirectoryInfoWriter::WriteDRDirectory(CFile* file, const DRReader dr)
+BOOL DRDirectoryInfoWriter::WriteDRDirectory(libS101::File* file, const DRReader dr)
 {
 	for(int i = 0; i < m_count; i++)
 	{
 		DRDirectoryWriter dirWriter(dr, directories[i]);
 		
-		file->Write(&dirWriter.tag, 4);
-		file->Write(dirWriter.b_length, dr.m_fieldLength);
-		file->Write(dirWriter.b_pos, dr.m_fieldPosition);
+		file->write(&dirWriter.tag, 4);
+		file->write(dirWriter.b_length, dr.m_fieldLength);
+		file->write(dirWriter.b_pos, dr.m_fieldPosition);
 	}
 
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 	return TRUE;
 }
 

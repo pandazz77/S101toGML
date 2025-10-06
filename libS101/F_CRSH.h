@@ -52,13 +52,13 @@ public:
 	/*
 	* CRS Source Information
 	* Format		: A
-	* Information about the CRS source if CRSS = ¡®Other Source¡¯
+	* Information about the CRS source if CRSS = ï¿½ï¿½Other Sourceï¿½ï¿½
 	*/
 	CString m_scri;
 
 public:
 	void ReadField(BYTE *&buf);
-	BOOL Save(CFile *file);
+	BOOL Save(libS101::File *file);
 	int GetFieldLength();
 };
 

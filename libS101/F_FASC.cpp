@@ -56,28 +56,28 @@ void F_FASC::ReadField(BYTE *&buf, int loopCnt)
 	//	m_arr.push_back(cont);
 	//}
 }
-BOOL F_FASC::Save(CFile *file)
+BOOL F_FASC::Save(libS101::File *file)
 {
 	//POSITION pos = m_arr.GetHeadPosition();
 
-	file->Write(&m_name.RCNM, 1);
-	file->Write(&m_name.RCID, 4);
-	file->Write(&m_nfac, 2);
-	file->Write(&m_narc, 2);
-	file->Write(&m_faui, 1);
+	file->write(&m_name.RCNM, 1);
+	file->write(&m_name.RCID, 4);
+	file->write(&m_nfac, 2);
+	file->write(&m_narc, 2);
+	file->write(&m_faui, 1);
 	for (auto itor = m_arr.begin(); itor != m_arr.end(); itor++)
 	{
 		FASC *cont = *itor;
 
-		file->Write(&cont->m_natc, 2);
-		file->Write(&cont->m_atix, 2);
-		file->Write(&cont->m_paix, 2);
-		file->Write(&cont->m_atin, 1);
+		file->write(&cont->m_natc, 2);
+		file->write(&cont->m_atix, 2);
+		file->write(&cont->m_paix, 2);
+		file->write(&cont->m_atin, 1);
 		CT2CA outputString(cont->m_atvl, CP_UTF8);
-		file->Write(outputString, (UINT)::strlen(outputString));
-		file->Write(&NonPrintableCharacter::unitTerminator, 1);
+		file->write(outputString, (UINT)::strlen(outputString));
+		file->write(&NonPrintableCharacter::unitTerminator, 1);
 	}
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

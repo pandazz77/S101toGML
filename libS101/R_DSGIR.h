@@ -29,9 +29,9 @@ public:
 
 public:
 	BOOL ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
-	bool Save(CFile *file);
+	bool Save(libS101::File *file);
 
-	// ´º¸Þ¸¯ ÄÚµå·Î ÄÚµå¸¦ °¡Á®¿À´Â ÇÔ¼ö
+	// ï¿½ï¿½ï¿½Þ¸ï¿½ ï¿½Úµï¿½ï¿½ ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 	CString GetFeatureCode(int numericCode);
 	CString GetInformationCode(int numericCode);
 	CString GetAttributeCode(int numericCode);

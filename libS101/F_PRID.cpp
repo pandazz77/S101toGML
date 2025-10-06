@@ -22,14 +22,14 @@ void F_PRID::ReadField(BYTE *&buf)
 	m_rver = buf2uint(buf, 2);
 	m_ruin = *(buf++);
 }
-BOOL F_PRID::Save(CFile *file)
+BOOL F_PRID::Save(libS101::File *file)
 {
-	file->Write(&m_name.RCNM, 1);
-	file->Write(&m_name.RCID, 4);
-	file->Write(&m_rver, 2);
-	file->Write(&m_ruin, 1);
+	file->write(&m_name.RCNM, 1);
+	file->write(&m_name.RCID, 4);
+	file->write(&m_rver, 2);
+	file->write(&m_ruin, 1);
 
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 	return TRUE;
 }
 

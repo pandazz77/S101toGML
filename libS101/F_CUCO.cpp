@@ -41,17 +41,17 @@ void F_CUCO::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(cuco);
 	}
 }
-BOOL F_CUCO::Save(CFile *file)
+BOOL F_CUCO::Save(libS101::File *file)
 {
 	for (auto itor = m_arr.begin(); itor != m_arr.end(); itor++)
 	{
 		CUCO *cuco = *itor;
 		
-		file->Write(&cuco->m_name.RCNM, 1);
-		file->Write(&cuco->m_name.RCID, 4);
-		file->Write(&cuco->m_ornt, 1);
+		file->write(&cuco->m_name.RCNM, 1);
+		file->write(&cuco->m_name.RCID, 4);
+		file->write(&cuco->m_ornt, 1);
 	}
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

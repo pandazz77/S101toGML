@@ -49,7 +49,7 @@ public:
 	int m_displayCategory = 0;
 	int m_radarOver = 0;
 	bool m_hasTextPlacement = false;
-	//	[Text Placement È°¿ë ¿¬±¸]
+	//	[Text Placement È°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½]
 	float* m_textBearing = nullptr;
 
 	double m_depth;
@@ -67,7 +67,7 @@ public:
 
 public:
 	BOOL ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
-	BOOL Save(CFile *file);
+	BOOL Save(libS101::File *file);
 	//void Draw(CDC *pDC, Scaler *scaler, double offset = 0);
 	//void Draw(HDC &hDC, Scaler *scaler, double offset = 0);
 	

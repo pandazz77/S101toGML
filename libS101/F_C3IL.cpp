@@ -44,22 +44,22 @@ void F_C3IL::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(cont);
 	}
 }
-BOOL F_C3IL::Save(CFile *file)
+BOOL F_C3IL::Save(libS101::File *file)
 {
 	//POSITION pos = m_arr.GetHeadPosition();
 
-	file->Write(&m_vcid, 1);
+	file->write(&m_vcid, 1);
 	for (auto itor = m_arr.begin(); itor != m_arr.end(); itor++)
 		//while(pos != NULL)
 	{
 		//ATTR *attr = m_arr.GetNext(pos);
 		C3IL *cont = *itor;
-		file->Write(&cont->m_ycoo, 4);
-		file->Write(&cont->m_xcoo, 4);
-		file->Write(&cont->m_zcoo, 4);
-		//file->Write(&NonPrintableCharacter::unitTerminator, 1);
+		file->write(&cont->m_ycoo, 4);
+		file->write(&cont->m_xcoo, 4);
+		file->write(&cont->m_zcoo, 4);
+		//file->write(&NonPrintableCharacter::unitTerminator, 1);
 	}
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

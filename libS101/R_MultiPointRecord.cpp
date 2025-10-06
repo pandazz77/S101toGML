@@ -92,7 +92,7 @@ BOOL R_MultiPointRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 	return TRUE;
 }
 
-BOOL R_MultiPointRecord::Save(CFile *file)
+BOOL R_MultiPointRecord::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;

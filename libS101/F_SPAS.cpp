@@ -46,20 +46,20 @@ void F_SPAS::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(spas);
 	}
 }
-BOOL F_SPAS::Save(CFile *file)
+BOOL F_SPAS::Save(libS101::File *file)
 {
 	for (auto itor = m_arr.begin(); itor != m_arr.end(); itor++)
 	{
 		SPAS *spas = *itor;
 		
-		file->Write(&spas->m_name.RCNM, 1);
-		file->Write(&spas->m_name.RCID, 4);
-		file->Write(&spas->m_ornt, 1);
-		file->Write(&spas->m_smin, 4);
-		file->Write(&spas->m_smax, 4);
-		file->Write(&spas->m_saui, 1);
+		file->write(&spas->m_name.RCNM, 1);
+		file->write(&spas->m_name.RCID, 4);
+		file->write(&spas->m_ornt, 1);
+		file->write(&spas->m_smin, 4);
+		file->write(&spas->m_smax, 4);
+		file->write(&spas->m_saui, 1);
 	}
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 	return TRUE;
 }
 

@@ -16,6 +16,6 @@ public:
 public:
 	void ReadField(BYTE *&buf);
 	void ReadField(BYTE *&buf, int loopCnt);
-	BOOL Save(CFile *file);
+	BOOL Save(libS101::File *file);
 	int GetFieldLength();
 };

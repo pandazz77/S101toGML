@@ -26,7 +26,7 @@ public:
 
 public:
 	BOOL ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
-	BOOL Save(CFile *file);
+	BOOL Save(libS101::File *file);
 	int GetRCID();
 	std::wstring GetRCIDasWstring();
 };

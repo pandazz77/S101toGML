@@ -74,7 +74,7 @@ BOOL R_PointRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 }
 
 
-BOOL R_PointRecord::Save(CFile *file)
+BOOL R_PointRecord::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;

@@ -7,6 +7,9 @@
 #else
 #include "compat/compat_mfc.h"
 #endif
+
+#include "File.h"
+
 class DRReaderWriter : public DRReader
 {
 public:
@@ -30,6 +33,6 @@ public:
 	BYTE b_fieldPosition;
 
 public:
-	BOOL WriteDRReader(CFile* file);
+	BOOL WriteDRReader(libS101::File* file);
 	void SetByteInfo();
 };

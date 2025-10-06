@@ -139,7 +139,7 @@ BOOL R_DSGIR::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 }
 
 
-bool R_DSGIR::Save(CFile *file)
+bool R_DSGIR::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;

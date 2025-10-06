@@ -171,49 +171,6 @@ private:
     }
 };
 
-// CFile minimal shim for read-only used in code
-class CFile {
-public:
-    enum OpenFlags { modeRead = 0x0000 };
-    CFile() : f_(nullptr), length_(0) {}
-    ~CFile() { if (f_) std::fclose(f_); }
-
-    bool Open(const CString& path, unsigned int /*flags*/) {
-        std::string p8 = narrow(path.std());
-        f_ = std::fopen(p8.c_str(), "rb");
-        if (!f_) return false;
-        std::fseek(f_, 0, SEEK_END);
-        length_ = std::ftell(f_);
-        std::fseek(f_, 0, SEEK_SET);
-        return true;
-    }
-
-    LONGLONG GetLength() const { return length_; }
-
-    size_t Read(void* buf, unsigned int len) {
-        if (!f_) return 0;
-        return std::fread(buf, 1, len, f_);
-    }
-
-    size_t Write(const void* buf, unsigned int len) {
-        if (!f_) return 0;
-        return std::fwrite(buf, 1, len, f_);
-    }
-
-    void Close() { if (f_) { std::fclose(f_); f_ = nullptr; } }
-
-private:
-    static std::string narrow(const std::wstring& ws) {
-        std::string out;
-        out.reserve(ws.size());
-        for (wchar_t c : ws) out.push_back((char)(c & 0xFF));
-        return out;
-    }
-
-    std::FILE* f_;
-    LONGLONG length_;
-};
-
 // Stubs
 inline bool AfxWinInit(void*, void*, const wchar_t*, int) { return true; }
 inline void* GetModuleHandle(void*) { return nullptr; }

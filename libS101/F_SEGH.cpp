@@ -28,17 +28,17 @@ void F_SEGH::ReadField(BYTE *&buf)
 	//m_sbrg = buf2double(buf, 8);
 	//m_angl = buf2double(buf, 8);
 }
-BOOL F_SEGH::Save(CFile *file)
+BOOL F_SEGH::Save(libS101::File *file)
 {
-	file->Write(&m_intp, 1);
-	//file->Write(&m_circ, 1);
-	//file->Write(&m_ycoo, 8);
-	//file->Write(&m_xcoo, 8);
-	//file->Write(&m_dist, 8);
-	//file->Write(&m_disu, 1);
-	//file->Write(&m_sbrg, 8);
-	//file->Write(&m_angl, 8);
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&m_intp, 1);
+	//file->write(&m_circ, 1);
+	//file->write(&m_ycoo, 8);
+	//file->write(&m_xcoo, 8);
+	//file->write(&m_dist, 8);
+	//file->write(&m_disu, 1);
+	//file->write(&m_sbrg, 8);
+	//file->write(&m_angl, 8);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 	return TRUE;
 }
 int F_SEGH::GetFieldLength()

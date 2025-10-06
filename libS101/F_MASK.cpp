@@ -51,18 +51,18 @@ void F_MASK::ReadField(BYTE *&buf, int loopCnt)
 			);
 	}
 }
-BOOL F_MASK::Save(CFile *file)
+BOOL F_MASK::Save(libS101::File *file)
 {
 	for (auto itor = m_arr.begin(); itor != m_arr.end(); itor++)
 	{
 		MASK *mask = itor->second;
 		
-		file->Write(&mask->m_name.RCNM, 1);
-		file->Write(&mask->m_name.RCID, 4);
-		file->Write(&mask->m_mind, 1);
-		file->Write(&mask->m_muin, 1);
+		file->write(&mask->m_name.RCNM, 1);
+		file->write(&mask->m_name.RCID, 4);
+		file->write(&mask->m_mind, 1);
+		file->write(&mask->m_muin, 1);
 	}
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

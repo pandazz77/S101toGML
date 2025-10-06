@@ -65,27 +65,27 @@ void F_GDAT::ReadField(BYTE *&buf)
 	m_cmgl = buf2double(buf, 8);
 }
 
-BOOL F_GDAT::Save(CFile *file)
+BOOL F_GDAT::Save(libS101::File *file)
 {
 	CT2CA outputString(m_dtnm, CP_UTF8);
-	file->Write(outputString, (UINT)::strlen(outputString));
-	file->Write(&NonPrintableCharacter::unitTerminator, 1);
+	file->write(outputString, (UINT)::strlen(outputString));
+	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
 	CT2CA outputString2(m_elnm, CP_UTF8);
-	file->Write(outputString2, (UINT)::strlen(outputString2));
-	file->Write(&NonPrintableCharacter::unitTerminator, 1);
+	file->write(outputString2, (UINT)::strlen(outputString2));
+	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
-	file->Write(&m_esma, 8);
-	file->Write(&m_espt, 1);
-	file->Write(&m_espm, 8);
+	file->write(&m_esma, 8);
+	file->write(&m_espt, 1);
+	file->write(&m_espm, 8);
 
 	CT2CA outputString3(m_cmnm, CP_UTF8);
-	file->Write(outputString3, (UINT)::strlen(outputString3));
-	file->Write(&NonPrintableCharacter::unitTerminator, 1);
+	file->write(outputString3, (UINT)::strlen(outputString3));
+	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
-	file->Write(&m_cmgl, 8);
+	file->write(&m_cmgl, 8);
 
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 	return TRUE;
 }
 

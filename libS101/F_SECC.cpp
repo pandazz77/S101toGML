@@ -28,12 +28,12 @@ void F_SECC::ReadField(BYTE *&buf, int loopCnt)
 	*m_seix = buf2uint(buf, 2);
 	*m_nseg = buf2uint(buf, 2);
 }
-BOOL F_SECC::Save(CFile *file)
+BOOL F_SECC::Save(libS101::File *file)
 {
-	file->Write(m_seui, 1);
-	file->Write(m_seix, 2);
-	file->Write(m_nseg, 2);
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(m_seui, 1);
+	file->write(m_seix, 2);
+	file->write(m_nseg, 2);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

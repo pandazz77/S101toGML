@@ -65,25 +65,25 @@ void F_INAS::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(attr);
 	}
 }
-BOOL F_INAS::Save(CFile *file)
+BOOL F_INAS::Save(libS101::File *file)
 {
-	file->Write(&m_name.RCNM, 1);
-	file->Write(&m_name.RCID, 4);
-	file->Write(&m_niac, 2);
-	file->Write(&m_narc, 2);
-	file->Write(&m_iuin, 1);
+	file->write(&m_name.RCNM, 1);
+	file->write(&m_name.RCID, 4);
+	file->write(&m_niac, 2);
+	file->write(&m_narc, 2);
+	file->write(&m_iuin, 1);
 
 	for(ATTR *attr: m_arr){
-		file->Write(&attr->m_natc, 2);
-		file->Write(&attr->m_atix, 2);
-		file->Write(&attr->m_paix, 2);
-		file->Write(&attr->m_atin, 1);
+		file->write(&attr->m_natc, 2);
+		file->write(&attr->m_atix, 2);
+		file->write(&attr->m_paix, 2);
+		file->write(&attr->m_atin, 1);
 		CT2CA outputString(attr->m_atvl, CP_UTF8);
-		file->Write(outputString, (UINT)::strlen(outputString));
-		file->Write(&NonPrintableCharacter::unitTerminator, 1);
+		file->write(outputString, (UINT)::strlen(outputString));
+		file->write(&NonPrintableCharacter::unitTerminator, 1);
 	}
 	
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

@@ -44,23 +44,23 @@ void F_DSSI::ReadField(BYTE *&buf)
 	m_nofr = buf2uint(buf, 4);
 }
 
-BOOL F_DSSI::Save(CFile *file)
+BOOL F_DSSI::Save(libS101::File *file)
 {
 	
-	file->Write(&m_dcox, 8);
-	file->Write(&m_dcoy, 8);
-	file->Write(&m_dcoz, 8);
-	file->Write(&m_cmfx, 4);
-	file->Write(&m_cmfy, 4);
-	file->Write(&m_cmfz, 4);
-	file->Write(&m_noir, 4);
-	file->Write(&m_nopn, 4);
-	file->Write(&m_nomn, 4);
-	file->Write(&m_nocn, 4);
-	file->Write(&m_noxn, 4);
-	file->Write(&m_nosn, 4);
-	file->Write(&m_nofr, 4);
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&m_dcox, 8);
+	file->write(&m_dcoy, 8);
+	file->write(&m_dcoz, 8);
+	file->write(&m_cmfx, 4);
+	file->write(&m_cmfy, 4);
+	file->write(&m_cmfz, 4);
+	file->write(&m_noir, 4);
+	file->write(&m_nopn, 4);
+	file->write(&m_nomn, 4);
+	file->write(&m_nocn, 4);
+	file->write(&m_noxn, 4);
+	file->write(&m_nosn, 4);
+	file->write(&m_nofr, 4);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	
 	return TRUE;

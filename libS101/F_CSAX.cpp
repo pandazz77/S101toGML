@@ -37,16 +37,16 @@ void F_CSAX::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(csax);
 	}
 }
-BOOL F_CSAX::Save(CFile *file)
+BOOL F_CSAX::Save(libS101::File *file)
 {
 	int len = 0;
 
 	for(CSAX *csax: m_arr){
-		file->Write(&csax->m_axty, 1);
-		file->Write(&csax->m_axum, 1);
+		file->write(&csax->m_axty, 1);
+		file->write(&csax->m_axum, 1);
 	}
 
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

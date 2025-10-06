@@ -10,6 +10,9 @@
 #else
 #include "compat/compat_mfc.h"
 #endif
+
+#include "File.h"
+
 class DRDirectoryInfoWriter : public DRDirectoryInfo
 {
 public:
@@ -18,6 +21,6 @@ public:
 	virtual ~DRDirectoryInfoWriter();
 
 public:
-	BOOL WriteDRDirectory(CFile* file, const DRReader dr);
+	BOOL WriteDRDirectory(libS101::File* file, const DRReader dr);
 	void CheckLength(DRReader *dr);
 };

@@ -50,7 +50,7 @@ DRReaderWriter::~DRReaderWriter(void)
 
 
 
-BOOL DRReaderWriter::WriteDRReader(CFile* file)
+BOOL DRReaderWriter::WriteDRReader(libS101::File* file)
 {
 	SetByteInfo();
 
@@ -66,19 +66,19 @@ BOOL DRReaderWriter::WriteDRReader(CFile* file)
 	//17	3	Extended character set indicator 3 SPACEs
 	//20	4	Entry map (see table A.4) 
 	
-	file->Write(b_recordLength, 5);
-	file->Write(&b_interchangeLevel, 1);
-	file->Write(&b_leaderIdentifier, 1);
-	file->Write(&b_inLineCodeExtensionIndicator, 1);
-	file->Write(&b_versionNumber, 1);
-	file->Write(&b_applicationIndicator, 1);
-	file->Write(b_fieldControlLength, 2);
-	file->Write(b_baseAddressOfFieldArea, 5);
-	file->Write(b_extendedCharacterSetIndicator, 3);
-	file->Write(&b_fieldAreaLoc, 1);
-	file->Write(&b_fieldLength, 1);
-	file->Write(&b_Reserved, 1);
-	file->Write(&b_fieldPosition, 1);
+	file->write(b_recordLength, 5);
+	file->write(&b_interchangeLevel, 1);
+	file->write(&b_leaderIdentifier, 1);
+	file->write(&b_inLineCodeExtensionIndicator, 1);
+	file->write(&b_versionNumber, 1);
+	file->write(&b_applicationIndicator, 1);
+	file->write(b_fieldControlLength, 2);
+	file->write(b_baseAddressOfFieldArea, 5);
+	file->write(b_extendedCharacterSetIndicator, 3);
+	file->write(&b_fieldAreaLoc, 1);
+	file->write(&b_fieldLength, 1);
+	file->write(&b_Reserved, 1);
+	file->write(&b_fieldPosition, 1);
 	return TRUE;
 }
 

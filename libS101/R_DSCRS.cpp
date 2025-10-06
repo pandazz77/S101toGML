@@ -76,7 +76,7 @@ BOOL R_DSCRS::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 }
 
 
-BOOL R_DSCRS::Save(CFile *file)
+BOOL R_DSCRS::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;

@@ -23,13 +23,13 @@ void F_CCOC::ReadField(BYTE *&buf)
 	m_ncco = buf2uint(buf, 2);
 }
 
-BOOL F_CCOC::Save(CFile *file)
+BOOL F_CCOC::Save(libS101::File *file)
 {
-	file->Write(&m_ccui, 1);
-	file->Write(&m_ccix, 2);
-	file->Write(&m_ncco, 2);
+	file->write(&m_ccui, 1);
+	file->write(&m_ccix, 2);
+	file->write(&m_ncco, 2);
 
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 	return TRUE;
 }
 

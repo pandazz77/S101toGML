@@ -64,7 +64,7 @@ BOOL R_SurfaceRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 	return TRUE;
 }
 
-BOOL R_SurfaceRecord::Save(CFile *file)
+BOOL R_SurfaceRecord::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;

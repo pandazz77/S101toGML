@@ -6,6 +6,8 @@
 #include "compat/compat_mfc.h"
 #endif
 
+#include "File.h"
+
 class Field
 {
 public:
@@ -14,6 +16,6 @@ public:
 
 public:
 	virtual void ReadField(BYTE *&buf) {};
-	virtual BOOL Save(CFile *file) { return TRUE; };
+	virtual BOOL Save(libS101::File *file) { return TRUE; };
 	virtual int GetFieldLength() { return 0; };
 };

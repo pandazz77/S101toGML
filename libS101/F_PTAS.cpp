@@ -49,15 +49,15 @@ void F_PTAS::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(ptas);
 	}
 }
-BOOL F_PTAS::Save(CFile *file)
+BOOL F_PTAS::Save(libS101::File *file)
 {	
 	for (auto i = m_arr.begin(); i != m_arr.end(); i++)
 	{
 		auto ptas = *i;
 
-		file->Write(&ptas->m_name.RCNM, 1);
-		file->Write(&ptas->m_name.RCID, 4);
-		file->Write(&ptas->m_topi, 1);
+		file->write(&ptas->m_name.RCNM, 1);
+		file->write(&ptas->m_name.RCID, 4);
+		file->write(&ptas->m_topi, 1);
 	}
 
 	//POSITION pos = m_arr.GetHeadPosition();
@@ -66,11 +66,11 @@ BOOL F_PTAS::Save(CFile *file)
 	//{
 	//	PTAS *ptas = m_arr.GetNext(pos);
 	//	
-	//	file->Write(&ptas->m_name.RCNM, 1);
-	//	file->Write(&ptas->m_name.RCID, 4);
-	//	file->Write(&ptas->m_topi, 1);
+	//	file->write(&ptas->m_name.RCNM, 1);
+	//	file->write(&ptas->m_name.RCID, 4);
+	//	file->write(&ptas->m_topi, 1);
 	//}
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

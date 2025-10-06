@@ -43,18 +43,18 @@ void F_PROJ::ReadField(BYTE *&buf, int loopCnt)
 	m_feas = buf2double(buf, 8);
 	m_fnor = buf2double(buf, 8);
 }
-BOOL F_PROJ::Save(CFile *file)
+BOOL F_PROJ::Save(libS101::File *file)
 {
-	file->Write(&m_prom, 1);
-	file->Write(&m_prp1, 8);
-	file->Write(&m_prp2, 8);
-	file->Write(&m_prp3, 8);
-	file->Write(&m_prp4, 8);
-	file->Write(&m_prp5, 8);
-	file->Write(&m_feas, 8);
-	file->Write(&m_fnor, 8);
+	file->write(&m_prom, 1);
+	file->write(&m_prp1, 8);
+	file->write(&m_prp2, 8);
+	file->write(&m_prp3, 8);
+	file->write(&m_prp4, 8);
+	file->write(&m_prp5, 8);
+	file->write(&m_feas, 8);
+	file->write(&m_fnor, 8);
 	
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

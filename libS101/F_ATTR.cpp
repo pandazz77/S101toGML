@@ -49,7 +49,7 @@ void F_ATTR::ReadField(BYTE *&buf, int loopCnt)
 	}
 }
 
-BOOL F_ATTR::Save(CFile *file)
+BOOL F_ATTR::Save(libS101::File *file)
 {
 	//POSITION pos = m_arr.GetHeadPosition();
 
@@ -59,15 +59,15 @@ BOOL F_ATTR::Save(CFile *file)
 		//ATTR *attr = m_arr.GetNext(pos);
 		ATTR *attr = *itor;
 
-		file->Write(&attr->m_natc, 2);
-		file->Write(&attr->m_atix, 2);
-		file->Write(&attr->m_paix, 2);
-		file->Write(&attr->m_atin, 1);
+		file->write(&attr->m_natc, 2);
+		file->write(&attr->m_atix, 2);
+		file->write(&attr->m_paix, 2);
+		file->write(&attr->m_atin, 1);
 		CT2CA outputString(attr->m_atvl, CP_UTF8);
-		file->Write(outputString, (UINT)::strlen(outputString));
-		file->Write(&NonPrintableCharacter::unitTerminator, 1);
+		file->write(outputString, (UINT)::strlen(outputString));
+		file->write(&NonPrintableCharacter::unitTerminator, 1);
 	}
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

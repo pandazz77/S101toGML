@@ -42,7 +42,7 @@ void F_C2IL::ReadField(BYTE *&buf, int loopCnt)
 	}
 }
 
-BOOL F_C2IL::Save(CFile *file)
+BOOL F_C2IL::Save(libS101::File *file)
 {
 	//POSITION pos = m_arr.GetHeadPosition();
 
@@ -52,11 +52,11 @@ BOOL F_C2IL::Save(CFile *file)
 		//ATTR *attr = m_arr.GetNext(pos);
 		IC2D *cont = *itor;
 
-		file->Write(&cont->m_ycoo, 4);
-		file->Write(&cont->m_xcoo, 4);
-//		file->Write(&NonPrintableCharacter::usnitTerminator, 1);
+		file->write(&cont->m_ycoo, 4);
+		file->write(&cont->m_xcoo, 4);
+//		file->write(&NonPrintableCharacter::usnitTerminator, 1);
 	}
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

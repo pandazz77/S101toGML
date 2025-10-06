@@ -196,21 +196,22 @@ namespace libS101
 
 		SetFilePath(_filepath);
 
-		CFile file;
+		File file;
 
-		if (file.Open(_filepath, CFile::modeRead))
+		file.open(CT2CA(_filepath,CP_UTF8),std::ios::in);
+		if (file.is_open())
 		{
 			BYTE* pBuf = nullptr;
 			BYTE* sBuf = nullptr;
 			BYTE* endOfBuf = nullptr;
 
 
-			LONGLONG fileLength = file.GetLength();
+			long long fileLength = file.length();
 
 			pBuf = new BYTE[(unsigned int)fileLength];
 			sBuf = pBuf;
 
-			file.Read(pBuf, (unsigned)fileLength);
+			file.read(pBuf, (unsigned)fileLength);
 
 
 			m_FileType = FILE_S_100_VECTOR;
@@ -218,7 +219,7 @@ namespace libS101
 
 			endOfBuf = pBuf + fileLength - 1;
 
-			file.Close();
+			file.close();
 
 			ReadDDR(pBuf);
 

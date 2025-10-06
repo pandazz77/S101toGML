@@ -22,12 +22,12 @@ void F_FOID::ReadField(BYTE *&buf)
 	m_objName.m_fids = buf2uint(buf, 2);
 }
 
-BOOL F_FOID::Save(CFile *file)
+BOOL F_FOID::Save(libS101::File *file)
 {
-	file->Write(&m_objName.m_agen, 2);
-	file->Write(&m_objName.m_fidn, 4);
-	file->Write(&m_objName.m_fids, 2);
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&m_objName.m_agen, 2);
+	file->write(&m_objName.m_fidn, 4);
+	file->write(&m_objName.m_fids, 2);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }

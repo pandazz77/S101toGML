@@ -19,12 +19,12 @@ public:
 public:
 	F_CCID             m_ccid;
 	std::list<F_INAS*> m_inas;
-	F_CCOC*            m_ccoc = nullptr; // Update ÆÄÀÏ Àü¿ë
+	F_CCOC*            m_ccoc = nullptr; // Update ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	std::list<F_CUCO*> m_cuco;
 
 public:
 	BOOL ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
-	BOOL Save(CFile *file);
+	BOOL Save(libS101::File *file);
 	int GetRCID();
 	std::wstring GetRCIDasWstring();
 };

@@ -45,19 +45,19 @@ void F_RIAS::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(rias);
 	}
 }
-BOOL F_RIAS::Save(CFile *file)
+BOOL F_RIAS::Save(libS101::File *file)
 {
 	for (auto itorParent = m_arr.begin(); itorParent != m_arr.end(); itorParent++)
 	{
 		RIAS* rias = *itorParent;
 		
-		file->Write(&rias->m_name.RCNM, 1);
-		file->Write(&rias->m_name.RCID, 4);
-		file->Write(&rias->m_ornt, 1);
-		file->Write(&rias->m_usag, 1);
-		file->Write(&rias->m_raui, 1);
+		file->write(&rias->m_name.RCNM, 1);
+		file->write(&rias->m_name.RCID, 4);
+		file->write(&rias->m_ornt, 1);
+		file->write(&rias->m_usag, 1);
+		file->write(&rias->m_raui, 1);
 	}
-	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
+	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
 }
