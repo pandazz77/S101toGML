@@ -68,37 +68,37 @@ namespace libS101
 		bool Open(libS101::String _filepath);
 		void Save(libS101::String _filepath, libS101::String extend);
 
-		std::string GetEncodingSpecificationToString();
-		libS101::String GetEncodingSpecification();
+		std::string GetEncodingSpecificationToString() const;
+		libS101::String GetEncodingSpecification() const;
 
-		std::string GetDatasetTitleToString();
-		libS101::String GetDatasetTitle();
+		std::string GetDatasetTitleToString() const;
+		libS101::String GetDatasetTitle() const;
 
-		std::string GetDatasetEditionToString();
-		libS101::String GetEncodingSpecificationEdition();
-		libS101::String GetDatasetEdition();
+		std::string GetDatasetEditionToString() const;
+		libS101::String GetEncodingSpecificationEdition() const;
+		libS101::String GetDatasetEdition() const;
 
-		libS101::String GetDatasetReferenceDate();
-		std::string GetEncodingSpecificationEditionToString();
+		libS101::String GetDatasetReferenceDate() const;
+		std::string GetEncodingSpecificationEditionToString() const;
 
-		libS101::String GetProductIdentifier();
-		std::string GetProductIdentifierToString();
-		std::string GetDatasetReferenceDataToString();
+		libS101::String GetProductIdentifier() const;
+		std::string GetProductIdentifierToString() const;
+		std::string GetDatasetReferenceDataToString() const;
 
-		libS101::String GetApplicationProfile();
-		std::string GetApplicationProfileToString();
+		libS101::String GetApplicationProfile() const;
+		std::string GetApplicationProfileToString() const;
 
-		libS101::String GetDatasetFileIdentifier();
-		std::string GetDatasetFileIdentifierToString();
+		libS101::String GetDatasetFileIdentifier() const;
+		std::string GetDatasetFileIdentifierToString() const;
 
-		libS101::String GetProductEdition();
-		std::string GetProductEditionToString();
+		libS101::String GetProductEdition() const;
+		std::string GetProductEditionToString() const;
 
-		libS101::String GetDatasetLanguage();
-		std::string GetDatasetLanguageToString();
+		libS101::String GetDatasetLanguage() const;
+		std::string GetDatasetLanguageToString() const;
 
-		libS101::String GetDatasetAbstract();
-		std::string GetDatasetAbstractToString();
+		libS101::String GetDatasetAbstract() const;
+		std::string GetDatasetAbstractToString() const;
 
 	private:
 		void InsertInformationRecord(std::int64_t key, R_InformationRecord* record);

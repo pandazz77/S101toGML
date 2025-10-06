@@ -40,7 +40,7 @@ public:
 	libS101::String GetFilePath();
 
 	void SetFileName(libS101::String& value);
-	libS101::String GetFileName();
+	libS101::String GetFileName() const;
 
 	void SetFileType(S100_FileType value);
 	S100_FileType GetFileType();

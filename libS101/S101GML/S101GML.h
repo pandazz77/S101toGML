@@ -11,7 +11,8 @@ class S101GML{
         void Save(const libS101::String &path);
 
     private:
-        libS101::S101 cell;
+        const libS101::S101 &cell;
+        MBR invMBR; // inversed MBR
         std::unordered_map<std::string, pugi::xml_node*> objectPugiXmlElementMap;
 
         void SetInformationsType(pugi::xml_document* doc, pugi::xml_node parentNode, std::string productNamespace);

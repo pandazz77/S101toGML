@@ -279,12 +279,12 @@ namespace libS101
 		S100Utilities::OutputDebugString(L"S101::Save DOESNT IMPLEMENTED\n");
 	}
 
-	std::string S101::GetEncodingSpecificationToString()
+	std::string S101::GetEncodingSpecificationToString() const
 	{
 		return GetEncodingSpecification().str();
 	}
 
-	libS101::String S101::GetEncodingSpecification()
+	libS101::String S101::GetEncodingSpecification() const
 	{
 		return m_dsgir.m_dsid.m_ensp;
 	}
@@ -336,104 +336,104 @@ namespace libS101
 		return true;
 	}
 
-	std::string S101::GetEncodingSpecificationEditionToString()
+	std::string S101::GetEncodingSpecificationEditionToString() const
 	{
 		return GetEncodingSpecificationEdition().str();
 	}
 
-	libS101::String S101::GetProductIdentifier()
+	libS101::String S101::GetProductIdentifier() const
 	{
 		return m_dsgir.m_dsid.m_prsp;
 	}
 
-	std::string S101::GetProductIdentifierToString()
+	std::string S101::GetProductIdentifierToString() const
 	{
 		return GetProductIdentifier().str();
 	}
 
-	libS101::String S101::GetProductEdition()
+	libS101::String S101::GetProductEdition() const
 	{
 		return m_dsgir.m_dsid.m_pred;
 	}
 
-	std::string S101::GetProductEditionToString()
+	std::string S101::GetProductEditionToString() const
 	{
 		return GetProductEdition().str();
 	}
 
-	std::string S101::GetDatasetReferenceDataToString()
+	std::string S101::GetDatasetReferenceDataToString() const
 	{
 		return GetDatasetReferenceDate().str();
 	}
 
-	libS101::String S101::GetApplicationProfile()
+	libS101::String S101::GetApplicationProfile() const
 	{
 		return m_dsgir.m_dsid.m_prof;
 	}
 
-	std::string S101::GetApplicationProfileToString()
+	std::string S101::GetApplicationProfileToString() const
 	{
 		return GetApplicationProfile().str();
 	}
 
-	std::string S101::GetDatasetEditionToString()
+	std::string S101::GetDatasetEditionToString() const
 	{
 		return GetDatasetEdition().str();
 	}
 
-	std::string S101::GetDatasetFileIdentifierToString()
+	std::string S101::GetDatasetFileIdentifierToString() const
 	{
 		return GetDatasetFileIdentifier().str();
 	}
 
 
-	libS101::String S101::GetDatasetFileIdentifier()
+	libS101::String S101::GetDatasetFileIdentifier() const
 	{
 		return m_dsgir.m_dsid.m_dsnm;
 	}
 
-	libS101::String S101::GetDatasetReferenceDate()
+	libS101::String S101::GetDatasetReferenceDate() const
 	{
 		return m_dsgir.m_dsid.m_dsrd;
 	}
 
-	libS101::String S101::GetDatasetEdition()
+	libS101::String S101::GetDatasetEdition() const
 	{
 		return m_dsgir.m_dsid.m_dsed;
 	}
 
 
-	libS101::String S101::GetEncodingSpecificationEdition()
+	libS101::String S101::GetEncodingSpecificationEdition() const
 	{
 		return m_dsgir.m_dsid.m_ened;
 	}
 
-	libS101::String S101::GetDatasetTitle()
+	libS101::String S101::GetDatasetTitle() const
 	{
 		return m_dsgir.m_dsid.m_dstl;
 	}
-	std::string S101::GetDatasetTitleToString()
+	std::string S101::GetDatasetTitleToString() const
 	{
 		return GetDatasetTitle().str();
 	}
 
-	std::string S101::GetDatasetLanguageToString()
+	std::string S101::GetDatasetLanguageToString() const
 	{
 		return GetDatasetLanguage().str();
 	}
 
-	libS101::String S101::GetDatasetLanguage()
+	libS101::String S101::GetDatasetLanguage() const
 	{
 		return m_dsgir.m_dsid.m_dslg;
 	}
 
 
-	libS101::String S101::GetDatasetAbstract()
+	libS101::String S101::GetDatasetAbstract() const
 	{
 		return m_dsgir.m_dsid.m_dsab;
 	}
 
-	std::string S101::GetDatasetAbstractToString()
+	std::string S101::GetDatasetAbstractToString() const
 	{
 		return GetDatasetAbstract().str();
 	}

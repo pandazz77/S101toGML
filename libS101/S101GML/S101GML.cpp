@@ -101,19 +101,19 @@ void S101GML::GmlifileMakeByPugi(libS101::String _filePath)
     Envelope.append_attribute("srsName") = "EPSG:4326";
     Envelope.append_attribute("srsDimension") = "2";
 
-    inverseProjection(cell.mbr.xmin, cell.mbr.ymin);
-    inverseProjection(cell.mbr.xmax, cell.mbr.ymax);
+    invMBR = cell.mbr;
+    inverseProjection(invMBR);
 
-    std::wstring strX = get_wstring_from_coordinate_1((int)(cell.mbr.xmin * cell.m_dsgir.m_dssi.m_cmfx));
-    std::wstring strY = get_wstring_from_coordinate_1((int)(cell.mbr.ymin * cell.m_dsgir.m_dssi.m_cmfy));
+    std::wstring strX = get_wstring_from_coordinate_1((int)(invMBR.xmin * cell.m_dsgir.m_dssi.m_cmfx));
+    std::wstring strY = get_wstring_from_coordinate_1((int)(invMBR.ymin * cell.m_dsgir.m_dssi.m_cmfy));
     std::wstring strCoordi = strX + L" " + strY;
     std::string cStrCoordi = pugi::as_utf8(strCoordi);
 
     pugi::xml_node lowerCorner = Envelope.append_child("gml:lowerCorner");
     lowerCorner.append_child(pugi::node_pcdata).set_value(cStrCoordi.c_str());
 
-    strX = get_wstring_from_coordinate_1((int)(cell.mbr.xmax * cell.m_dsgir.m_dssi.m_cmfx));
-    strY = get_wstring_from_coordinate_1((int)(cell.mbr.ymax * cell.m_dsgir.m_dssi.m_cmfy));
+    strX = get_wstring_from_coordinate_1((int)(invMBR.xmax * cell.m_dsgir.m_dssi.m_cmfx));
+    strY = get_wstring_from_coordinate_1((int)(invMBR.ymax * cell.m_dsgir.m_dssi.m_cmfy));
 
     strCoordi = strX + L" " + strY;
     cStrCoordi = pugi::as_utf8(strCoordi);
