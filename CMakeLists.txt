@@ -8,27 +8,8 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # Options
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
-# Add external libraries
-add_library(clipper STATIC
-    extlibs/Clipper/include/clipper.cpp
-)
-target_include_directories(clipper PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/extlibs/Clipper/include
-)
-
-# Prefer system pugixml; fallback to fetching upstream
-find_path(PUGIXML_INCLUDE_DIR pugixml.hpp)
-find_library(PUGIXML_LIBRARY pugixml)
-include(FetchContent)
-if(NOT PUGIXML_INCLUDE_DIR OR NOT PUGIXML_LIBRARY)
-    message(STATUS "pugixml not found on system; fetching upstream...")
-    FetchContent_Declare(
-      pugixml
-      GIT_REPOSITORY https://github.com/zeux/pugixml.git
-      GIT_TAG v1.14
-    )
-    FetchContent_MakeAvailable(pugixml)
-endif()
+add_subdirectory(extlibs/pugixml)
+add_subdirectory(extlibs/Clipper)
 
 # Collect libS101 sources
 file(GLOB LIBS101_SOURCES
