@@ -69,7 +69,7 @@ void DDR::SetBytes(int size, std::uint8_t* value)
 	if (size > 0 && nullptr != value)
 	{
 		Allocate(size);
-		memcpy_s(content, size, value, size);
+		std::memcpy(content,value,size);
 	}
 }
 

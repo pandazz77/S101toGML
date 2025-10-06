@@ -2,8 +2,12 @@
 
 #include <string>
 
-class S100Utilities
+namespace S100Utilities
 {
-public:
-	static int GetScaleByLevel(int level);
+	int GetScaleByLevel(int level);
+	void TRACE(const char* format, ...);
+	
+	inline void OutputDebugString(const wchar_t* s) {
+		if (s) std::fwprintf(stderr, L"%ls", s);
+	}
 };

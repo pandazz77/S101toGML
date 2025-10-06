@@ -6,6 +6,7 @@
 #include "DRDirectoryInfo.h"
 #include "DRReaderWriter.h"
 #include "DRDirectoryInfoWriter.h"
+#include "S100Utilities.h"
 
 R_InformationRecord::R_InformationRecord(void)
 {
@@ -79,7 +80,7 @@ bool R_InformationRecord::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 		}
 		
 		if(*(buf++)!= 0x1E)//{}
-			TRACE(W2A(TEXT("terminator error")));
+			S100Utilities::TRACE(W2A(TEXT("terminator error")));
 	}
 
 	return true;

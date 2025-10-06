@@ -9,6 +9,7 @@
 #include "DRDirectoryInfo.h"
 #include "DRDirectory.h"
 #include "DRDirectoryInfoWriter.h"
+#include "S100Utilities.h"
 
 R_DSCRS::R_DSCRS()
 {
@@ -70,7 +71,7 @@ bool R_DSCRS::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 			buf += dir->GetDirectory(i)->length;
 		}
 		if(*(buf++)!= 0x1E)//{}
-			TRACE(W2A(TEXT("terminator error")));
+			S100Utilities::TRACE(W2A(TEXT("terminator error")));
 	}
 	return true;
 }

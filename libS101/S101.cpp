@@ -40,6 +40,8 @@
 #include "PTAS.h"
 #include "F_PTAS.h"
 #include "IC2D.h"
+#include "S100Utilities.h"
+
 
 #include <fstream>
 #include <iostream>
@@ -729,7 +731,7 @@ namespace libS101
 							auto ischild = parent.append_move(pElement);
 							if (!ischild)
 							{
-								OutputDebugString(L"�ڽ�ȭ�� �����߽��ϴ�.");
+								S100Utilities::OutputDebugString(L"�ڽ�ȭ�� �����߽��ϴ�.");
 							}
 						}
 
@@ -1989,7 +1991,7 @@ namespace libS101
 
 			if (countPTAS != 1 && countPTAS != 2)
 			{
-				OutputDebugString(L"Invalid count of PTAS of Curve Record\n");
+				S100Utilities::OutputDebugString(L"Invalid count of PTAS of Curve Record\n");
 			}
 
 			auto beginPointKey = r->m_ptas->m_arr.front()->m_name.GetName();
@@ -2019,7 +2021,7 @@ namespace libS101
 			}
 			else
 			{
-				OutputDebugString(L"Invalied ORNT\n");
+				S100Utilities::OutputDebugString(L"Invalied ORNT\n");
 			}
 
 			// C2IL
@@ -2045,12 +2047,12 @@ namespace libS101
 				}
 				else
 				{
-					OutputDebugString(L"Invalied ORNT\n");
+					S100Utilities::OutputDebugString(L"Invalied ORNT\n");
 				}
 			}
 			else
 			{
-				OutputDebugString(L"Invalied C2IL count\n");
+				S100Utilities::OutputDebugString(L"Invalied C2IL count\n");
 			}
 
 			// PTAS
@@ -2064,7 +2066,7 @@ namespace libS101
 			}
 			else
 			{
-				OutputDebugString(L"Invalied ORNT\n");
+				S100Utilities::OutputDebugString(L"Invalied ORNT\n");
 			}
 		}
 
@@ -2175,7 +2177,7 @@ namespace libS101
 				}
 				else
 				{
-					OutputDebugString(L"Invalid RCNM in CUCO\n");
+					S100Utilities::OutputDebugString(L"Invalid RCNM in CUCO\n");
 					return false;
 				}
 			}

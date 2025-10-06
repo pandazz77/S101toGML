@@ -10,6 +10,7 @@
 #include "DRDirectory.h"
 #include "DRReaderWriter.h"
 #include "DRDirectoryInfoWriter.h"
+#include "S100Utilities.h"
 
 R_MultiPointRecord::R_MultiPointRecord(void)
 {
@@ -53,7 +54,7 @@ bool R_MultiPointRecord::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 			inas->ReadField(buf);
 			m_inas.push_back(inas);
 
-			OutputDebugString(L"@@@ INAS @@@ \n\n");
+			S100Utilities::OutputDebugString(L"@@@ INAS @@@ \n\n");
 		}
 		else if (dir->GetDirectory(i)->tag == *((unsigned int*)"COCC"))
 		{

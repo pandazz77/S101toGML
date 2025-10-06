@@ -138,16 +138,8 @@ private:
     }
 };
 
-inline void OutputDebugString(const wchar_t* s) {
-    if (s) std::fwprintf(stderr, L"%ls", s);
-}
-
 #define _T(x) L##x
 #define TEXT(x) L##x
-
-#ifndef memcpy_s
-#define memcpy_s(dest, destsz, src, count) std::memcpy((dest), (src), (count))
-#endif
 
 // UTF-8 helpers and CT2CA stub
 #define CP_UTF8 65001
@@ -186,10 +178,6 @@ private:
     }
     std::string buf_;
 };
-
-#ifndef TRACE
-#define TRACE(...) do { fprintf(stderr, __VA_ARGS__); fputc('\n', stderr); } while(0)
-#endif
 
 #endif // _WIN32
 

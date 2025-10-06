@@ -89,7 +89,7 @@ std::uint32_t buf2uint(std::uint8_t*& buf, int size)
 	//	//ret = ret << 8 | *buf;
 	//	//buf++;
 	//}
-	memcpy_s(&ret, size, buf, size);
+	std::memcpy(&ret,buf,size);
 
 	buf += size;
 	return ret;
@@ -104,7 +104,7 @@ std::uint32_t buf2int(std::uint8_t*& buf, int size)
 	//	//ret = ret << 8 | *buf;
 	//	//buf++;
 	//}
-	memcpy_s(&ret, size, buf, size);
+	std::memcpy(&ret,buf,size);
 
 	buf += size;
 	return ret;
@@ -124,7 +124,7 @@ std::uint32_t atoi(std::uint8_t*& buf, int len)
 double buf2double(std::uint8_t*& buf, int size)
 {
 	double ret = 0;
-	memcpy_s(&ret, 8, buf, 8);
+	std::memcpy(&ret,buf,8);
 	buf += 8;
 	return ret;
 	//std::string Binary;

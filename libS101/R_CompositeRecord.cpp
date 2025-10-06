@@ -7,6 +7,7 @@
 #include "DRDirectory.h"
 #include "DRReaderWriter.h"
 #include "DRDirectoryInfoWriter.h"
+#include "S100Utilities.h"
 
 R_CompositeRecord::R_CompositeRecord(void)
 {
@@ -48,7 +49,7 @@ bool R_CompositeRecord::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 
 			m_inas.push_back(inas);
 
-			OutputDebugString(L"@@@ INAS @@@ \n\n");
+			S100Utilities::OutputDebugString(L"@@@ INAS @@@ \n\n");
 		}
 		else if (dir->GetDirectory(i)->tag == *((unsigned int*)"COCC"))
 		{
@@ -72,7 +73,7 @@ bool R_CompositeRecord::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 		
 		if (*(buf++) != 0x1E)
 		{
-			TRACE(W2A(TEXT("terminator error")));
+			S100Utilities::TRACE(W2A(TEXT("terminator error")));
 		}
 	}
 	return true;
