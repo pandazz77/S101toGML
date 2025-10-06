@@ -79,7 +79,7 @@ public:
 	* 4 : Text Instruction
 	*/
 	//void Draw(HDC &hDC, Scaler *scaler, int type, int priority, double offset = 0);
-	void CreateCS(S101Cell *cell, CString csName, bool bSENC);
+	void CreateCS(S101Cell *cell, libS101::String csName, bool bSENC);
 	//MBR GetMBR();
 	int GetRCID();
 	//void GetXYPointOfTheVisiblePoints(double &x, double &y);

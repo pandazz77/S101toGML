@@ -32,12 +32,12 @@ public:
 	bool Save(libS101::File *file);
 
 	// ���޸� �ڵ�� �ڵ带 �������� �Լ�
-	CString GetFeatureCode(int numericCode);
-	CString GetInformationCode(int numericCode);
-	CString GetAttributeCode(int numericCode);
-	CString GetInformationAssociationCode(int numericCode);
-	CString GetFeatureAssociationCode(int numericCode);
-	CString GetAssociationRoleCode(int numericCode);
+	libS101::String GetFeatureCode(int numericCode);
+	libS101::String GetInformationCode(int numericCode);
+	libS101::String GetAttributeCode(int numericCode);
+	libS101::String GetInformationAssociationCode(int numericCode);
+	libS101::String GetFeatureAssociationCode(int numericCode);
+	libS101::String GetAssociationRoleCode(int numericCode);
 
 	//void Update(R_DSGIR* record);
 };

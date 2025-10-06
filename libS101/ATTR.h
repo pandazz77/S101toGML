@@ -5,6 +5,9 @@
 #else
 #include "compat/compat_mfc.h"
 #endif
+
+#include "String.h"
+
 // Attribute Field
 struct ATTR
 {
@@ -45,7 +48,7 @@ public:
 	* Format		: A()
 	* A string containing a valid value for the domain of the attribute specified by the subfields above.
 	*/
-	CString m_atvl = L"";
+	libS101::String m_atvl = L"";
 
 public:
 	static int GetOffsetToATVL();

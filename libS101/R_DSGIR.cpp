@@ -292,7 +292,7 @@ bool R_DSGIR::Save(libS101::File *file)
 }
 
 
-CString R_DSGIR::GetFeatureCode(int numericCode)
+libS101::String R_DSGIR::GetFeatureCode(int numericCode)
 {
 	auto item = m_ftcs->m_arr.find(numericCode);
 
@@ -306,7 +306,7 @@ CString R_DSGIR::GetFeatureCode(int numericCode)
 }
 
 
-CString R_DSGIR::GetInformationCode(int numericCode)
+libS101::String R_DSGIR::GetInformationCode(int numericCode)
 {
 	auto item = m_itcs->m_arr.find(numericCode);
 
@@ -320,7 +320,7 @@ CString R_DSGIR::GetInformationCode(int numericCode)
 }
 
 
-CString R_DSGIR::GetAttributeCode(int numericCode)
+libS101::String R_DSGIR::GetAttributeCode(int numericCode)
 {
 	auto item = m_atcs->m_arr.find(numericCode);
 
@@ -334,7 +334,7 @@ CString R_DSGIR::GetAttributeCode(int numericCode)
 }
 
 
-CString R_DSGIR::GetInformationAssociationCode(int numericCode)
+libS101::String R_DSGIR::GetInformationAssociationCode(int numericCode)
 {
 	auto item = m_iacs->m_arr.find(numericCode);
 
@@ -348,7 +348,7 @@ CString R_DSGIR::GetInformationAssociationCode(int numericCode)
 }
 
 
-CString R_DSGIR::GetFeatureAssociationCode(int numericCode)
+libS101::String R_DSGIR::GetFeatureAssociationCode(int numericCode)
 {
 	auto item = m_facs->m_arr.find(numericCode);
 
@@ -362,7 +362,7 @@ CString R_DSGIR::GetFeatureAssociationCode(int numericCode)
 }
 
 
-CString R_DSGIR::GetAssociationRoleCode(int numericCode)
+libS101::String R_DSGIR::GetAssociationRoleCode(int numericCode)
 {
 	auto item = m_arcs->m_arr.find(numericCode);
 

@@ -20,8 +20,8 @@ int main(int argc, char* argv[])
 {
 	int nRetCode = 0;
 
-	CString filepath;
-	CString savepath;
+	libS101::String filepath;
+	libS101::String savepath;
 
 	if (argc < 3)
 	{
@@ -46,11 +46,11 @@ int main(int argc, char* argv[])
 		}
 
 		std::string file = argv[1];
-		filepath = file.c_str();
+		filepath = file;
 		std::cout << "Value : " << filepath << std::endl;
 
 		string save = argv[2];
-		savepath = save.c_str();
+		savepath = save;
 		std::cout << "Value : " << savepath << std::endl;
 	}
 

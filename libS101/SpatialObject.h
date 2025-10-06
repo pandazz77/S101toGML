@@ -9,6 +9,7 @@
 #include "compat/compat_mfc.h"
 #endif
 #include <string>
+#include "String.h"
 
 class Layer;
 class Scaler;
@@ -24,28 +25,28 @@ public:
 	S100_FileType m_FileType; // ���� Ÿ�� : SHP, S-57, S-101, GML ����
 
 private:
-	CString m_FilePath; // ���� ��ü ��� (�̸� ����)
-	CString m_FileName; // ���� �̸� (Ȯ���� ����)
+	libS101::String m_FilePath; // ���� ��ü ��� (�̸� ����)
+	libS101::String m_FileName; // ���� �̸� (Ȯ���� ����)
 
 public:
-	virtual bool Open(CString _filepath);
+	virtual bool Open(libS101::String _filepath);
 	/*virtual void Draw(CDC *pDC, Scaler *scaler, double offset = 0) {};
 	virtual void Draw(HDC &hDC, Scaler *scaler, double offset = 0) {};
 	virtual void Draw(HDC &hDC, Scaler *scaler, int priority, int geoType, double offset = 0) {};
 	virtual void Draw(GISLibrary::D2D1Resources* D2, Scaler* scaler) {};
 	virtual void Draw(CDCRenderTarget* pRenderTarget, Scaler *scaler, double offsetX = 0, double offsetY = 0) {};
 	virtual void Draw(ID2D1HwndRenderTarget* pRenderTarget, ID2D1Factory *pDXFactory, Scaler *scaler, double offsetX = 0, double offsetY = 0) {};*/
-	virtual void Save(CString filename, CString extend);
+	virtual void Save(libS101::String filename, libS101::String extend);
 
 	void SetLayer(Layer* value);
 	Layer* GetLayer();
 
 
-	void SetFilePath(CString& value);
-	CString GetFilePath();
+	void SetFilePath(libS101::String& value);
+	libS101::String GetFilePath();
 
-	void SetFileName(CString& value);
-	CString GetFileName();
+	void SetFileName(libS101::String& value);
+	libS101::String GetFileName();
 
 	void SetFileType(S100_FileType value);
 	S100_FileType GetFileType();

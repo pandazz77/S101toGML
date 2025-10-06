@@ -25,17 +25,17 @@ void F_VDAT::ReadField(std::uint8_t *&buf)
 
 bool F_VDAT::Save(libS101::File *file)
 {
-	CT2CA outputString(m_dtnm, CP_UTF8);
+	const char* outputString = m_dtnm.c_str();
 	file->write(outputString, (std::uint32_t)::strlen(outputString));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	
-	CT2CA outputString2(m_dtid, CP_UTF8);
+	const char* outputString2 = m_dtid.c_str();
 	file->write(outputString2, (std::uint32_t)::strlen(outputString2));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
 	file->write(&m_dtsr, 1);
 		
-	CT2CA outputString3(m_scri, CP_UTF8);
+	const char* outputString3 = m_scri.c_str();
 	file->write(outputString3, (std::uint32_t)::strlen(outputString3));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
@@ -47,10 +47,10 @@ int F_VDAT::GetFieldLength()
 {
 	int len = 0;
 	
-	len += m_dtnm.GetLength()+1;
-	len += m_dtid.GetLength()+1;
+	len += m_dtnm.length()+1;
+	len += m_dtid.length()+1;
 	len++;
-	len += m_scri.GetLength()+1;
+	len += m_scri.length()+1;
 	
 	return ++len;
 }

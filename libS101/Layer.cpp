@@ -20,7 +20,7 @@ Layer::~Layer(void)
 	}
 }
 
-bool Layer::Open(CString _filepath)
+bool Layer::Open(libS101::String _filepath)
 {
 	//auto extension = LibMFCUtil::GetExtension(_filepath);
 
@@ -52,45 +52,44 @@ bool Layer::Open(CString _filepath)
 
 	m_spatialObject->m_pLayer = this;
 
-	CString strFolderPath;
-	if (_filepath.Find(TEXT(":\\")) > 0)
+	libS101::String strFolderPath;
+	if (_filepath.find(TEXT(":\\")) > 0)
 	{
 		strFolderPath = _filepath;
 	}
 	else
 	{
 		strFolderPath = std::filesystem::current_path().string();
-		strFolderPath.ReleaseBuffer();
-		if (strFolderPath.Find('\\') != -1)
+		if (strFolderPath.find('\\') != -1)
 		{
-			for (int i = strFolderPath.GetLength() - 1; i >= 0; i--)
+			for (int i = strFolderPath.length() - 1; i >= 0; i--)
 			{
 				wchar_t ch = strFolderPath[i];
-				strFolderPath.Delete(i);
+				strFolderPath.erase(i);
 				if (ch == '\\') break;
 			}
 		}
-		strFolderPath.Append(TEXT("\\") + _filepath);
+		strFolderPath.append(TEXT("\\") + _filepath);
 	}
 	return m_spatialObject->Open(strFolderPath);
 }
 
-void Layer::Save(CString _filepath, CString extend)
+void Layer::Save(libS101::String _filepath, libS101::String extend)
 {
 	m_spatialObject->Save(_filepath, extend);
 }
 
-CString Layer::GetLayerName()
+libS101::String Layer::GetLayerName()
 {
 	return m_spatialObject->GetFileName();
 }
 
-CString Layer::GetLayerPath()
+libS101::String Layer::GetLayerPath()
 {
 	return m_spatialObject->GetFilePath();
 }
 
-CString Layer::GetLayerType()
+libS101::String Layer::GetLayerType()
 {
 	if (m_spatialObject->m_FileType == S100_FileType::FILE_Shape)
 	{

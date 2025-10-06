@@ -277,9 +277,9 @@ bool R_FeatureRecord::Save(libS101::File *file)
 	return true;
 }
 
-void R_FeatureRecord::CreateCS(S101Cell *cell, CString csName, bool bSENC)
+void R_FeatureRecord::CreateCS(S101Cell *cell, libS101::String csName, bool bSENC)
 {
-	if (csName.Find(L"L") >= 0)
+	if (csName.find(L"L") >= 0)
 		int io = 0;
 
 #ifdef _DEBUG11

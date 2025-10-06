@@ -14,13 +14,13 @@ public:
 	* A
 	* Name of the geodetic datum
 	*/
-	CString m_dtnm;
+	libS101::String m_dtnm;
 	/*
 	* Ellipsoid Name
 	* A
 	* Name of the ellipsoid
 	*/
-	CString m_elnm;
+	libS101::String m_elnm;
 	/*
 	* Ellipsoid semi major axis
 	* b48
@@ -45,7 +45,7 @@ public:
 	* A
 	* Name of the central meridian
 	*/
-	CString m_cmnm;
+	libS101::String m_cmnm;
 	/*
 	* Central Meridian Greenwich Longitude
 	* b48

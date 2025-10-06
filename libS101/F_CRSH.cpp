@@ -36,17 +36,17 @@ bool F_CRSH::Save(libS101::File *file)
 	file->write(&m_crst, 1);
 	file->write(&m_csty, 1);
 	
-	CT2CA outputString(m_crnm, CP_UTF8);
+	const char* outputString = m_crnm.c_str();
 	file->write(outputString, (std::uint32_t)::strlen(outputString));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	
-	CT2CA outputString2(m_crsi, CP_UTF8);
+	const char* outputString2 = m_crsi.c_str();
 	file->write(outputString2, (std::uint32_t)::strlen(outputString2));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
 	file->write(&m_crss, 1);
 
-	CT2CA outputString3(m_scri, CP_UTF8);
+	const char* outputString3 = m_scri.c_str();
 	file->write(outputString3, (std::uint32_t)::strlen(outputString3));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
@@ -62,9 +62,9 @@ int F_CRSH::GetFieldLength()
 	len += 1;
 	len += 1;
 	len += 1;
-	len += m_crnm.GetLength() + 1;
-	len += m_crsi.GetLength() + 1;
+	len += m_crnm.length() + 1;
+	len += m_crsi.length() + 1;
 	len += 1;
-	len += m_scri.GetLength() + 1;
+	len += m_scri.length() + 1;
 	return ++len;
 }

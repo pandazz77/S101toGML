@@ -9,12 +9,12 @@ SpatialObject::~SpatialObject(void)
 {
 }
 
-bool SpatialObject::Open(CString _filepath)
+bool SpatialObject::Open(libS101::String _filepath)
 {
 	return true;
 }
 
-void SpatialObject::Save(CString filename, CString extend)
+void SpatialObject::Save(libS101::String filename, libS101::String extend)
 {
 	
 }
@@ -29,29 +29,29 @@ Layer* SpatialObject::GetLayer()
 	return m_pLayer;
 }
 
-void SpatialObject::SetFilePath(CString& value)
+void SpatialObject::SetFilePath(libS101::String& value)
 {
 	m_FilePath = value;
-	int index= value.ReverseFind('\\');
-	auto name= value.Mid(index + 1);
+	int index= value.rfind('\\');
+	auto name= value.mid(index + 1);
 
 	//���� �̸�, Ȯ���� ����
 	SetFileName(name);
 }
 
-CString SpatialObject::GetFilePath()
+libS101::String SpatialObject::GetFilePath()
 {
 	return m_FilePath;
 	
 }
 
-void SpatialObject::SetFileName(CString& value)
+void SpatialObject::SetFileName(libS101::String& value)
 {
 	m_FileName = value;
 }
 
 
-CString SpatialObject::GetFileName()
+libS101::String SpatialObject::GetFileName()
 {
 	return m_FileName;
 }

@@ -28,6 +28,6 @@ public:
 	void InsertCodeNumericCode(CodeWithNumericCode* value);
 
 
-	CString GetFeatureCode(int numericCode);
-	int GetCode(CString nc);
+	libS101::String GetFeatureCode(int numericCode);
+	int GetCode(libS101::String nc);
 };

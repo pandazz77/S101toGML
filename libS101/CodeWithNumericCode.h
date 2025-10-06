@@ -7,6 +7,8 @@
 #endif
 #include <string>
 
+#include "String.h"
+
 class CodeWithNumericCode
 {
 public:
@@ -15,7 +17,7 @@ public:
 	* Format		: A
 	* Description	: The code as defined in the feature catalogue
 	*/
-	CString m_code;
+	libS101::String m_code;
 
 	/*
 	* Code

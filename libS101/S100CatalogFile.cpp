@@ -11,7 +11,7 @@ S100CatalogFile::~S100CatalogFile()
 
 }
 
-bool S100CatalogFile::Open(CString _filepath)
+bool S100CatalogFile::Open(libS101::String _filepath)
 {
 	return true;
 }

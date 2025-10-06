@@ -5,6 +5,8 @@
 #include "compat/compat_mfc.h"
 #endif
 
+#include "String.h"
+
 struct FASC {
 
 	/*
@@ -39,6 +41,6 @@ struct FASC {
 	* Format		: A()
 	* Description	: A string containing a valid value for the domain of the attribute specified by the subfields above.
 	*/
-	CString m_atvl;
+	libS101::String m_atvl;
 	static int GetSize();
 };

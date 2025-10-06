@@ -37,7 +37,7 @@ public:
 	*/
 	int m_ruin;
 	
-	CString name = L"";
+	libS101::String name = L"";
 
 public:
 	void ReadField(std::uint8_t *&buf);

@@ -1,6 +1,8 @@
 
 #include "DRDirectoryWriter.h"
 
+#include "String.h"
+
 DRDirectoryWriter::DRDirectoryWriter()
 {
 
@@ -15,15 +17,15 @@ DRDirectoryWriter::DRDirectoryWriter(DRReader leader, DRDirectory& dir)
 	this->pos = dir.pos;
 
 	int i = 0;
-	CString str;
+	libS101::String str;
 
-
-	str.Format(TEXT("%09d"), this->length);
+	str = libS101::String::fmt(L"%09d",this->length);
 	for (i = 0; i < this->lengthCipher; i++)
 	{
 		b_length[i] = (std::uint8_t)str[9 - this->lengthCipher + i];
 	}
-	str.Format(TEXT("%09d"), this->pos);
+
+	str = libS101::String::fmt(L"%09d",this->pos);
 	for (i = 0; i < this->posCipher; i++)
 	{
 		b_pos[i] = (std::uint8_t)str[9 - this->posCipher + i];

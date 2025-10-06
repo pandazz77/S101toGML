@@ -7,6 +7,7 @@
 #endif
 
 #include "File.h"
+#include "String.h"
 
 class Field
 {

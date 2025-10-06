@@ -73,7 +73,7 @@ bool F_FASC::Save(libS101::File *file)
 		file->write(&cont->m_atix, 2);
 		file->write(&cont->m_paix, 2);
 		file->write(&cont->m_atin, 1);
-		CT2CA outputString(cont->m_atvl, CP_UTF8);
+		const char *outputString = cont->m_atvl.c_str();
 		file->write(outputString, (std::uint32_t)::strlen(outputString));
 		file->write(&NonPrintableCharacter::unitTerminator, 1);
 	}
@@ -94,7 +94,7 @@ int F_FASC::GetFieldLength()
 		//ATTR *attr = m_arr.GetNext(pos);
 		FASC *cont = *itor;
 		len += FASC::GetSize();
-		CT2CA outputString(cont->m_atvl, CP_UTF8);
+		const char* outputString = cont->m_atvl.c_str();
 		len += (int)::strlen(outputString) + 1;
 	}
 		

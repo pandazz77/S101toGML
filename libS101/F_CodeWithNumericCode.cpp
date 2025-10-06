@@ -50,7 +50,7 @@ bool F_CodeWithNumericCode::Save(libS101::File *file)
 	for (auto itor = m_arr.begin(); itor != m_arr.end(); itor++)
 	{
 		CodeWithNumericCode *cnc = itor->second;
-		CT2CA outputString(cnc->m_code, CP_UTF8);
+		const char* outputString = cnc->m_code.c_str();
 		file->write(outputString, (std::uint32_t)::strlen(outputString));
 		file->write(&NonPrintableCharacter::unitTerminator, 1);
 		file->write(&cnc->m_nmcd, 2);
@@ -66,7 +66,7 @@ int F_CodeWithNumericCode::GetFieldLength()
 	for (auto itor = m_arr.begin(); itor != m_arr.end(); itor++)
 	{
 		CodeWithNumericCode *cnc = itor->second;
-		CT2CA outputString(cnc->m_code, CP_UTF8);
+		const char* outputString = cnc->m_code.c_str();
 		len += (unsigned int)::strlen(outputString) + 1;
 		len += CodeWithNumericCode::GetSize();
 	}
@@ -74,7 +74,7 @@ int F_CodeWithNumericCode::GetFieldLength()
 	return ++len;
 }
 
-CString F_CodeWithNumericCode::GetFeatureCode(int numericCode)
+libS101::String F_CodeWithNumericCode::GetFeatureCode(int numericCode)
 {
 	auto aitor = m_arr.find(numericCode);
 
@@ -87,7 +87,7 @@ CString F_CodeWithNumericCode::GetFeatureCode(int numericCode)
 	return L"";
 }
 
-int F_CodeWithNumericCode::GetCode(CString numericCode)
+int F_CodeWithNumericCode::GetCode(libS101::String numericCode)
 {
 	auto aitor = m_arrFindForCode.find(std::wstring(numericCode));
 

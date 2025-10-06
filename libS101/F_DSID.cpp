@@ -50,39 +50,39 @@ bool F_DSID::Save(libS101::File *file)
 {
 	file->write(&m_name.RCNM, 1);
 	file->write(&m_name.RCID, 4);
-	CT2CA outputString(m_ensp, CP_UTF8);
+	const char *outputString = m_ensp.c_str();
 	file->write(outputString, (std::uint32_t)::strlen(outputString));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
-	CT2CA outputString2(m_ened, CP_UTF8);
+	const char *outputString2 = m_ened.c_str();
 	file->write(outputString2, (std::uint32_t)::strlen(outputString2));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
-	CT2CA outputString3(m_prsp, CP_UTF8);
+	const char* outputString3 = m_prsp.c_str();
 	file->write(outputString3, (std::uint32_t)::strlen(outputString3));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
-	CT2CA outputString4(m_pred, CP_UTF8);
+	const char* outputString4 = m_pred.c_str();
 	file->write(outputString4, (std::uint32_t)::strlen(outputString4));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
-	CT2CA outputString5(m_prof, CP_UTF8);
+	const char* outputString5 = m_prof.c_str();
 	file->write(outputString5, (std::uint32_t)::strlen(outputString5));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
-	CT2CA outputString6(m_dsnm, CP_UTF8);
+	const char* outputString6 = m_dsnm.c_str();
 	file->write(outputString6, (std::uint32_t)::strlen(outputString6));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
-	CT2CA outputString7(m_dstl, CP_UTF8);
+	const char* outputString7 = m_dstl.c_str();
 	file->write(outputString7, (std::uint32_t)::strlen(outputString7));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
-	CT2CA outputString8(m_dsrd, CP_UTF8);
+	const char* outputString8 = m_dsrd.c_str();
 	int size = (int)::strlen(outputString8);
 	file->write(outputString8, (std::uint32_t)::strlen(outputString8));
 
-	CT2CA outputString9(m_dslg, CP_UTF8);
+	const char* outputString9 = m_dslg.c_str();
 	file->write(outputString9, (std::uint32_t)::strlen(outputString9));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
-	CT2CA outputString10(m_dsab, CP_UTF8);
+	const char* outputString10 = m_dsab.c_str();
 	file->write(outputString10, (std::uint32_t)::strlen(outputString10));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
-	CT2CA outputString11(m_dsed, CP_UTF8);
+	const char* outputString11 = m_dsed.c_str();
 	file->write(outputString11, (std::uint32_t)::strlen(outputString11));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 	
@@ -102,17 +102,17 @@ int F_DSID::GetFieldLength()
 {
 	int len = 0;
 	len += m_name.GetLength();
-	len += m_ensp.GetLength()+1;
-	len += m_ened.GetLength()+1;
-	len += m_prsp.GetLength()+1;
-	len += m_pred.GetLength()+1;
-	len += m_prof.GetLength()+1;
-	len += m_dsnm.GetLength()+1;
-	len += m_dstl.GetLength()+1;
-	len += m_dsrd.GetLength();
-	len += m_dslg.GetLength()+1;
-	len += m_dsab.GetLength()+1;
-	len += m_dsed.GetLength()+1;
+	len += m_ensp.length()+1;
+	len += m_ened.length()+1;
+	len += m_prsp.length()+1;
+	len += m_pred.length()+1;
+	len += m_prof.length()+1;
+	len += m_dsnm.length()+1;
+	len += m_dstl.length()+1;
+	len += m_dsrd.length();
+	len += m_dslg.length()+1;
+	len += m_dsab.length()+1;
+	len += m_dsed.length()+1;
 	len += (int)m_dstc.size();
 
 	return ++len;

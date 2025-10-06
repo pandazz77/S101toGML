@@ -193,14 +193,14 @@ namespace libS101
 
 
 #pragma warning(disable:4018)
-	bool S101::Open(CString _filepath) // Dataset ����, .000 ��������
+	bool S101::Open(libS101::String _filepath) // Dataset ����, .000 ��������
 	{
 
 		SetFilePath(_filepath);
 
 		File file;
 
-		file.open(CT2CA(_filepath,CP_UTF8),std::ios::in);
+		file.open(_filepath.str(),std::ios::in);
 		if (file.is_open())
 		{
 			std::uint8_t* pBuf = nullptr;
@@ -330,12 +330,12 @@ namespace libS101
 		return true;
 	}
 
-	void S101::Save(CString _filepath, CString extend)
+	void S101::Save(libS101::String _filepath, libS101::String extend)
 	{
 		return GmlifileMakeByPugi(_filepath);
 	}
 
-	void S101::GmlifileMakeByPugi(CString _filePath)
+	void S101::GmlifileMakeByPugi(libS101::String _filePath)
 	{
 		pugi::xml_document* doc = new pugi::xml_document();
 		auto declarationNode = doc->append_child(pugi::node_declaration);
@@ -473,7 +473,7 @@ namespace libS101
 		for (auto itor = vecInformation.begin(); itor != vecInformation.end(); itor++)
 		{
 			R_InformationRecord* ir = *(itor);
-			CString informationAcronym = m_dsgir.m_itcs->m_arr.find(ir->m_irid.m_nitc)->second->m_code;
+			libS101::String informationAcronym = m_dsgir.m_itcs->m_arr.find(ir->m_irid.m_nitc)->second->m_code;
 			pugi::xml_node imember = parentNode.append_child("imember");
 
 			auto featureElementName = productNamespace + ":" + CStringToString(informationAcronym);
@@ -497,7 +497,7 @@ namespace libS101
 
 			pugi::xml_node member = parentNode.append_child("member");
 
-			CString featureAcronym = m_dsgir.m_ftcs->m_arr.find(fr->m_frid.m_nftc)->second->m_code;
+			libS101::String featureAcronym = m_dsgir.m_ftcs->m_arr.find(fr->m_frid.m_nftc)->second->m_code;
 
 			auto featureElementName = productNamespace + ":" + pugi::as_utf8(std::wstring(featureAcronym));
 
@@ -667,7 +667,7 @@ namespace libS101
 		return pugi::as_utf8(GetEncodingSpecification());
 	}
 
-	CString S101::GetEncodingSpecification()
+	libS101::String S101::GetEncodingSpecification()
 	{
 		return m_dsgir.m_dsid.m_ensp;
 	}
@@ -698,7 +698,7 @@ namespace libS101
 
 				attrXmlNodeMap.insert(std::unordered_map<int, pugi::xml_node>::value_type(index, pElement));
 
-				if (attr->m_atvl.IsEmpty()) // complex
+				if (attr->m_atvl.empty()) // complex
 				{
 					if (attr->m_paix == 0)
 					{
@@ -1088,7 +1088,7 @@ namespace libS101
 		return pugi::as_utf8(GetEncodingSpecificationEdition());
 	}
 
-	CString S101::GetProductIdentifier()
+	libS101::String S101::GetProductIdentifier()
 	{
 		return m_dsgir.m_dsid.m_prsp;
 	}
@@ -1098,7 +1098,7 @@ namespace libS101
 		return pugi::as_utf8(GetProductIdentifier());
 	}
 
-	CString S101::GetProductEdition()
+	libS101::String S101::GetProductEdition()
 	{
 		return m_dsgir.m_dsid.m_pred;
 	}
@@ -1113,7 +1113,7 @@ namespace libS101
 		return pugi::as_utf8(GetDatasetReferenceDate());
 	}
 
-	CString S101::GetApplicationProfile()
+	libS101::String S101::GetApplicationProfile()
 	{
 		return m_dsgir.m_dsid.m_prof;
 	}
@@ -1134,28 +1134,28 @@ namespace libS101
 	}
 
 
-	CString S101::GetDatasetFileIdentifier()
+	libS101::String S101::GetDatasetFileIdentifier()
 	{
 		return m_dsgir.m_dsid.m_dsnm;
 	}
 
-	CString S101::GetDatasetReferenceDate()
+	libS101::String S101::GetDatasetReferenceDate()
 	{
 		return m_dsgir.m_dsid.m_dsrd;
 	}
 
-	CString S101::GetDatasetEdition()
+	libS101::String S101::GetDatasetEdition()
 	{
 		return m_dsgir.m_dsid.m_dsed;
 	}
 
 
-	CString S101::GetEncodingSpecificationEdition()
+	libS101::String S101::GetEncodingSpecificationEdition()
 	{
 		return m_dsgir.m_dsid.m_ened;
 	}
 
-	CString S101::GetDatasetTitle()
+	libS101::String S101::GetDatasetTitle()
 	{
 		return m_dsgir.m_dsid.m_dstl;
 	}
@@ -1169,13 +1169,13 @@ namespace libS101
 		return pugi::as_utf8(GetDatasetLanguage());
 	}
 
-	CString S101::GetDatasetLanguage()
+	libS101::String S101::GetDatasetLanguage()
 	{
 		return m_dsgir.m_dsid.m_dslg;
 	}
 
 
-	CString S101::GetDatasetAbstract()
+	libS101::String S101::GetDatasetAbstract()
 	{
 		return m_dsgir.m_dsid.m_dsab;
 	}
@@ -2328,10 +2328,9 @@ namespace libS101
 		return nullptr;
 	}
 
-        std::string S101::CStringToString(CString str)
+        std::string S101::CStringToString(libS101::String str)
 	{
-                CT2CA convertedString(str, CP_UTF8);
-		return std::string(convertedString);
+		return str.str();
 	}
 
 	std::string S101::WStringToString(std::wstring str)

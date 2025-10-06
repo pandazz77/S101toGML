@@ -32,14 +32,14 @@ public:
 	* Format		: A
 	* Name of the Coordinate Reference System
 	*/
-	CString m_crnm;
+	libS101::String m_crnm;
 	/*
 	* CRS Identifier
 	* Format		: A
 	* Identifier of the CRS from an external source.
 	* Empty if not defined by reference
 	*/
-	CString m_crsi;
+	libS101::String m_crsi;
 	/*
 	* CRS Source
 	* Format		: b11
@@ -54,7 +54,7 @@ public:
 	* Format		: A
 	* Information about the CRS source if CRSS = ��Other Source��
 	*/
-	CString m_scri;
+	libS101::String m_scri;
 
 public:
 	void ReadField(std::uint8_t *&buf);

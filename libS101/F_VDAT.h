@@ -8,10 +8,10 @@ public:
 	virtual ~F_VDAT();
 
 public:
-	CString m_dtnm;
-	CString m_dtid;
+	libS101::String m_dtnm;
+	libS101::String m_dtid;
 	int m_dtsr;
-	CString m_scri;
+	libS101::String m_scri;
 
 public:
 	void ReadField(std::uint8_t *&buf);

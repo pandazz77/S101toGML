@@ -11,6 +11,8 @@
 #endif
 //#include "..\\GeoMetryLibrary\\MBR.h"
 
+#include "String.h"
+
 class SpatialObject;
 class Scaler;
 
@@ -35,12 +37,12 @@ public:
 	int scaleMaximum = 0;
 
 public:
-	virtual bool Open(CString _filepath);
-	void Save(CString _filepath, CString extend);
+	virtual bool Open(libS101::String _filepath);
+	void Save(libS101::String _filepath, libS101::String extend);
 
-	CString GetLayerName();
-	CString GetLayerPath();
-	CString GetLayerType();
+	libS101::String GetLayerName();
+	libS101::String GetLayerPath();
+	libS101::String GetLayerType();
 
 	void SetMBR(MBR& value);
 	MBR GetMBR();

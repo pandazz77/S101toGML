@@ -78,7 +78,7 @@ bool F_INAS::Save(libS101::File *file)
 		file->write(&attr->m_atix, 2);
 		file->write(&attr->m_paix, 2);
 		file->write(&attr->m_atin, 1);
-		CT2CA outputString(attr->m_atvl, CP_UTF8);
+		const char *outputString = attr->m_atvl.c_str();
 		file->write(outputString, (std::uint32_t)::strlen(outputString));
 		file->write(&NonPrintableCharacter::unitTerminator, 1);
 	}
@@ -94,7 +94,7 @@ int F_INAS::GetFieldLength()
 
 	for(ATTR *attr: m_arr){
 		len += ATTR::GetOffsetToATVL();
-		CT2CA outputString(attr->m_atvl, CP_UTF8);
+		const char* outputString = attr->m_atvl.c_str();
 		len += (int)::strlen(outputString) + 1;
 	}
 	

@@ -67,8 +67,8 @@ namespace libS101
 		std::unordered_map<std::int64_t, SCurve*> m_curveMap;
 
 	public:
-		bool Open(CString _filepath);
-		void Save(CString _filepath, CString extend);
+		bool Open(libS101::String _filepath);
+		void Save(libS101::String _filepath, libS101::String extend);
 
 	private:
 		void InsertInformationRecord(std::int64_t key, R_InformationRecord* record);
@@ -81,7 +81,7 @@ namespace libS101
 
 		bool ReadDDR(std::uint8_t*& buf);
 		void SetInformationsType(pugi::xml_document* doc, pugi::xml_node parentNode, std::string productNamespace);
-		void GmlifileMakeByPugi(CString _filePath);
+		void GmlifileMakeByPugi(libS101::String _filePath);
 		void SetFeaturesType(pugi::xml_document* document, pugi::xml_node parentNode, std::string productNamespace);
 		void SetVector(pugi::xml_node parentNode, R_FeatureRecord* fr);
 		void SetVectorPointsType(pugi::xml_node parentNode, SPoint* p);
@@ -94,35 +94,35 @@ namespace libS101
 		void SetAttributeType(pugi::xml_document* doc, pugi::xml_node parentNode, std::list<F_ATTR*>* f_attrList);
 	
 		std::string GetEncodingSpecificationToString();
-		CString GetEncodingSpecification();
+		libS101::String GetEncodingSpecification();
 
 		std::string GetDatasetTitleToString();
-		CString GetDatasetTitle();
+		libS101::String GetDatasetTitle();
 
 		std::string GetDatasetEditionToString();
-		CString GetEncodingSpecificationEdition();
-		CString GetDatasetEdition();
+		libS101::String GetEncodingSpecificationEdition();
+		libS101::String GetDatasetEdition();
 
-		CString GetDatasetReferenceDate();
+		libS101::String GetDatasetReferenceDate();
 		std::string GetEncodingSpecificationEditionToString();
 
-		CString GetProductIdentifier();
+		libS101::String GetProductIdentifier();
 		std::string GetProductIdentifierToString();
 		std::string GetDatasetReferenceDataToString();
 
-		CString GetApplicationProfile();
+		libS101::String GetApplicationProfile();
 		std::string GetApplicationProfileToString();
 
-		CString GetDatasetFileIdentifier();
+		libS101::String GetDatasetFileIdentifier();
 		std::string GetDatasetFileIdentifierToString();
 
-		CString GetProductEdition();
+		libS101::String GetProductEdition();
 		std::string GetProductEditionToString();
 
-		CString GetDatasetLanguage();
+		libS101::String GetDatasetLanguage();
 		std::string GetDatasetLanguageToString();
 
-		CString GetDatasetAbstract();
+		libS101::String GetDatasetAbstract();
 		std::string GetDatasetAbstractToString();
 
 		bool MakeFullSpatialData();
@@ -158,7 +158,7 @@ namespace libS101
 		void CalcMBR();
 		void ClearCurveMap();
 
-		std::string CStringToString(CString str);
+		std::string CStringToString(libS101::String str);
 		std::string WStringToString(std::wstring str);
 	};
 }

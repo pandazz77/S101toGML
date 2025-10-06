@@ -20,7 +20,7 @@
 
 
 std::uint8_t tBYTEArr[1024];
-void buf2charArr(CString &dest, std::uint8_t*& buf)
+void buf2charArr(libS101::String &dest, std::uint8_t*& buf)
 {
 	;
 	int i = 0;
@@ -59,11 +59,11 @@ void buf2charArr(std::wstring &dest, std::uint8_t*& buf)
 	buf++;
 }
 
-void buf2charArr(CString &dest, std::uint8_t*& buf, int len)
+void buf2charArr(libS101::String &dest, std::uint8_t*& buf, int len)
 {
 	for(int i = 0; i < len; i++)
 	{
-		dest.AppendChar(*(buf++));
+		dest += *(buf++);
 	}
 }
 

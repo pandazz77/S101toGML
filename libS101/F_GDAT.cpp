@@ -67,11 +67,11 @@ void F_GDAT::ReadField(std::uint8_t *&buf)
 
 bool F_GDAT::Save(libS101::File *file)
 {
-	CT2CA outputString(m_dtnm, CP_UTF8);
+	const char *outputString = m_dtnm.c_str();
 	file->write(outputString, (std::uint32_t)::strlen(outputString));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
-	CT2CA outputString2(m_elnm, CP_UTF8);
+	const char * outputString2 = m_elnm.c_str();
 	file->write(outputString2, (std::uint32_t)::strlen(outputString2));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
@@ -79,7 +79,7 @@ bool F_GDAT::Save(libS101::File *file)
 	file->write(&m_espt, 1);
 	file->write(&m_espm, 8);
 
-	CT2CA outputString3(m_cmnm, CP_UTF8);
+	const char * outputString3 = m_cmnm.c_str();
 	file->write(outputString3, (std::uint32_t)::strlen(outputString3));
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
@@ -93,12 +93,12 @@ int F_GDAT::GetFieldLength()
 {
 	int len = 0;
 
-	len += m_dtnm.GetLength() + 1;
-	len += m_elnm.GetLength() + 1;
+	len += m_dtnm.length() + 1;
+	len += m_elnm.length() + 1;
 	len += 8;
 	len += 1;
 	len += 8;
-	len += m_cmnm.GetLength() + 1;
+	len += m_cmnm.length() + 1;
 	len += 8;
 
 	return ++len;

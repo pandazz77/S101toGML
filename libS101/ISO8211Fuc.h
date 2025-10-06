@@ -8,9 +8,11 @@
 #include "compat/compat_mfc.h"
 #endif
 
-void buf2charArr(CString& dest, std::uint8_t*& buf);
+#include "String.h"
+
+void buf2charArr(libS101::String& dest, std::uint8_t*& buf);
 void buf2charArr(std::wstring& dest, std::uint8_t*& buf);
-void buf2charArr(CString& dest, std::uint8_t*& buf, int len);
+void buf2charArr(libS101::String& dest, std::uint8_t*& buf, int len);
 void buf2charArr(std::wstring& dest, std::uint8_t*& buf, int len);
 std::uint32_t buf2uint(std::uint8_t*& buf, int len);
 double buf2double(std::uint8_t*& buf, int size);

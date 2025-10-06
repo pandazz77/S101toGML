@@ -63,7 +63,7 @@ bool F_ATTR::Save(libS101::File *file)
 		file->write(&attr->m_atix, 2);
 		file->write(&attr->m_paix, 2);
 		file->write(&attr->m_atin, 1);
-		CT2CA outputString(attr->m_atvl, CP_UTF8);
+		const char* outputString = attr->m_atvl.c_str();
 		file->write(outputString, (std::uint32_t)::strlen(outputString));
 		file->write(&NonPrintableCharacter::unitTerminator, 1);
 	}
@@ -82,7 +82,7 @@ int F_ATTR::GetFieldLength()
 
 		len += ATTR::GetOffsetToATVL();
 
-		CT2CA outputString(attr->m_atvl, CP_UTF8);
+		const char *outputString = attr->m_atvl.c_str();
 
 		len += (unsigned int)::strlen(outputString) + 1;
 	}

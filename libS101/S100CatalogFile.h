@@ -13,6 +13,6 @@ public:
 
 
 public:
-	bool Open(CString _filepath);
+	bool Open(libS101::String _filepath);
 };
 

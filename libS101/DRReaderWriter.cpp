@@ -8,6 +8,8 @@
 #include "compat/compat_mfc.h"
 #endif
 
+#include "String.h"
+
 DRReaderWriter::DRReaderWriter(void)
 {
 	b_recordLength[0]		= '0';
@@ -84,16 +86,16 @@ bool DRReaderWriter::WriteDRReader(libS101::File* file)
 
 void DRReaderWriter::SetByteInfo()
 {
-	CString str;
+	libS101::String str;
 	int i = 0;
 	
-	str.Format(TEXT("%05d"), m_recordLength);
+	str = libS101::String::fmt(L"%05d",m_recordLength);
 	for(i = 0; i < 5; i++)
 	{
 		b_recordLength[i] = (std::uint8_t)str[i];
 	}
 
-	str.Format(TEXT("%05d"), m_fieldAreaLoc);
+	str = libS101::String::fmt(L"%05d",m_fieldAreaLoc);
 	for(i = 0; i < 5; i++)
 	{
 		b_baseAddressOfFieldArea[i] = (std::uint8_t)str[i];
