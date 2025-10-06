@@ -2,12 +2,6 @@
 
 #include "Field.h"
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
 class F_DSSI : Field
 {
 public:

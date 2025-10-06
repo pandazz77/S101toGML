@@ -2,12 +2,6 @@
 #include "Field.h"
 #include <vector>
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
 struct ATTR;
 
 class F_ATTR : Field

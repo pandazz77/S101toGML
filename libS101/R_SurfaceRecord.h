@@ -3,12 +3,6 @@
 #include "R_VectorRecord.h"
 #include "F_SRID.h"
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
 #include <list>
 class F_INAS;
 class F_RIAS;

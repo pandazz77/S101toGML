@@ -55,12 +55,7 @@ int ENCCommon::UNIT_DISTANCE = GeoMetryLibrary::UnitDistance::unitDistance_km;
 int ENCCommon::m_ReportingData = GeoMetryLibrary::ReportingData::None;
 int ENCCommon::m_UserMode = GeoMetryLibrary::UserMode::User_Mode;
 
-
-#ifdef _WIN32
-std::int64_t ENCCommon::OVER_GROUP = 0x7FFFFFFF;
-#else
 long long ENCCommon::OVER_GROUP = 0x7FFFFFFF;
-#endif
 
 bool ENCCommon::SHOW_TEXT_PLACEMENT = false;
 bool ENCCommon::SHOW_UNCERTAINTY = false;

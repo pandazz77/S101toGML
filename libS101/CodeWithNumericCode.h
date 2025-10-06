@@ -1,10 +1,5 @@
 #pragma once
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
 
-#endif
 #include <string>
 
 #include "String.h"

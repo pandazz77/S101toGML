@@ -104,11 +104,7 @@ public:
 
 	static unsigned DrawingType;		    // paper  = 1
 										// simple = 0
-        #ifdef _WIN32
-        static std::int64_t OVER_GROUP;
-        #else
-        static long long OVER_GROUP;
-        #endif
+	static long long OVER_GROUP;
 
 	static std::wstring DISPLAY_FONT_NAME;
 

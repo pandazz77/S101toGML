@@ -3,17 +3,7 @@
 #include "NonPrintableCharacter.h"
 #include "S100Utilities.h"
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
 #include <cmath>
-#ifdef _WIN32
-#include <atlbase.h>
-#include <atlconv.h>
-#endif
 #include <algorithm>
 #include <bitset> // Convert the 32-bit binary encoding into hexadecimal
 

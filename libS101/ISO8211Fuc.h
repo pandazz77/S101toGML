@@ -1,13 +1,6 @@
 #pragma once
 #include <string>
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
-
 #include "String.h"
 
 void buf2charArr(libS101::String& dest, std::uint8_t*& buf);

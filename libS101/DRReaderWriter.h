@@ -1,13 +1,6 @@
 #pragma once
 #include "DRReader.h"
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
-
 #include "File.h"
 
 class DRReaderWriter : public DRReader

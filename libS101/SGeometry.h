@@ -3,13 +3,6 @@
 #include "Point.h"
 #include <unordered_map>
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
-
 class SSurface;
 class Symbol;
 class R_FeatureRecord;

@@ -3,13 +3,6 @@
 #include "ISO8211Fuc.h"
 #include "NonPrintableCharacter.h"
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
-
 F_MRID::F_MRID(void)
 {
 	m_name.RCNM = 0;

@@ -2,12 +2,6 @@
 #include "Enum_S100_FileType.h"
 #include "Namespace_GISLibrary.h"
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
 #include <string>
 #include "String.h"
 

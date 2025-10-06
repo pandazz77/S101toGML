@@ -6,14 +6,6 @@
 
 #include <iostream>
 
-
-#ifdef _WIN32
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-CWinApp theApp;
-#endif
-
 using namespace std;
 
 int main(int argc, char* argv[])

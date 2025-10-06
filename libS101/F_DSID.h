@@ -4,14 +4,6 @@
 
 #include <vector>
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
-
-
 // Dataset Identification Field
 
 class F_DSID : Field

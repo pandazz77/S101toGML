@@ -3,11 +3,6 @@
 #include "DRDirectory.h"
 #include "DRReader.h"
 
-#ifdef _WIN32
-#include <atlstr.h>
-#else
-
-#endif
 
 struct DRDirectoryWriter : public DRDirectory
 {

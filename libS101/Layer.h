@@ -3,14 +3,6 @@
 #include "Enum_S100_FileType.h"
 #include "MBR.h"
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
-//#include "..\\GeoMetryLibrary\\MBR.h"
-
 #include "String.h"
 
 class SpatialObject;

@@ -13,13 +13,6 @@
 #include "DRReaderWriter.h"
 #include "DRDirectoryInfoWriter.h"
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
-
 R_FeatureRecord::R_FeatureRecord(void)
 {
 	m_geometry = NULL;

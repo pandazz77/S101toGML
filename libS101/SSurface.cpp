@@ -6,12 +6,6 @@
 #include "GeoCommonFuc.h"
 #include "MBR.h"
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
 SSurface::SSurface()
 {
 	type = 3;

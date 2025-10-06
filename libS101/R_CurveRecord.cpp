@@ -15,8 +15,6 @@
 #include "S100Utilities.h"
 
 
-//#include"..\\DLL_MessageProcess\\DLL_MessageProcess.h"
-
 R_CurveRecord::R_CurveRecord()
 {
 	m_crid.m_name.RCNM = 120;

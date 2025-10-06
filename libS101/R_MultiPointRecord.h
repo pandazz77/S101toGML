@@ -3,7 +3,7 @@
 #include "R_VectorRecord.h"
 #include "F_MRID.h"
 
-#include<list>
+#include <list>
 
 class F_INAS;
 class F_COCC;

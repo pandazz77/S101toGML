@@ -1,13 +1,6 @@
 
 #include "DRReaderWriter.h"
 
-#undef _WINDOWS_
-#ifdef _WIN32
-#include <afxext.h>
-#else
-
-#endif
-
 #include "String.h"
 
 DRReaderWriter::DRReaderWriter(void)

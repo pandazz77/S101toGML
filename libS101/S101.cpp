@@ -49,14 +49,6 @@
 #include <iomanip>
 #include <vector>
 
-#ifdef _WIN32
-#undef _WINDOWS_
-#include <afxext.h>
-#include <crtdbg.h>
-#else
-
-#endif
-
 #if _DEBUG
 #define new new(_NORMAL_BLOCK, __FILE__, __LINE__)
 #define malloc(s) _malloc_dbg(s,__NORMAL_BLOCK,__FILE__,__LINE__)
