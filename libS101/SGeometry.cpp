@@ -3,7 +3,7 @@
 
 
 int SGeometry::sizeOfPoint = 10;
-POINT   *SGeometry::viewPoints = new POINT[10];
+Point   *SGeometry::viewPoints = new Point[10];
 
 SGeometry::SGeometry() 
 {

@@ -1350,7 +1350,7 @@ namespace libS101
 		{
 			SGeometry::sizeOfPoint = geo->m_numPoints;
 			delete SGeometry::viewPoints;
-			SGeometry::viewPoints = new CPoint[int(SGeometry::sizeOfPoint * 1.5)];
+			SGeometry::viewPoints = new Point[int(SGeometry::sizeOfPoint * 1.5)];
 		}
 
 		for (int i = 0; i < cnt; i++)
@@ -1486,7 +1486,7 @@ namespace libS101
 		{
 			SGeometry::sizeOfPoint = totalCoordinateCount;
 			delete SGeometry::viewPoints;
-			SGeometry::viewPoints = new CPoint[int(SGeometry::sizeOfPoint * 1.5)];
+			SGeometry::viewPoints = new Point[int(SGeometry::sizeOfPoint * 1.5)];
 		}
 
 		retCurve->m_numPoints = totalCoordinateCount;
@@ -1543,7 +1543,7 @@ namespace libS101
 
 		R_SurfaceRecord* sr;
 		std::int64_t iKey;
-		std::vector<POINT> vecPoint;
+		std::vector<Point> vecPoint;
 		std::vector<int> boundaryList;
 
 		for (auto i = fe->m_spas.begin(); i != fe->m_spas.end(); i++)
@@ -1981,7 +1981,7 @@ namespace libS101
 		return true;
 	}
 
-	bool S101::GetFullSpatialData(R_CurveRecord* r, std::vector<POINT>& geoArr, int ORNT)
+	bool S101::GetFullSpatialData(R_CurveRecord* r, std::vector<Point>& geoArr, int ORNT)
 	{
 		if (nullptr != r->m_ptas)
 		{
@@ -2146,7 +2146,7 @@ namespace libS101
 		return true;
 	}
 
-	bool S101::GetFullSpatialData(R_CompositeRecord* r, std::vector<POINT>& geoArr, int ORNT)
+	bool S101::GetFullSpatialData(R_CompositeRecord* r, std::vector<Point>& geoArr, int ORNT)
 	{
 		for (auto i = r->m_cuco.begin(); i != r->m_cuco.end(); i++)
 		{

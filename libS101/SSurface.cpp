@@ -41,7 +41,7 @@ SSurface::SSurface(MBR* mbr)
 	m_mbr.ymax = mbr->ymax;
 }
 
-SSurface::SSurface(std::vector<POINT>& points, std::vector<int> parts)
+SSurface::SSurface(std::vector<Point>& points, std::vector<int> parts)
 {
 	type = 3;
 	m_numParts = (int)parts.size();
@@ -70,7 +70,7 @@ SSurface::SSurface(std::vector<POINT>& points, std::vector<int> parts)
 	{
 		SGeometry::sizeOfPoint = m_numPoints;
 		delete SGeometry::viewPoints;
-		SGeometry::viewPoints = new CPoint[int(SGeometry::sizeOfPoint * 1.5)];
+		SGeometry::viewPoints = new Point[int(SGeometry::sizeOfPoint * 1.5)];
 	}
 
 	for (int i = 0; i < m_numPoints; i++)

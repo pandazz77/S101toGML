@@ -2,6 +2,7 @@
 
 #include "SGeometry.h"
 #include "GeoPoint.h"
+#include "Point.h"
 
 class SPoint : public SGeometry
 {
@@ -13,8 +14,8 @@ public:
 public:
 	GeoPoint m_point;	
 	
-	// ¸Þ·Î¸® ÇÒ´ç°ú È¸¼ö¸¦ ÃÖ¼ÒÈ­ ÇÏ±â À§ÇØ CPoint¹è¿­µµ °¡Áö°í ÀÖ´Â´Ù.
-	POINT   m_vPoint;
+	// ï¿½Þ·Î¸ï¿½ ï¿½Ò´ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ PointÏ±ï¿½ ï¿½ï¿½ï¿½ï¿½ CPointï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Â´ï¿½.
+	Point   m_vPoint;
 
 public:
 	void SetPoint(double _x, double _y);

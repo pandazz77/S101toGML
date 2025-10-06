@@ -14,14 +14,6 @@
 #include <vector>
 #include <list>
 
-struct tagPOINT { 
-    long x; long y; 
-    tagPOINT() : x(0), y(0) {}
-    tagPOINT(long xx, long yy) : x(xx), y(yy) {}
-};
-typedef tagPOINT POINT;
-typedef tagPOINT CPoint;
-
 // CString minimal shim using std::wstring (UTF-16-esque API surface)
 class CString {
 public:

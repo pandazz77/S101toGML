@@ -1,6 +1,7 @@
 #pragma once
 #include "SGeometry.h"
 #include "SCurveHasOrient.h"
+#include "Point.h"
 
 class Scaler;
 class GeoPoint;
@@ -11,16 +12,16 @@ class SSurface : public SGeometry
 public:
 	SSurface();
 	SSurface(MBR* mbr);
-	SSurface(std::vector<POINT>& points, std::vector<int> parts);
+	SSurface(std::vector<Point>& points, std::vector<int> parts);
 	virtual ~SSurface();
 	
-	// Area ÁÂÇ¥
+	// Area ï¿½ï¿½Ç¥
 	int m_numParts = 0;
 	int	m_numPoints = 0;
 	int* m_pParts = nullptr;
 	GeoPoint* m_pPoints = nullptr;
 	GeoPoint* m_centerPoint = nullptr;
 	
-	// Curve ÁÂÇ¥
+	// Curve ï¿½ï¿½Ç¥
 	std::list<SCurveHasOrient> m_listCurveLink;
 };

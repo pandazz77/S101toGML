@@ -1,5 +1,6 @@
 #pragma once
 #include "Geometry.h"
+#include "Point.h"
 #include <unordered_map>
 
 #undef _WINDOWS_
@@ -13,7 +14,7 @@ class SSurface;
 class Symbol;
 class R_FeatureRecord;
 class SENC_SymbolFill;
-//class POINT;
+//class Point;
 
 class SGeometry : public Geometry
 {
@@ -24,8 +25,8 @@ public:
 public:
 	static int sizeOfPoint;
 
-	// �޷θ� �Ҵ�� ȸ���� �ּ�ȭ �ϱ� ���� CPoint�迭�� ������ �ִ´�.
-	static POINT   *viewPoints;
+	// �޷θ� �Ҵ�� ȸ���� �ּ�ȭ �ϱ� ���� Point�迭�� ������ �ִ´�.
+	static Point   *viewPoints;
 
 	// 1 : Point 
 	// 2 : Curve

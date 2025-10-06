@@ -14,7 +14,7 @@ MBR& Geometry::GetMBRRef()
 	return m_mbr;
 }
 
-//POINT Geometry::CalculateCenterOfGravityOfPolygon(POINT *_p, int _count)
+//Point Geometry::CalculateCenterOfGravityOfPolygon(Point *_p, int _count)
 //{
 //	int j = 0;
 //	double area = 0;
@@ -44,16 +44,16 @@ MBR& Geometry::GetMBRRef()
 //	centerX = centerX / (6.0 * area);
 //	centerY = centerY / (6.0 * area);
 //
-//	POINT returnValue;
+//	Point returnValue;
 //	returnValue.x = (long)centerX;
 //	returnValue.y = (long)centerY;
 //
 //	return returnValue;
 //}
 //
-//double Geometry::GetDistance(POINT _p1, POINT _p2)
+//double Geometry::GetDistance(Point _p1, Point _p2)
 //{
-//	POINT p;
+//	Point p;
 //
 //	p.x = _p2.x - _p1.x;
 //	p.y = _p2.y - _p1.y;
@@ -61,9 +61,9 @@ MBR& Geometry::GetMBRRef()
 //	return sqrt((double)((p.x * p.x) + (p.y * p.y)));
 //}
 //
-//double Geometry::GetAngle(POINT _p1, POINT _p2)
+//double Geometry::GetAngle(Point _p1, Point _p2)
 //{
-//	POINT p;
+//	Point p;
 //	p.x = _p2.x - _p1.x;
 //	p.y = _p2.y - _p1.y;
 //
@@ -78,29 +78,29 @@ MBR& Geometry::GetMBRRef()
 //	return acos(temp);
 //}
 //
-//POINT Geometry::GetOffsetPointOnLine(POINT _p1, POINT _p2, double offset)
+//Point Geometry::GetOffsetPointOnLine(Point _p1, Point _p2, double offset)
 //{
 //	double angle = GetAngle(_p1, _p2);  // ������ x���� ���� ����� �̷�� ����
 //
-//	POINT returnValue;
+//	Point returnValue;
 //	returnValue.x = (long)(_p1.x + offset * cos(angle));
 //	returnValue.y = (long)(_p1.y + offset * sin(angle));
 //
 //	return returnValue;
 //}
 //
-//void Geometry::DrawCompositeLineOnLine(CDC *pDC, POINT _p1, POINT _p2, Symbol* _symbol)
+//void Geometry::DrawCompositeLineOnLine(CDC *pDC, Point _p1, Point _p2, Symbol* _symbol)
 //{
 //	int symbolWidth = _symbol->CoverXmax - _symbol->CoverXmin;  // ���� �ź� Cover�� ��   
 //
-//	POINT tmpP1, tmpP2;
+//	Point tmpP1, tmpP2;
 //	tmpP1.x = _p1.x;
 //	tmpP1.y = _p1.y;
 //	tmpP2.x = _p2.x;
 //	tmpP2.y = _p2.y;
 //	int symbolCount = (int)(GetDistance(tmpP1, tmpP2) / symbolWidth);
 //
-//	POINT p;
+//	Point p;
 //	for (int i = 0; i < symbolCount; i++)
 //	{
 //		p = GetOffsetPointOnLine(tmpP1, tmpP2, symbolWidth * i);
@@ -109,7 +109,7 @@ MBR& Geometry::GetMBRRef()
 //		double RAD2DEG = 180.0 / acos(-1.0);
 //
 //		angle *= RAD2DEG;
-//		_symbol->Draw(pDC, CPoint(long(p.x), long(p.y)), angle);
+//		_symbol->Draw(pDC, Point(long(p.x), long(p.y)), angle);
 //	}
 //
 //	// Composite line�� �׸��� �� ������ Composite line���� ����Ͽ� �������� ä���.
@@ -129,7 +129,7 @@ MBR& Geometry::GetMBRRef()
 //	}
 //}
 //
-//void Geometry::DrawCompositeLineOnPolyline(CDC *pDC, POINT* _p, int _count, Symbol* _symbol)
+//void Geometry::DrawCompositeLineOnPolyline(CDC *pDC, Point* _p, int _count, Symbol* _symbol)
 //{
 //	for (int i = 1; i < _count; i++)
 //	{
@@ -137,7 +137,7 @@ MBR& Geometry::GetMBRRef()
 //	}
 //}
 //
-//double Geometry::GetDistanceOfPolyline(POINT *_p, int _count)
+//double Geometry::GetDistanceOfPolyline(Point *_p, int _count)
 //{
 //	double returnValue = 0;
 //
@@ -156,7 +156,7 @@ inline void swap(int &val1, int &val2)
 	val2 = t;
 }
 
-//bool Geometry::IsIntersect(POINT _s1, POINT _e1, POINT _s2, POINT _e2)
+//bool Geometry::IsIntersect(Point _s1, Point _e1, Point _s2, Point _e2)
 //{
 //	float x12 = (float)(_s1.x - _e1.x);
 //	float x34 = (float)(_s2.x - _e2.x);
@@ -202,7 +202,7 @@ inline void swap(int &val1, int &val2)
 //	//return false;
 //}
 //
-//void Geometry::CutLineToIntersect(POINT &_s1, POINT &_e1, POINT _s2, POINT _e2, CRect *viewPort)
+//void Geometry::CutLineToIntersect(Point &_s1, Point &_e1, Point _s2, Point _e2, CRect *viewPort)
 //{
 //	// Store the values for fast access and easy
 //
@@ -246,9 +246,9 @@ inline void swap(int &val1, int &val2)
 //	}
 //}
 //
-//void Geometry::GetViewLineInPolyline(POINT *_p, int _count, CRect *viewPort)
+//void Geometry::GetViewLineInPolyline(Point *_p, int _count, CRect *viewPort)
 //{
-//	POINT p1, p2;
+//	Point p1, p2;
 //	p1.x = viewPort->left;
 //	p1.y = viewPort->top;
 //	p2.x = viewPort->right;
@@ -310,7 +310,7 @@ inline void swap(int &val1, int &val2)
 //	return;
 //}
 //
-//POINT* Geometry::GetCenterPointOfPolyline(POINT *_p, int _count, CRect *viewPort)
+//Point* Geometry::GetCenterPointOfPolyline(Point *_p, int _count, CRect *viewPort)
 //{
 //	if (_count < 2)
 //	{
@@ -329,7 +329,7 @@ inline void swap(int &val1, int &val2)
 //	}
 //
 //	double accumulatedDistance = 0;								   // �����Ÿ�
-//	POINT *returnValue = new POINT;
+//	Point *returnValue = new Point;
 //
 //	for (int i = 0; i < (_count - 1); i++)						   // 0��° ������ ���� ������ �̵��ϸ鼭 �����Ÿ��� �����Ѵ�
 //	{

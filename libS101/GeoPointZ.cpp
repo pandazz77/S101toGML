@@ -33,8 +33,8 @@ double GeoPointZ::GetZ()
 
 //void GeoPointZ::DrawGeometry(HDC &hDC, Scaler *scaler, double offset)
 //{
-//	//CPoint point;
-//	POINT point;
+//	//Point point;
+//	Point point;
 //	scaler->WorldToDevice(x + offset, y, &(point.x), &(point.y));
 //	// ������ ���� �ٲٴ� �κ�
 ////	CBrush newBrush = CBrush(RGB(165, 191, 221));

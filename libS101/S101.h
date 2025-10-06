@@ -8,6 +8,8 @@
 #include "MBR.h"
 #include "OrientedCurveRecord.h"
 #include "SCurveHasOrient.h"
+#include "Point.h"
+
 
 #include <string>
 #include <vector>
@@ -142,9 +144,9 @@ namespace libS101
 		bool GetFullSpatialData(R_PointRecord* r, GeoPointZ& geo);
 		bool GetFullSpatialData(R_MultiPointRecord* r, std::vector<GeoPointZ>& geoArr);
 		bool GetFullSpatialData(R_CurveRecord* r, std::vector<GeoPoint>& geoArr, int ORNT = 1);
-		bool GetFullSpatialData(R_CurveRecord* r, std::vector<POINT>& geoArr, int ORNT = 1);
+		bool GetFullSpatialData(R_CurveRecord* r, std::vector<Point>& geoArr, int ORNT = 1);
 		bool GetFullSpatialData(R_CompositeRecord* r, std::vector<GeoPoint>& geoArr, int ORNT = 1);
-		bool GetFullSpatialData(R_CompositeRecord* r, std::vector<POINT>& geoArr, int ORNT = 1);
+		bool GetFullSpatialData(R_CompositeRecord* r, std::vector<Point>& geoArr, int ORNT = 1);
 		bool GetFullSpatialData(R_SurfaceRecord* r, std::vector<GeoPoint>& geoArr);
 
 		R_MultiPointRecord* findMultiPointRecord(long long value);

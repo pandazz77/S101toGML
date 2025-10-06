@@ -25,7 +25,7 @@ void GeoPoint::SetPoint(double _x, double _y)
 
 //void GeoPoint::DrawGeometry(HDC &hDC, Scaler *scaler, double offset)
 //{
-//	POINT point;
+//	Point point;
 //	scaler->WorldToDevice(x + offset, y, &(point.x), &(point.y));
 //	Ellipse(hDC, point.x - 1, point.y - 1, point.x + 1, point.y + 1);
 //}
