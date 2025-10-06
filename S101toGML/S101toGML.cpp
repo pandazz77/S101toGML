@@ -1,67 +1,31 @@
 // S101toGML.cpp : This file contains the 'main' function. Program execution begins and ends there.
 
 #include "S101toGML.h"
-
-#include "../libS101/S101.h"
+#include "S101.h"
 
 #include <iostream>
 
-using namespace std;
 
 int main(int argc, char* argv[])
 {
-	int nRetCode = 0;
-
-	libS101::String filepath;
-	libS101::String savepath;
-
-	if (argc < 3)
-	{
-		std::cout << " Please enter all the routes. " << std::endl;
-
-		std::cout << "openFilePath : ";
-		string file;
-		std::cin >> file;
-
-		std::cout << "saveFilePath : ";
-		string save;
-		std::cin >> save;
-
-		filepath = file.c_str();
-		savepath = save.c_str();
+	if (argc < 3){
+		std::cout << "usage: program <S101/input/path> <GML/output/path>";
+		return -1;
 	}
 	else {
+		std::string s101path = argv[1];
+		std::string gmlpath = argv[2];
 
-		for (int i = 0; i < argc; i++)
-		{
-			std::cout << "Value : " << argv[i] << std::endl;
-		}
-
-		std::string file = argv[1];
-		filepath = file;
-		std::cout << "Value : " << filepath << std::endl;
-
-		string save = argv[2];
-		savepath = save;
-		std::cout << "Value : " << savepath << std::endl;
-	}
-
-    {
-		libS101::S101 a;
-
-		if (a.Open(filepath))
-		{
-			std::cout << "Open Success" << std::endl;
-		}
-
-		else
-		{
-			std::cout << "Open Fail,Please check the file path." << std::endl;
+		libS101::S101 s101;
+		if(s101.Open(s101path)){
+			std::cout << "Open " << s101path << " success" << std::endl;
+		} else {
+			std::cout << "Open " << s101path <<  " failed. Please check the file path." << std::endl;
 			return -1;
 		}
 
-		a.Save(savepath, L"");
-		std::cout << "gml Success" << std::endl;
+		s101.Save(gmlpath,L"");
+		std::cout << "GML export to " << gmlpath << " success" << std::endl;
 
     }
     return 0;
