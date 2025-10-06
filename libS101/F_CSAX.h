@@ -9,7 +9,7 @@ public:
 	virtual ~F_CSAX();
 
 public:
-	CList<CSAX*> m_arr;
+	std::vector<CSAX*> m_arr;
 
 public:
 	void ReadField(BYTE *&buf);

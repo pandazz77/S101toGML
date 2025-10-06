@@ -171,24 +171,6 @@ private:
     }
 };
 
-// Simple MFC-like CList for pointer types
-typedef size_t POSITION;
-template <typename T>
-class CList {
-public:
-    void AddTail(T v) { data_.push_back(v); }
-    POSITION GetHeadPosition() const { return data_.empty() ? 0u : 1u; }
-    T GetNext(POSITION& pos) {
-        if (pos == 0) return T();
-        size_t idx = pos - 1;
-        T val = data_[idx];
-        if (idx + 1 < data_.size()) pos = static_cast<POSITION>(idx + 2); else pos = 0;
-        return val;
-    }
-private:
-    std::vector<T> data_;
-};
-
 // CFile minimal shim for read-only used in code
 class CFile {
 public:

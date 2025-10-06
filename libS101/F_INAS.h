@@ -38,7 +38,7 @@ public:
 	/*
 	* Attribute Array
 	*/
-	CList<ATTR*> m_arr;
+	std::vector<ATTR*> m_arr;
 
 	static int GetSize();
 

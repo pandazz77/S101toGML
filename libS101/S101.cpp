@@ -1186,7 +1186,6 @@ namespace libS101
 	{
 		ClearCurveMap();
 
-		POSITION spasPos = NULL;
 		R_FeatureRecord* fr;
 
 		for (auto itor = vecFeature.begin(); itor != vecFeature.end(); itor++)
@@ -1443,7 +1442,6 @@ namespace libS101
 
 	SCurve* S101::GetCurveGeometry(R_CurveRecord* r/*, std::vector<GeoPoint> &geoArr, unsigned ORNT*/)
 	{
-		POSITION ptasPos = NULL;
 		PTAS* ptas = NULL;
 		IC2D* c2di = NULL;
 		R_PointRecord* spr = nullptr, * epr = nullptr;
@@ -1895,7 +1893,6 @@ namespace libS101
 
 	bool S101::GetFullSpatialData(R_CurveRecord* r, std::vector<GeoPoint>& geoArr, int ORNT)
 	{
-		POSITION ptasPos = NULL;
 		PTAS* ptas = NULL;
 		IC2D* c2di = NULL;
 		R_PointRecord* spr = nullptr, * epr = nullptr;
@@ -2075,7 +2072,6 @@ namespace libS101
 
 	bool S101::GetFullSpatialData(R_CompositeRecord* r, std::vector<GeoPoint>& geoArr, int ORNT)
 	{
-		POSITION cucoPos = NULL;
 		CUCO* cuco = NULL;
 		R_CurveRecord* cr = NULL;
 		R_CompositeRecord* ccr = NULL;
@@ -2197,7 +2193,7 @@ namespace libS101
 		///////////////////////////////
 		// for blank interior area
 		int sp = 0;
-		CList<int> boundaryList;
+		std::vector<int> boundaryList;
 		BOOL isExtrior = TRUE;
 		///////////////////////////////
 
@@ -2242,7 +2238,7 @@ namespace libS101
 					else
 					{
 						sp = -1;
-						boundaryList.AddTail(sizet + 1);
+						boundaryList.push_back(sizet + 1);
 					}
 				}
 			}
@@ -2250,12 +2246,11 @@ namespace libS101
 		// for blank interior area
 		int arrIndex = 0;
 		int i = 0;
-		POSITION boundaryPos = boundaryList.GetHeadPosition();
 		int index;
 		int count = 0;
-		while (boundaryPos != NULL)
-		{
-			index = boundaryList.GetNext(boundaryPos) + count;
+
+		for(int bindex: boundaryList){
+			index = bindex + count;
 			GeoPoint p(geoArr[0].x, geoArr[0].y);
 			geoArr.insert(geoArr.begin()+index,p);
 			count++;

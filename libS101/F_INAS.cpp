@@ -15,13 +15,8 @@ F_INAS::F_INAS()
 
 F_INAS::~F_INAS()
 {
-	POSITION pos = m_arr.GetHeadPosition();
-
-	while (pos != NULL)
-	{
-		ATTR* attr = m_arr.GetNext(pos);
+	for(ATTR *attr: m_arr)
 		delete attr;
-	}
 }
 
 int F_INAS::GetSize()
@@ -46,7 +41,7 @@ void F_INAS::ReadField(BYTE *&buf)
 		attr->m_atin = *(buf++);
 		buf2charArr(attr->m_atvl, buf);
 
-		m_arr.AddTail(attr);
+		m_arr.push_back(attr);
 	}
 }
 
@@ -67,7 +62,7 @@ void F_INAS::ReadField(BYTE *&buf, int loopCnt)
 		attr->m_atin = *(buf++);
 		buf2charArr(attr->m_atvl, buf);
 
-		m_arr.AddTail(attr);
+		m_arr.push_back(attr);
 	}
 }
 BOOL F_INAS::Save(CFile *file)
@@ -77,13 +72,8 @@ BOOL F_INAS::Save(CFile *file)
 	file->Write(&m_niac, 2);
 	file->Write(&m_narc, 2);
 	file->Write(&m_iuin, 1);
-	
-	POSITION pos = m_arr.GetHeadPosition();
 
-	while (pos != NULL)
-	{
-		ATTR *attr = m_arr.GetNext(pos);
-
+	for(ATTR *attr: m_arr){
 		file->Write(&attr->m_natc, 2);
 		file->Write(&attr->m_atix, 2);
 		file->Write(&attr->m_paix, 2);
@@ -92,6 +82,7 @@ BOOL F_INAS::Save(CFile *file)
 		file->Write(outputString, (UINT)::strlen(outputString));
 		file->Write(&NonPrintableCharacter::unitTerminator, 1);
 	}
+	
 	file->Write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	return TRUE;
@@ -101,14 +92,11 @@ int F_INAS::GetFieldLength()
 	int len = 0;
 	len += F_INAS::GetSize();
 
-	POSITION pos = m_arr.GetHeadPosition();
-
-	while (pos != NULL)
-	{
-		ATTR *attr = m_arr.GetNext(pos);
+	for(ATTR *attr: m_arr){
 		len += ATTR::GetOffsetToATVL();
 		CT2CA outputString(attr->m_atvl, CP_UTF8);
 		len += (int)::strlen(outputString) + 1;
 	}
+	
 	return ++len;
 }

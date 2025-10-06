@@ -10,13 +10,8 @@ F_CSAX::F_CSAX(void)
 
 F_CSAX::~F_CSAX(void)
 {
-	POSITION pos = m_arr.GetHeadPosition();
-
-	while(pos!=NULL)
-	{
-		CSAX* csax = m_arr.GetNext(pos);
+	for(CSAX *csax: m_arr)
 		delete csax;
-	}
 }
 void F_CSAX::ReadField(BYTE *&buf)
 {
@@ -26,7 +21,7 @@ void F_CSAX::ReadField(BYTE *&buf)
 		csax->m_axty = *(buf++);
 		csax->m_axum = *(buf++);
 			
-		m_arr.AddTail(csax);
+		m_arr.push_back(csax);
 	}
 }
 
@@ -39,18 +34,14 @@ void F_CSAX::ReadField(BYTE *&buf, int loopCnt)
 		csax->m_axty = *(buf++);
 		csax->m_axum = *(buf++);
 			
-		m_arr.AddTail(csax);
+		m_arr.push_back(csax);
 	}
 }
 BOOL F_CSAX::Save(CFile *file)
 {
 	int len = 0;
 
-	POSITION pos = m_arr.GetHeadPosition();
-
-	while(pos != NULL)
-	{
-		CSAX *csax = m_arr.GetNext(pos);
+	for(CSAX *csax: m_arr){
 		file->Write(&csax->m_axty, 1);
 		file->Write(&csax->m_axum, 1);
 	}
@@ -63,14 +54,11 @@ BOOL F_CSAX::Save(CFile *file)
 int F_CSAX::GetFieldLength()
 {
 	int len = 0;
-
-	POSITION pos = m_arr.GetHeadPosition();
-
-	while(pos != NULL)
-	{
-		CSAX *csax = m_arr.GetNext(pos);
+	
+	for(CSAX *csax: m_arr){
 		len += 1;
 		len += 1;
 	}
+
 	return ++len;
 }
