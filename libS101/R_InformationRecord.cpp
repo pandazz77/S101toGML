@@ -80,7 +80,7 @@ bool R_InformationRecord::ReadRecord(DRDirectoryInfo *dir, std::uint8_t*& buf)
 		}
 		
 		if(*(buf++)!= 0x1E)//{}
-			S100Utilities::TRACE(W2A(TEXT("terminator error")));
+			S100Utilities::TRACE("terminator error");
 	}
 
 	return true;

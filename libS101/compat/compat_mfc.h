@@ -141,34 +141,11 @@ private:
 #define _T(x) L##x
 #define TEXT(x) L##x
 
-// UTF-8 helpers and CT2CA stub
 #define CP_UTF8 65001
-inline std::wstring compat_utf8_to_wstring(const char* s) {
-    if (!s) return std::wstring();
-    std::wstring out; out.reserve(std::strlen(s));
-    for (const unsigned char* p = (const unsigned char*)s; *p; ++p) out.push_back((wchar_t)*p);
-    return out;
-}
+
 class CT2CA {
 public:
     CT2CA(const CString& s, int /*cp*/) { buf_ = narrow(s.std()); }
-    operator const char*() const { return buf_.c_str(); }
-private:
-    static std::string narrow(const std::wstring& ws) {
-        std::string out; out.reserve(ws.size());
-        for (wchar_t c : ws) out.push_back((char)(c & 0xFF));
-        return out;
-    }
-    std::string buf_;
-};
-// CA2W replacement
-inline std::wstring CA2W(const char* s, int /*cp*/) { return compat_utf8_to_wstring(s); }
-namespace ATL { inline std::wstring CA2W(const char* s, int cp) { return ::CA2W(s, cp); } }
-
-// W2A stub for TRACE uses
-class W2A {
-public:
-    W2A(const wchar_t* ws) { buf_ = narrow(ws ? std::wstring(ws) : std::wstring()); }
     operator const char*() const { return buf_.c_str(); }
 private:
     static std::string narrow(const std::wstring& ws) {

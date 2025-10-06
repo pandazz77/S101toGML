@@ -1,6 +1,7 @@
 
 #include "ISO8211Fuc.h"
 #include "NonPrintableCharacter.h"
+#include "S100Utilities.h"
 
 #undef _WINDOWS_
 #ifdef _WIN32
@@ -34,7 +35,7 @@ void buf2charArr(CString &dest, std::uint8_t*& buf)
 		tBYTEArr[i] = *(buf++);
 	}
 	tBYTEArr[i] = NULL;
-	dest = CA2W((char*)tBYTEArr, CP_UTF8);
+	dest = S100Utilities::compat_utf8_to_wstring((char*)tBYTEArr);
 	buf++;
 }
 
@@ -54,7 +55,7 @@ void buf2charArr(std::wstring &dest, std::uint8_t*& buf)
 		//dest.AppendChar(*(buf++));
 	}
 	tBYTEArr[i] = NULL;
-	dest = ATL::CA2W((char*)tBYTEArr, CP_UTF8);
+	dest = S100Utilities::compat_utf8_to_wstring((char*)tBYTEArr);
 	buf++;
 }
 
@@ -77,7 +78,7 @@ void buf2charArr(std::wstring &dest, std::uint8_t*& buf, int len)
 		//dest.AppendChar(*(buf++));
 	}
 	tBYTEArr[i] = NULL;
-	dest = ATL::CA2W((char*)tBYTEArr, CP_UTF8);
+	dest = S100Utilities::compat_utf8_to_wstring((char*)tBYTEArr);
 }
 
 std::uint32_t buf2uint(std::uint8_t*& buf, int size)
