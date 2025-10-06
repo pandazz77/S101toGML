@@ -29,9 +29,9 @@ R_InformationRecord::~R_InformationRecord(void)
 	m_attr.clear();
 }
 
-BOOL R_InformationRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_InformationRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 {
-	USES_CONVERSION;
+	;
 	int i = 0, j = 0, cnt;
 	for(i = 0; i < dir->m_count; i++)
 	{
@@ -82,10 +82,10 @@ BOOL R_InformationRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 			TRACE(W2A(TEXT("terminator error")));
 	}
 
-	return TRUE;
+	return true;
 }
 
-BOOL R_InformationRecord::Save(libS101::File *file)
+bool R_InformationRecord::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;
@@ -156,7 +156,7 @@ BOOL R_InformationRecord::Save(libS101::File *file)
 		inas->Save(file);
 	}
 	
-	return TRUE;
+	return true;
 }
 
 int R_InformationRecord::GetRCID()

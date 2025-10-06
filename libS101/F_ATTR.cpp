@@ -49,7 +49,7 @@ void F_ATTR::ReadField(BYTE *&buf, int loopCnt)
 	}
 }
 
-BOOL F_ATTR::Save(libS101::File *file)
+bool F_ATTR::Save(libS101::File *file)
 {
 	//POSITION pos = m_arr.GetHeadPosition();
 
@@ -69,7 +69,7 @@ BOOL F_ATTR::Save(libS101::File *file)
 	}
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
-	return TRUE;
+	return true;
 }
 
 int F_ATTR::GetFieldLength()

@@ -56,7 +56,7 @@ void F_FASC::ReadField(BYTE *&buf, int loopCnt)
 	//	m_arr.push_back(cont);
 	//}
 }
-BOOL F_FASC::Save(libS101::File *file)
+bool F_FASC::Save(libS101::File *file)
 {
 	//POSITION pos = m_arr.GetHeadPosition();
 
@@ -79,7 +79,7 @@ BOOL F_FASC::Save(libS101::File *file)
 	}
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
-	return TRUE;
+	return true;
 }
 
 int F_FASC::GetFieldLength()

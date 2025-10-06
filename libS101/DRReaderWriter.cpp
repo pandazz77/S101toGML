@@ -50,7 +50,7 @@ DRReaderWriter::~DRReaderWriter(void)
 
 
 
-BOOL DRReaderWriter::WriteDRReader(libS101::File* file)
+bool DRReaderWriter::WriteDRReader(libS101::File* file)
 {
 	SetByteInfo();
 
@@ -79,7 +79,7 @@ BOOL DRReaderWriter::WriteDRReader(libS101::File* file)
 	file->write(&b_fieldLength, 1);
 	file->write(&b_Reserved, 1);
 	file->write(&b_fieldPosition, 1);
-	return TRUE;
+	return true;
 }
 
 void DRReaderWriter::SetByteInfo()

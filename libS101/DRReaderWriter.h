@@ -33,6 +33,6 @@ public:
 	BYTE b_fieldPosition;
 
 public:
-	BOOL WriteDRReader(libS101::File* file);
+	bool WriteDRReader(libS101::File* file);
 	void SetByteInfo();
 };

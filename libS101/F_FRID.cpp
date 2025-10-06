@@ -24,7 +24,7 @@ void F_FRID::ReadField(BYTE *&buf)
 	m_rver = buf2uint(buf, 2);
 	m_ruin = *(buf++);
 }
-BOOL F_FRID::Save(libS101::File *file)
+bool F_FRID::Save(libS101::File *file)
 {
 	file->write(&m_name.RCNM, 1);
 	file->write(&m_name.RCID, 4);
@@ -33,7 +33,7 @@ BOOL F_FRID::Save(libS101::File *file)
 	file->write(&m_ruin, 1);
 
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
-	return TRUE;
+	return true;
 }
 int F_FRID::GetFieldLength()
 {

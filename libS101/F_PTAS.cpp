@@ -49,7 +49,7 @@ void F_PTAS::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(ptas);
 	}
 }
-BOOL F_PTAS::Save(libS101::File *file)
+bool F_PTAS::Save(libS101::File *file)
 {	
 	for (auto i = m_arr.begin(); i != m_arr.end(); i++)
 	{
@@ -72,7 +72,7 @@ BOOL F_PTAS::Save(libS101::File *file)
 	//}
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
-	return TRUE;
+	return true;
 }
 int F_PTAS::GetFieldLength()
 {

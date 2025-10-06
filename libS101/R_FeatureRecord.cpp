@@ -77,9 +77,9 @@ R_FeatureRecord::~R_FeatureRecord(void)
 }
 
 #pragma warning(disable:4018)
-BOOL R_FeatureRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_FeatureRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 {
-	USES_CONVERSION;
+	;
 	unsigned i = 0, j = 0, cnt;
 	for (i = 0; i < dir->m_count; i++)
 	{
@@ -163,7 +163,7 @@ BOOL R_FeatureRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 	return true;
 }
 
-BOOL R_FeatureRecord::Save(libS101::File *file)
+bool R_FeatureRecord::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;
@@ -274,7 +274,7 @@ BOOL R_FeatureRecord::Save(libS101::File *file)
 		(*itor)->Save(file);
 	}
 
-	return TRUE;
+	return true;
 }
 
 void R_FeatureRecord::CreateCS(S101Cell *cell, CString csName, bool bSENC)

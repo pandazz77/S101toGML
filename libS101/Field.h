@@ -16,6 +16,6 @@ public:
 
 public:
 	virtual void ReadField(BYTE *&buf) {};
-	virtual BOOL Save(libS101::File *file) { return TRUE; };
+	virtual bool Save(libS101::File *file) { return true; };
 	virtual int GetFieldLength() { return 0; };
 };

@@ -22,14 +22,14 @@ void F_SRID::ReadField(BYTE *&buf)
 	m_rver = buf2uint(buf, 2);
 	m_ruin = *(buf++);
 }
-BOOL F_SRID::Save(libS101::File *file)
+bool F_SRID::Save(libS101::File *file)
 {
 	file->write(&m_name.RCNM, 1);
 	file->write(&m_name.RCID, 4);
 	file->write(&m_rver, 2);
 	file->write(&m_ruin, 1);
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
-	return TRUE;
+	return true;
 }
 
 int F_SRID::GetFieldLength()

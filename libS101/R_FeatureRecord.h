@@ -66,8 +66,8 @@ public:
 	std::list<OrientedCurveRecord> m_curveList;
 
 public:
-	BOOL ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
-	BOOL Save(libS101::File *file);
+	bool ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
+	bool Save(libS101::File *file);
 	//void Draw(CDC *pDC, Scaler *scaler, double offset = 0);
 	//void Draw(HDC &hDC, Scaler *scaler, double offset = 0);
 	

@@ -62,8 +62,8 @@ __int64 ENCCommon::OVER_GROUP = 0x7FFFFFFF;
 long long ENCCommon::OVER_GROUP = 0x7FFFFFFF;
 #endif
 
-BOOL ENCCommon::SHOW_TEXT_PLACEMENT = FALSE;
-BOOL ENCCommon::SHOW_UNCERTAINTY = FALSE;
+bool ENCCommon::SHOW_TEXT_PLACEMENT = false;
+bool ENCCommon::SHOW_UNCERTAINTY = false;
 
 std::wstring ENCCommon::DISPLAY_FONT_NAME = L"Sans-Serif";
 int ENCCommon::DISPLAY_FONT_SIZE = 15;

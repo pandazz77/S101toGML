@@ -21,7 +21,7 @@
 BYTE tBYTEArr[1024];
 void buf2charArr(CString &dest, BYTE*& buf)
 {
-	USES_CONVERSION;
+	;
 	int i = 0;
 	int endLoc = 0;
 	
@@ -40,7 +40,7 @@ void buf2charArr(CString &dest, BYTE*& buf)
 
 void buf2charArr(std::wstring &dest, BYTE*& buf)
 {
-	//USES_CONVERSION;
+	//;
 	int i = 0;
 	int endLoc = 0;
 	
@@ -69,7 +69,7 @@ void buf2charArr(CString &dest, BYTE*& buf, int len)
 
 void buf2charArr(std::wstring &dest, BYTE*& buf, int len)
 {
-//	USES_CONVERSION;
+//	;
 	int i = 0;
 	for(i = 0; i < len; i++)
 	{

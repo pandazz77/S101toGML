@@ -14,6 +14,6 @@ public:
 
 public:
 	void ReadField(BYTE *&buf);
-	BOOL Save(libS101::File *file);
+	bool Save(libS101::File *file);
 	int GetFieldLength();
 };

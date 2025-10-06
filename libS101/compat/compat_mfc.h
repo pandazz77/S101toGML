@@ -15,25 +15,11 @@
 #include <list>
 
 typedef unsigned char BYTE;
-typedef int BOOL;
-typedef long LONG;
-typedef long long LONGLONG;
 typedef uint32_t DWORD;
 typedef uint16_t WORD;
 typedef unsigned int UINT;
 typedef long long __int64;
 typedef long long _int64;
-#ifndef LIBS101_API
-#define LIBS101_API
-#endif
-typedef void* HMODULE;
-
-#ifndef TRUE
-#define TRUE 1
-#endif
-#ifndef FALSE
-#define FALSE 0
-#endif
 
 struct tagPOINT { 
     long x; long y; 
@@ -42,10 +28,6 @@ struct tagPOINT {
 };
 typedef tagPOINT POINT;
 typedef tagPOINT CPoint;
-typedef wchar_t TCHAR;
-#ifndef MAX_PATH
-#define MAX_PATH 260
-#endif
 
 // CString minimal shim using std::wstring (UTF-16-esque API surface)
 class CString {
@@ -223,8 +205,6 @@ private:
 #ifndef TRACE
 #define TRACE(...) do { fprintf(stderr, __VA_ARGS__); fputc('\n', stderr); } while(0)
 #endif
-// no-op macro
-#define USES_CONVERSION
 
 #endif // _WIN32
 

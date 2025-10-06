@@ -21,6 +21,6 @@ public:
 	virtual ~DRDirectoryInfoWriter();
 
 public:
-	BOOL WriteDRDirectory(libS101::File* file, const DRReader dr);
+	bool WriteDRDirectory(libS101::File* file, const DRReader dr);
 	void CheckLength(DRReader *dr);
 };

@@ -65,7 +65,7 @@ bool Layer::Open(CString _filepath)
 		{
 			for (int i = strFolderPath.GetLength() - 1; i >= 0; i--)
 			{
-				TCHAR ch = strFolderPath[i];
+				wchar_t ch = strFolderPath[i];
 				strFolderPath.Delete(i);
 				if (ch == '\\') break;
 			}

@@ -65,7 +65,7 @@ void F_GDAT::ReadField(BYTE *&buf)
 	m_cmgl = buf2double(buf, 8);
 }
 
-BOOL F_GDAT::Save(libS101::File *file)
+bool F_GDAT::Save(libS101::File *file)
 {
 	CT2CA outputString(m_dtnm, CP_UTF8);
 	file->write(outputString, (UINT)::strlen(outputString));
@@ -86,7 +86,7 @@ BOOL F_GDAT::Save(libS101::File *file)
 	file->write(&m_cmgl, 8);
 
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
-	return TRUE;
+	return true;
 }
 
 int F_GDAT::GetFieldLength()

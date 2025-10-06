@@ -43,7 +43,7 @@ void F_PROJ::ReadField(BYTE *&buf, int loopCnt)
 	m_feas = buf2double(buf, 8);
 	m_fnor = buf2double(buf, 8);
 }
-BOOL F_PROJ::Save(libS101::File *file)
+bool F_PROJ::Save(libS101::File *file)
 {
 	file->write(&m_prom, 1);
 	file->write(&m_prp1, 8);
@@ -56,7 +56,7 @@ BOOL F_PROJ::Save(libS101::File *file)
 	
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
-	return TRUE;
+	return true;
 }
 
 

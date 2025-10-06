@@ -45,8 +45,8 @@ MBR& Geometry::GetMBRRef()
 //	centerY = centerY / (6.0 * area);
 //
 //	POINT returnValue;
-//	returnValue.x = (LONG)centerX;
-//	returnValue.y = (LONG)centerY;
+//	returnValue.x = (long)centerX;
+//	returnValue.y = (long)centerY;
 //
 //	return returnValue;
 //}
@@ -83,8 +83,8 @@ MBR& Geometry::GetMBRRef()
 //	double angle = GetAngle(_p1, _p2);  // ������ x���� ���� ����� �̷�� ����
 //
 //	POINT returnValue;
-//	returnValue.x = (LONG)(_p1.x + offset * cos(angle));
-//	returnValue.y = (LONG)(_p1.y + offset * sin(angle));
+//	returnValue.x = (long)(_p1.x + offset * cos(angle));
+//	returnValue.y = (long)(_p1.y + offset * sin(angle));
 //
 //	return returnValue;
 //}
@@ -109,7 +109,7 @@ MBR& Geometry::GetMBRRef()
 //		double RAD2DEG = 180.0 / acos(-1.0);
 //
 //		angle *= RAD2DEG;
-//		_symbol->Draw(pDC, CPoint(LONG(p.x), LONG(p.y)), angle);
+//		_symbol->Draw(pDC, CPoint(long(p.x), long(p.y)), angle);
 //	}
 //
 //	// Composite line�� �׸��� �� ������ Composite line���� ����Ͽ� �������� ä���.
@@ -236,13 +236,13 @@ inline void swap(int &val1, int &val2)
 //		viewPort->bottom < _s1.y ||
 //		viewPort->top	> _s1.y)
 //	{
-//		_s1.x = (LONG)x;
-//		_s1.y = (LONG)y;
+//		_s1.x = (long)x;
+//		_s1.y = (long)y;
 //	}
 //	else
 //	{
-//		_e1.x = (LONG)x;
-//		_e1.y = (LONG)y;
+//		_e1.x = (long)x;
+//		_e1.y = (long)y;
 //	}
 //}
 //

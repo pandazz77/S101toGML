@@ -77,7 +77,7 @@ namespace libS101
 		void InsertSurfaceRecord(__int64 key, R_SurfaceRecord* record);
 		void InsertFeatureRecord(__int64 key, R_FeatureRecord* record);
 
-		BOOL ReadDDR(BYTE*& buf);
+		bool ReadDDR(BYTE*& buf);
 		void SetInformationsType(pugi::xml_document* doc, pugi::xml_node parentNode, std::string productNamespace);
 		void GmlifileMakeByPugi(CString _filePath);
 		void SetFeaturesType(pugi::xml_document* document, pugi::xml_node parentNode, std::string productNamespace);

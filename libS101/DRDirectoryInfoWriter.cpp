@@ -24,7 +24,7 @@ DRDirectoryInfoWriter::~DRDirectoryInfoWriter(void)
 {
 }
 
-BOOL DRDirectoryInfoWriter::WriteDRDirectory(libS101::File* file, const DRReader dr)
+bool DRDirectoryInfoWriter::WriteDRDirectory(libS101::File* file, const DRReader dr)
 {
 	for(int i = 0; i < m_count; i++)
 	{
@@ -36,7 +36,7 @@ BOOL DRDirectoryInfoWriter::WriteDRDirectory(libS101::File* file, const DRReader
 	}
 
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
-	return TRUE;
+	return true;
 }
 
 void DRDirectoryInfoWriter::CheckLength(DRReader *dr)

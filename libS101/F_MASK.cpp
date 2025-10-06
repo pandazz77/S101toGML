@@ -51,7 +51,7 @@ void F_MASK::ReadField(BYTE *&buf, int loopCnt)
 			);
 	}
 }
-BOOL F_MASK::Save(libS101::File *file)
+bool F_MASK::Save(libS101::File *file)
 {
 	for (auto itor = m_arr.begin(); itor != m_arr.end(); itor++)
 	{
@@ -64,7 +64,7 @@ BOOL F_MASK::Save(libS101::File *file)
 	}
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
-	return TRUE;
+	return true;
 }
 
 int F_MASK::GetFieldLength()

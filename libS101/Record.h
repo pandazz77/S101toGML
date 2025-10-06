@@ -10,5 +10,5 @@ public:
 	virtual ~Record();
 
 public:
-	virtual BOOL ReadRecord(DRDirectoryInfo* dir, BYTE*& buf) {	return TRUE; };
+	virtual bool ReadRecord(DRDirectoryInfo* dir, BYTE*& buf) {	return true; };
 };

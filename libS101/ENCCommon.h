@@ -145,10 +145,10 @@ public:
 	static int INTEROPERABILITY_LEVEL; //DISTANCE_TAGS;
 
 	// Show Text Placement
-	static BOOL	SHOW_TEXT_PLACEMENT;
+	static bool	SHOW_TEXT_PLACEMENT;
 
 	// Show wreck/obstruction/rock's uncertainty
-	static BOOL SHOW_UNCERTAINTY;
+	static bool SHOW_UNCERTAINTY;
 
 	// Under/Over scale �� �ɺ� ũ�� ���� Test
 	static int T_APPLY_OVER_N_UNDER_SCALE;

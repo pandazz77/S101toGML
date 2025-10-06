@@ -23,9 +23,9 @@ R_PointRecord::~R_PointRecord(void)
 	}
 }
 
-BOOL R_PointRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_PointRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 {	
-	USES_CONVERSION;
+	;
 	int i = 0, j = 0;
 	for(i = 0; i < dir->m_count; i++)
 	{
@@ -70,11 +70,11 @@ BOOL R_PointRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 			TRACE(W2A(TEXT("terminator error")));
 	}
 
-	return TRUE;
+	return true;
 }
 
 
-BOOL R_PointRecord::Save(libS101::File *file)
+bool R_PointRecord::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;
@@ -155,7 +155,7 @@ BOOL R_PointRecord::Save(libS101::File *file)
 	{
 		m_c3it->Save(file);
 	}
-	return TRUE;
+	return true;
 }
 
 int R_PointRecord::GetRCID()

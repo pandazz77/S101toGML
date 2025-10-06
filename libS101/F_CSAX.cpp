@@ -37,7 +37,7 @@ void F_CSAX::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(csax);
 	}
 }
-BOOL F_CSAX::Save(libS101::File *file)
+bool F_CSAX::Save(libS101::File *file)
 {
 	int len = 0;
 
@@ -48,7 +48,7 @@ BOOL F_CSAX::Save(libS101::File *file)
 
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
-	return TRUE;
+	return true;
 }
 
 int F_CSAX::GetFieldLength()

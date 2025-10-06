@@ -30,9 +30,9 @@ R_CompositeRecord::~R_CompositeRecord(void)
 }
 
 
-BOOL R_CompositeRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_CompositeRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 {
-	USES_CONVERSION;
+	;
 	int i = 0, j = 0;
 	for(i = 0; i < dir->m_count; i++)
 	{
@@ -75,10 +75,10 @@ BOOL R_CompositeRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 			TRACE(W2A(TEXT("terminator error")));
 		}
 	}
-	return TRUE;
+	return true;
 }
 
-BOOL R_CompositeRecord::Save(libS101::File *file)
+bool R_CompositeRecord::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;
@@ -149,7 +149,7 @@ BOOL R_CompositeRecord::Save(libS101::File *file)
 	{
 		(*itor)->Save(file);
 	}
-	return TRUE;
+	return true;
 }
 
 int R_CompositeRecord::GetRCID()

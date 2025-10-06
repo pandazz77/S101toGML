@@ -30,9 +30,9 @@ R_DSCRS::~R_DSCRS()
 
 #pragma warning(disable:4244)
 #pragma warning(disable:4018)
-BOOL R_DSCRS::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_DSCRS::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 {
-	USES_CONVERSION;
+	;
 	for(unsigned i = 0; i < dir->m_count; i++)
 	{
 		if(dir->GetDirectory(i)->tag == *((unsigned int*)"CSID"))
@@ -72,11 +72,11 @@ BOOL R_DSCRS::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 		if(*(buf++)!= 0x1E)//{}
 			TRACE(W2A(TEXT("terminator error")));
 	}
-	return TRUE;
+	return true;
 }
 
 
-BOOL R_DSCRS::Save(libS101::File *file)
+bool R_DSCRS::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;
@@ -167,5 +167,5 @@ BOOL R_DSCRS::Save(libS101::File *file)
 	//if (m_gdat) m_gdat->Save(file);
 	if (m_vdat) m_vdat->Save(file);
 	
-	return TRUE;
+	return true;
 }

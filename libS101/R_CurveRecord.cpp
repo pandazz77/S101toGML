@@ -54,7 +54,7 @@ R_CurveRecord::~R_CurveRecord()
 }
 
 #pragma warning(disable:4018)
-BOOL R_CurveRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_CurveRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 {
 	for (int i = 0; i < dir->m_count; i++)
 	{
@@ -131,7 +131,7 @@ BOOL R_CurveRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 	return true;
 }
 
-BOOL R_CurveRecord::Save(libS101::File *file)
+bool R_CurveRecord::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;
@@ -229,7 +229,7 @@ BOOL R_CurveRecord::Save(libS101::File *file)
 	}
 	
 
-	return TRUE;
+	return true;
 }
 
 int R_CurveRecord::GetRCID() 

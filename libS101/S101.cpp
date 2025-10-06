@@ -1069,7 +1069,7 @@ namespace libS101
 		vecFeature.push_back(record);
 	}
 
-	BOOL S101::ReadDDR(BYTE*& buf)
+	bool S101::ReadDDR(BYTE*& buf)
 	{
 		int size = atoi(buf, 5);
 		buf -= 5;
@@ -1078,7 +1078,7 @@ namespace libS101
 
 		buf += m_S101DDR.GetSize();
 
-		return TRUE;
+		return true;
 	}
 
 	std::string S101::GetEncodingSpecificationEditionToString()
@@ -1299,7 +1299,7 @@ namespace libS101
 				}
 			}
 		}
-		return TRUE;
+		return true;
 	}
 	bool S101::MakeSoundingData(R_FeatureRecord* fe)
 	{
@@ -1360,7 +1360,7 @@ namespace libS101
 		}
 
 		geoArr.clear();
-		return TRUE;
+		return true;
 	}
 
 	bool S101::MakeLineData(R_FeatureRecord* fe)
@@ -1409,7 +1409,7 @@ namespace libS101
 
 		scc->SetMBR();
 
-		return TRUE;
+		return true;
 	}
 
 	bool S101::SetSCurveList(std::list<OrientedCurveRecord>* inCurveRecordList, std::list<SCurveHasOrient>* outSCurveList)
@@ -1649,7 +1649,7 @@ namespace libS101
 				}
 			}
 		}
-		return TRUE;
+		return true;
 	}
 
 	void S101::CalcMBR()
@@ -1688,12 +1688,12 @@ namespace libS101
 	bool S101::GetFullCurveData(R_FeatureRecord* fe, R_PointRecord* r, int ornt)
 	{
 		fe->m_pointList.push_back(r);
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullCurveData(R_FeatureRecord* fe, R_MultiPointRecord* r, int ornt)
 	{
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullCurveData(R_FeatureRecord* fe, R_CurveRecord* r, int ornt)
@@ -1702,7 +1702,7 @@ namespace libS101
 		ocr.m_pCurveRecord = r;
 		ocr.m_orient = ornt;
 		fe->m_curveList.push_back(ocr);
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullCurveData(R_FeatureRecord* fe, R_CompositeRecord* r, int ornt)
@@ -1779,7 +1779,7 @@ namespace libS101
 			}
 		}
 
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullCurveData(R_FeatureRecord* fe, R_SurfaceRecord* r, int ornt)
@@ -1817,7 +1817,7 @@ namespace libS101
 				}
 			}
 		}
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullSpatialData(R_PointRecord* r, GeoPointZ& geo)
@@ -1841,7 +1841,7 @@ namespace libS101
 				z / 100.);
 		}
 
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullSpatialData(R_PointRecord* r, GeoPoint& geo)
@@ -1862,7 +1862,7 @@ namespace libS101
 				y / 10000000.0);
 		}
 		projection(geo.x, geo.y);
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullSpatialData(R_MultiPointRecord* r, std::vector<GeoPointZ>& geoArr)
@@ -1889,7 +1889,7 @@ namespace libS101
 			}
 		}
 
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullSpatialData(R_CurveRecord* r, std::vector<GeoPoint>& geoArr, int ORNT)
@@ -1978,7 +1978,7 @@ namespace libS101
 		projection(gp.x, gp.y);
 		geoArr.push_back(gp);
 
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullSpatialData(R_CurveRecord* r, std::vector<POINT>& geoArr, int ORNT)
@@ -1998,14 +1998,14 @@ namespace libS101
 			auto beginPointRecord = findPointRecord(beginPointKey);
 			if (nullptr == beginPointRecord || nullptr == beginPointRecord->m_c2it)
 			{
-				return FALSE;
+				return false;
 			}
 
 
 			auto endPointRecord = findPointRecord(endPointKey);
 			if (nullptr == endPointRecord || nullptr == endPointRecord->m_c2it)
 			{
-				return FALSE;
+				return false;
 			}
 
 			// PTAS
@@ -2068,7 +2068,7 @@ namespace libS101
 			}
 		}
 
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullSpatialData(R_CompositeRecord* r, std::vector<GeoPoint>& geoArr, int ORNT)
@@ -2143,7 +2143,7 @@ namespace libS101
 			}
 		}
 
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullSpatialData(R_CompositeRecord* r, std::vector<POINT>& geoArr, int ORNT)
@@ -2176,12 +2176,12 @@ namespace libS101
 				else
 				{
 					OutputDebugString(L"Invalid RCNM in CUCO\n");
-					return FALSE;
+					return false;
 				}
 			}
 		}
 
-		return TRUE;
+		return true;
 	}
 
 	bool S101::GetFullSpatialData(R_SurfaceRecord* r, std::vector<GeoPoint>& geoArr)
@@ -2195,7 +2195,7 @@ namespace libS101
 		// for blank interior area
 		int sp = 0;
 		std::vector<int> boundaryList;
-		BOOL isExtrior = TRUE;
+		bool isExtrior = true;
 		///////////////////////////////
 
 		for (auto itorParent = r->m_rias.begin(); itorParent != r->m_rias.end(); itorParent++)
@@ -2256,7 +2256,7 @@ namespace libS101
 			geoArr.insert(geoArr.begin()+index,p);
 			count++;
 		}
-		return TRUE;
+		return true;
 	}
 
 	R_MultiPointRecord* S101::findMultiPointRecord(long long value) {

@@ -28,7 +28,7 @@ public:
 	F_CodeWithNumericCode *m_arcs = nullptr;
 
 public:
-	BOOL ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
+	bool ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
 	bool Save(libS101::File *file);
 
 	// ���޸� �ڵ�� �ڵ带 �������� �Լ�

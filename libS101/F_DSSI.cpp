@@ -44,7 +44,7 @@ void F_DSSI::ReadField(BYTE *&buf)
 	m_nofr = buf2uint(buf, 4);
 }
 
-BOOL F_DSSI::Save(libS101::File *file)
+bool F_DSSI::Save(libS101::File *file)
 {
 	
 	file->write(&m_dcox, 8);
@@ -63,7 +63,7 @@ BOOL F_DSSI::Save(libS101::File *file)
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
 	
-	return TRUE;
+	return true;
 }
 
 int F_DSSI::GetFieldLength()

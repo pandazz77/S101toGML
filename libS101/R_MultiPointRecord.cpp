@@ -37,9 +37,9 @@ R_MultiPointRecord::~R_MultiPointRecord(void)
 }
 
 #pragma warning(disable:4018)
-BOOL R_MultiPointRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_MultiPointRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 {
-	USES_CONVERSION;
+	;
 	int i = 0, j = 0, cnt;
 	for(unsigned i = 0; i < dir->m_count; i++)
 	{
@@ -89,10 +89,10 @@ BOOL R_MultiPointRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 		
 		}
 	}
-	return TRUE;
+	return true;
 }
 
-BOOL R_MultiPointRecord::Save(libS101::File *file)
+bool R_MultiPointRecord::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;
@@ -187,7 +187,7 @@ BOOL R_MultiPointRecord::Save(libS101::File *file)
 	{
 		(*itor)->Save(file);
 	}
-	return TRUE;
+	return true;
 }
 
 int R_MultiPointRecord::GetRCID()

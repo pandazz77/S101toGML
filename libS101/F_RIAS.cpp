@@ -45,7 +45,7 @@ void F_RIAS::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(rias);
 	}
 }
-BOOL F_RIAS::Save(libS101::File *file)
+bool F_RIAS::Save(libS101::File *file)
 {
 	for (auto itorParent = m_arr.begin(); itorParent != m_arr.end(); itorParent++)
 	{
@@ -59,7 +59,7 @@ BOOL F_RIAS::Save(libS101::File *file)
 	}
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
-	return TRUE;
+	return true;
 }
 
 int F_RIAS::GetFieldLength()

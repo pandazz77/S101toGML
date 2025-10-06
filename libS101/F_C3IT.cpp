@@ -24,7 +24,7 @@ void F_C3IT::ReadField(BYTE *&buf)
 	m_zcoo = buf2int(buf, 4);
 }
 
-BOOL F_C3IT::Save(libS101::File *file)
+bool F_C3IT::Save(libS101::File *file)
 {
 	file->write(&m_vcid, 1);
 	file->write(&m_ycoo, 4);
@@ -33,7 +33,7 @@ BOOL F_C3IT::Save(libS101::File *file)
 
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 	
-	return TRUE;
+	return true;
 }
 int F_C3IT::GetFieldLength()
 {

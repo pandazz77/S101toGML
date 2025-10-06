@@ -26,9 +26,9 @@ R_SurfaceRecord::~R_SurfaceRecord(void)
 	}
 }
 
-BOOL R_SurfaceRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_SurfaceRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 {
-	USES_CONVERSION;
+	;
 	for(int i = 0; i < dir->m_count; i++)
 	{
 		if(dir->GetDirectory(i)->tag == *((unsigned int*)"SRID"))
@@ -61,10 +61,10 @@ BOOL R_SurfaceRecord::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 			TRACE(W2A(TEXT("terminator error")));
 		}
 	}
-	return TRUE;
+	return true;
 }
 
-BOOL R_SurfaceRecord::Save(libS101::File *file)
+bool R_SurfaceRecord::Save(libS101::File *file)
 {
 	DRReaderWriter dr;
 	DRDirectoryInfoWriter dirInfo;
@@ -127,7 +127,7 @@ BOOL R_SurfaceRecord::Save(libS101::File *file)
 	{
 		(*itor)->Save(file);
 	}
-	return TRUE;
+	return true;
 }
 
 int R_SurfaceRecord::GetRCID() 

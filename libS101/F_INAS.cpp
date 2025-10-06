@@ -65,7 +65,7 @@ void F_INAS::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(attr);
 	}
 }
-BOOL F_INAS::Save(libS101::File *file)
+bool F_INAS::Save(libS101::File *file)
 {
 	file->write(&m_name.RCNM, 1);
 	file->write(&m_name.RCID, 4);
@@ -85,7 +85,7 @@ BOOL F_INAS::Save(libS101::File *file)
 	
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
-	return TRUE;
+	return true;
 }
 int F_INAS::GetFieldLength()
 {

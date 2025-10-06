@@ -20,7 +20,7 @@ public:
 public:
 	void ReadField(BYTE *&buf);
 	void ReadField(BYTE *&buf, int loopCnt);
-	BOOL Save(libS101::File *file);
+	bool Save(libS101::File *file);
 	int GetFieldLength();
 
 };

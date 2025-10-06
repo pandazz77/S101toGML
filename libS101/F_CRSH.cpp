@@ -30,7 +30,7 @@ void F_CRSH::ReadField(BYTE *&buf)
 
 }
 
-BOOL F_CRSH::Save(libS101::File *file)
+bool F_CRSH::Save(libS101::File *file)
 {
 	file->write(&m_crix, 1);
 	file->write(&m_crst, 1);
@@ -52,7 +52,7 @@ BOOL F_CRSH::Save(libS101::File *file)
 
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
 
-	return TRUE;
+	return true;
 }
 
 int F_CRSH::GetFieldLength()

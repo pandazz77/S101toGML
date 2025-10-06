@@ -58,9 +58,9 @@ R_DSGIR::~R_DSGIR()
 }
 
 #pragma warning(disable:4018)
-BOOL R_DSGIR::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
+bool R_DSGIR::ReadRecord(DRDirectoryInfo *dir, BYTE*& buf)
 {
-	//USES_CONVERSION;
+	//;
 	for (unsigned i = 0; i < dir->m_count; i++)
 	{
 		if (dir->GetDirectory(i)->tag == *((unsigned int*)"DSID"))
@@ -288,7 +288,7 @@ bool R_DSGIR::Save(libS101::File *file)
 	//	attr->Save(file);
 	//}
 	
-	return TRUE;
+	return true;
 }
 
 

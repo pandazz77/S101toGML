@@ -46,7 +46,7 @@ void F_SPAS::ReadField(BYTE *&buf, int loopCnt)
 		m_arr.push_back(spas);
 	}
 }
-BOOL F_SPAS::Save(libS101::File *file)
+bool F_SPAS::Save(libS101::File *file)
 {
 	for (auto itor = m_arr.begin(); itor != m_arr.end(); itor++)
 	{
@@ -60,7 +60,7 @@ BOOL F_SPAS::Save(libS101::File *file)
 		file->write(&spas->m_saui, 1);
 	}
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
-	return TRUE;
+	return true;
 }
 
 int F_SPAS::GetFieldLength()

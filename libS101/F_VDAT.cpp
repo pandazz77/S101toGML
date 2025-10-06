@@ -23,7 +23,7 @@ void F_VDAT::ReadField(BYTE *&buf)
 	buf2charArr(m_scri, buf);
 }
 
-BOOL F_VDAT::Save(libS101::File *file)
+bool F_VDAT::Save(libS101::File *file)
 {
 	CT2CA outputString(m_dtnm, CP_UTF8);
 	file->write(outputString, (UINT)::strlen(outputString));
@@ -40,7 +40,7 @@ BOOL F_VDAT::Save(libS101::File *file)
 	file->write(&NonPrintableCharacter::unitTerminator, 1);
 
 	file->write(&NonPrintableCharacter::fieldTerminator, 1);
-	return TRUE;
+	return true;
 }
 
 int F_VDAT::GetFieldLength()

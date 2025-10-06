@@ -26,8 +26,8 @@ public:
 	std::list<F_RIAS*> m_rias; // Base �϶��� 1�� �̻� �ʼ�
 
 public:
-	BOOL ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
-	BOOL Save(libS101::File *file);
+	bool ReadRecord(DRDirectoryInfo *dir, BYTE*& buf);
+	bool Save(libS101::File *file);
 	int GetRCID();
 	std::wstring GetRCIDasWstring();
 };
