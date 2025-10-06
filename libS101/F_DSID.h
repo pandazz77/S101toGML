@@ -33,7 +33,7 @@ public:
 	CString m_dslg; //datasetLanguage(������ ����) //EN
 	CString m_dsab; //datasetAbstract
 	CString m_dsed; //dataset Edition
-	CArray<int> m_dstc;
+	std::vector<int> m_dstc;
 
 public:
 	void ReadField(BYTE *&buf);

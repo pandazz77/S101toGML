@@ -129,7 +129,7 @@ namespace libS101
 		bool MakeLineData(R_FeatureRecord* fe);
 		bool MakeAreaData(R_FeatureRecord* fe);
 
-		SCurve* GetCurveGeometry(R_CurveRecord* r/*, CArray<GeoPoint> &geoArr, unsigned ORNT = 1*/);
+		SCurve* GetCurveGeometry(R_CurveRecord* r/*, std::vector<GeoPoint> &geoArr, unsigned ORNT = 1*/);
 		bool SetSCurveList(std::list<OrientedCurveRecord>* inCurveRecordList, std::list<SCurveHasOrient>* outSCurveList);
 
 		bool GetFullCurveData(R_FeatureRecord* fe, R_PointRecord* r, int ornt = 1);
@@ -140,12 +140,12 @@ namespace libS101
 
 		bool GetFullSpatialData(R_PointRecord* r, GeoPoint& geo);
 		bool GetFullSpatialData(R_PointRecord* r, GeoPointZ& geo);
-		bool GetFullSpatialData(R_MultiPointRecord* r, CArray<GeoPointZ>& geoArr);
-		bool GetFullSpatialData(R_CurveRecord* r, CArray<GeoPoint>& geoArr, int ORNT = 1);
+		bool GetFullSpatialData(R_MultiPointRecord* r, std::vector<GeoPointZ>& geoArr);
+		bool GetFullSpatialData(R_CurveRecord* r, std::vector<GeoPoint>& geoArr, int ORNT = 1);
 		bool GetFullSpatialData(R_CurveRecord* r, std::vector<POINT>& geoArr, int ORNT = 1);
-		bool GetFullSpatialData(R_CompositeRecord* r, CArray<GeoPoint>& geoArr, int ORNT = 1);
+		bool GetFullSpatialData(R_CompositeRecord* r, std::vector<GeoPoint>& geoArr, int ORNT = 1);
 		bool GetFullSpatialData(R_CompositeRecord* r, std::vector<POINT>& geoArr, int ORNT = 1);
-		bool GetFullSpatialData(R_SurfaceRecord* r, CArray<GeoPoint>& geoArr);
+		bool GetFullSpatialData(R_SurfaceRecord* r, std::vector<GeoPoint>& geoArr);
 
 		R_MultiPointRecord* findMultiPointRecord(long long value);
 		R_PointRecord* findPointRecord(long long value);

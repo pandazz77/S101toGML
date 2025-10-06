@@ -42,7 +42,7 @@ void F_DSID::ReadField(BYTE *&buf)
 
 	while(*buf != 0x1E)
 	{
-		m_dstc.Add(*(buf++));
+		m_dstc.push_back(*(buf++));
 	}
 
 }
@@ -86,7 +86,7 @@ BOOL F_DSID::Save(CFile *file)
 	file->Write(outputString11, (UINT)::strlen(outputString11));
 	file->Write(&NonPrintableCharacter::unitTerminator, 1);
 	
-	for(int i=0;i < m_dstc.GetCount();i++)
+	for(int i=0;i < m_dstc.size();i++)
 	{
 		file->Write(&m_dstc[i], 1);
 	}
@@ -113,7 +113,7 @@ int F_DSID::GetFieldLength()
 	len += m_dslg.GetLength()+1;
 	len += m_dsab.GetLength()+1;
 	len += m_dsed.GetLength()+1;
-	len += (int)m_dstc.GetCount();
+	len += (int)m_dstc.size();
 
 	return ++len;
 }

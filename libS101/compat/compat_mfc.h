@@ -171,26 +171,6 @@ private:
     }
 };
 
-// CArray minimal shim using std::vector
-template <typename T>
-class CArray {
-public:
-    void Add(const T& v) { data_.push_back(v); }
-    void RemoveAll() { data_.clear(); }
-    int GetSize() const { return static_cast<int>(data_.size()); }
-    int GetCount() const { return GetSize(); }
-    void InsertAt(int index, const T& v) {
-        if (index < 0) index = 0;
-        size_t idx = static_cast<size_t>(index);
-        if (idx > data_.size()) idx = data_.size();
-        data_.insert(data_.begin() + idx, v);
-    }
-    T& operator[](int i) { return data_[static_cast<size_t>(i)]; }
-    const T& operator[](int i) const { return data_[static_cast<size_t>(i)]; }
-private:
-    std::vector<T> data_;
-};
-
 // Simple MFC-like CList for pointer types
 typedef size_t POSITION;
 template <typename T>

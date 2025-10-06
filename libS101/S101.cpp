@@ -1307,7 +1307,7 @@ namespace libS101
 		R_MultiPointRecord* r;
 		__int64 iKey;
 
-		CArray<GeoPointZ> geoArr;
+		std::vector<GeoPointZ> geoArr;
 
 
 		for (auto itorParent = fe->m_spas.begin(); itorParent != fe->m_spas.end(); itorParent++)
@@ -1328,7 +1328,7 @@ namespace libS101
 		}
 
 		int cnt = 0;
-		cnt = (int)geoArr.GetCount();
+		cnt = (int)geoArr.size();
 
 		if (fe->m_geometry)
 			delete fe->m_geometry;
@@ -1359,7 +1359,7 @@ namespace libS101
 			geo->m_mbr.CalcMBR(geoArr[i].x, geoArr[i].y);
 		}
 
-		geoArr.RemoveAll();
+		geoArr.clear();
 		return TRUE;
 	}
 
@@ -1441,7 +1441,7 @@ namespace libS101
 		return true;
 	}
 
-	SCurve* S101::GetCurveGeometry(R_CurveRecord* r/*, CArray<GeoPoint> &geoArr, unsigned ORNT*/)
+	SCurve* S101::GetCurveGeometry(R_CurveRecord* r/*, std::vector<GeoPoint> &geoArr, unsigned ORNT*/)
 	{
 		POSITION ptasPos = NULL;
 		PTAS* ptas = NULL;
@@ -1866,7 +1866,7 @@ namespace libS101
 		return TRUE;
 	}
 
-	bool S101::GetFullSpatialData(R_MultiPointRecord* r, CArray<GeoPointZ>& geoArr)
+	bool S101::GetFullSpatialData(R_MultiPointRecord* r, std::vector<GeoPointZ>& geoArr)
 	{
 
 		for (auto itor = r->m_c3il.begin(); itor != r->m_c3il.end(); itor++)
@@ -1886,14 +1886,14 @@ namespace libS101
 					(unitC3IL->m_zcoo > 0 ? unitC3IL->m_zcoo + 0.5 : unitC3IL->m_zcoo - 0.5) / (double)m_dsgir.m_dssi.m_cmfz);
 				projection(gpz.x, gpz.y);
 
-				geoArr.Add(gpz);
+				geoArr.push_back(gpz);
 			}
 		}
 
 		return TRUE;
 	}
 
-	bool S101::GetFullSpatialData(R_CurveRecord* r, CArray<GeoPoint>& geoArr, int ORNT)
+	bool S101::GetFullSpatialData(R_CurveRecord* r, std::vector<GeoPoint>& geoArr, int ORNT)
 	{
 		POSITION ptasPos = NULL;
 		PTAS* ptas = NULL;
@@ -1932,7 +1932,7 @@ namespace libS101
 		gp.SetPoint(x / (double)m_dsgir.m_dssi.m_cmfx,
 			y / (double)m_dsgir.m_dssi.m_cmfy);
 		projection(gp.x, gp.y);
-		geoArr.Add(gp);
+		geoArr.push_back(gp);
 
 		if (ORNT == 1)
 		{
@@ -1949,7 +1949,7 @@ namespace libS101
 						y / (double)m_dsgir.m_dssi.m_cmfy);
 
 					projection(gp.x, gp.y);
-					geoArr.Add(gp);
+					geoArr.push_back(gp);
 				}
 			}
 		}
@@ -1968,7 +1968,7 @@ namespace libS101
 						y / (double)m_dsgir.m_dssi.m_cmfy);
 
 					projection(gp.x, gp.y);
-					geoArr.Add(gp);
+					geoArr.push_back(gp);
 				}
 			}
 		}
@@ -1978,7 +1978,7 @@ namespace libS101
 		gp.SetPoint(x / (double)m_dsgir.m_dssi.m_cmfx,
 			y / (double)m_dsgir.m_dssi.m_cmfy);
 		projection(gp.x, gp.y);
-		geoArr.Add(gp);
+		geoArr.push_back(gp);
 
 		return TRUE;
 	}
@@ -2073,7 +2073,7 @@ namespace libS101
 		return TRUE;
 	}
 
-	bool S101::GetFullSpatialData(R_CompositeRecord* r, CArray<GeoPoint>& geoArr, int ORNT)
+	bool S101::GetFullSpatialData(R_CompositeRecord* r, std::vector<GeoPoint>& geoArr, int ORNT)
 	{
 		POSITION cucoPos = NULL;
 		CUCO* cuco = NULL;
@@ -2187,7 +2187,7 @@ namespace libS101
 		return TRUE;
 	}
 
-	bool S101::GetFullSpatialData(R_SurfaceRecord* r, CArray<GeoPoint>& geoArr)
+	bool S101::GetFullSpatialData(R_SurfaceRecord* r, std::vector<GeoPoint>& geoArr)
 	{
 		RIAS* rias = NULL;
 		R_CurveRecord* cr = NULL;
@@ -2210,7 +2210,7 @@ namespace libS101
 				RIAS* rias = *itor;
 				if (sp == -1)
 				{
-					sp = (int)geoArr.GetCount();
+					sp = (int)geoArr.size();
 				}
 
 				iKey = ((__int64)rias->m_name.RCNM) << 32 | rias->m_name.RCID;
@@ -2230,7 +2230,7 @@ namespace libS101
 					}
 				}
 				// for blank interior area
-				int sizet = (int)geoArr.GetCount() - 1;
+				int sizet = (int)geoArr.size() - 1;
 				if (geoArr[sp].x == geoArr[sizet].x &&
 					geoArr[sp].y == geoArr[sizet].y)
 				{
@@ -2257,7 +2257,7 @@ namespace libS101
 		{
 			index = boundaryList.GetNext(boundaryPos) + count;
 			GeoPoint p(geoArr[0].x, geoArr[0].y);
-			geoArr.InsertAt(index, p);
+			geoArr.insert(geoArr.begin()+index,p);
 			count++;
 		}
 		return TRUE;
