@@ -1,7 +1,6 @@
 
 #include "S100_CD_AttributeValueType.h"
-
-#include <pugixml.hpp>
+#include "String.h"
 
 namespace FCD
 {
@@ -66,7 +65,7 @@ namespace FCD
 
 	S100_CD_AttributeValueType StringToS100_CD_AttributeValueType(std::wstring& value)
 	{
-		std::string str = pugi::as_utf8(value);
+		std::string str = libS101::String::wstr2str(value);
 		return StringToS100_CD_AttributeValueType(str);
 	}
 
@@ -131,6 +130,6 @@ namespace FCD
 	std::wstring S100_CD_AttributeValueTypeToWString(S100_CD_AttributeValueType value)
 	{
 		auto str = S100_CD_AttributeValueTypeToString(value);
-		return pugi::as_wide(str);
+		return libS101::String::str2wstr(str);
 	}
 }

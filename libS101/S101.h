@@ -15,8 +15,6 @@
 #include <vector>
 #include <list>
 
-#include <pugixml.hpp>
-
 class R_InformationRecord;
 class R_PointRecord;
 class R_MultiPointRecord;
@@ -70,6 +68,38 @@ namespace libS101
 		bool Open(libS101::String _filepath);
 		void Save(libS101::String _filepath, libS101::String extend);
 
+		std::string GetEncodingSpecificationToString() const;
+		libS101::String GetEncodingSpecification() const;
+
+		std::string GetDatasetTitleToString() const;
+		libS101::String GetDatasetTitle() const;
+
+		std::string GetDatasetEditionToString() const;
+		libS101::String GetEncodingSpecificationEdition() const;
+		libS101::String GetDatasetEdition() const;
+
+		libS101::String GetDatasetReferenceDate() const;
+		std::string GetEncodingSpecificationEditionToString() const;
+
+		libS101::String GetProductIdentifier() const;
+		std::string GetProductIdentifierToString() const;
+		std::string GetDatasetReferenceDataToString() const;
+
+		libS101::String GetApplicationProfile() const;
+		std::string GetApplicationProfileToString() const;
+
+		libS101::String GetDatasetFileIdentifier() const;
+		std::string GetDatasetFileIdentifierToString() const;
+
+		libS101::String GetProductEdition() const;
+		std::string GetProductEditionToString() const;
+
+		libS101::String GetDatasetLanguage() const;
+		std::string GetDatasetLanguageToString() const;
+
+		libS101::String GetDatasetAbstract() const;
+		std::string GetDatasetAbstractToString() const;
+
 	private:
 		void InsertInformationRecord(std::int64_t key, R_InformationRecord* record);
 		void InsertPointRecord(std::int64_t key, R_PointRecord* record);
@@ -80,50 +110,6 @@ namespace libS101
 		void InsertFeatureRecord(std::int64_t key, R_FeatureRecord* record);
 
 		bool ReadDDR(std::uint8_t*& buf);
-		void SetInformationsType(pugi::xml_document* doc, pugi::xml_node parentNode, std::string productNamespace);
-		void GmlifileMakeByPugi(libS101::String _filePath);
-		void SetFeaturesType(pugi::xml_document* document, pugi::xml_node parentNode, std::string productNamespace);
-		void SetVector(pugi::xml_node parentNode, R_FeatureRecord* fr);
-		void SetVectorPointsType(pugi::xml_node parentNode, SPoint* p);
-		void SetVectorMultiPointsType(pugi::xml_node parentNode, SMultiPoint* p);
-		void SetVectorCurvesType(pugi::xml_node parentNode, SCurve* p);
-		void SetVectorCompositeCurvesType(pugi::xml_node parentNode, SCompositeCurve* p);
-		void SetVectorSurfacesType(pugi::xml_node parentNode, SSurface* p);
-		void SetFeaturesTypeRelation_v2(pugi::xml_node rootNode);
-		void SetInformationsTypeRelation_v2(pugi::xml_node parentNode);
-		void SetAttributeType(pugi::xml_document* doc, pugi::xml_node parentNode, std::list<F_ATTR*>* f_attrList);
-	
-		std::string GetEncodingSpecificationToString();
-		libS101::String GetEncodingSpecification();
-
-		std::string GetDatasetTitleToString();
-		libS101::String GetDatasetTitle();
-
-		std::string GetDatasetEditionToString();
-		libS101::String GetEncodingSpecificationEdition();
-		libS101::String GetDatasetEdition();
-
-		libS101::String GetDatasetReferenceDate();
-		std::string GetEncodingSpecificationEditionToString();
-
-		libS101::String GetProductIdentifier();
-		std::string GetProductIdentifierToString();
-		std::string GetDatasetReferenceDataToString();
-
-		libS101::String GetApplicationProfile();
-		std::string GetApplicationProfileToString();
-
-		libS101::String GetDatasetFileIdentifier();
-		std::string GetDatasetFileIdentifierToString();
-
-		libS101::String GetProductEdition();
-		std::string GetProductEditionToString();
-
-		libS101::String GetDatasetLanguage();
-		std::string GetDatasetLanguageToString();
-
-		libS101::String GetDatasetAbstract();
-		std::string GetDatasetAbstractToString();
 
 		bool MakeFullSpatialData();
 		bool MakePointData(R_FeatureRecord* fe);

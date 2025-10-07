@@ -51,7 +51,7 @@ void SpatialObject::SetFileName(libS101::String& value)
 }
 
 
-libS101::String SpatialObject::GetFileName()
+libS101::String SpatialObject::GetFileName() const
 {
 	return m_FileName;
 }

@@ -2,6 +2,7 @@
 
 #include "S101toGML.h"
 #include "S101.h"
+#include "S101GML.h"
 
 #include <iostream>
 
@@ -24,7 +25,7 @@ int main(int argc, char* argv[])
 			return -1;
 		}
 
-		s101.Save(gmlpath,L"");
+		S101GML::ExportToGML(s101,gmlpath);
 		std::cout << "GML export to " << gmlpath << " success" << std::endl;
 
     }
