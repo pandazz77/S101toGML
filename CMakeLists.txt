@@ -7,7 +7,6 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 
 add_subdirectory(extlibs/pugixml)
-add_subdirectory(extlibs/Clipper)
 
 add_subdirectory(libS101)
 add_subdirectory(S101GML)
