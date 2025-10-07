@@ -10,5 +10,5 @@ file(GLOB HDRS
 )
 
 add_library(${PROJECT_NAME} STATIC ${SRCS} ${HDRS})
-target_link_libraries(${PROJECT_NAME} libS101)
+target_link_libraries(${PROJECT_NAME} libS101 pugixml)
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

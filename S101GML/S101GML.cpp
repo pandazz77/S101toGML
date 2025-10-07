@@ -126,40 +126,40 @@ void S101GML::GmlifileMakeByPugi(libS101::String _filePath)
     pugi::xml_node DatasetIdentificationInformation = root.append_child("DatasetIdentificationInformation");
 
     pugi::xml_node EncodingSpecification = DatasetIdentificationInformation.append_child("S100:encodingSpecification");
-    EncodingSpecification.append_child(pugi::node_pcdata).set_value(cell.GetEncodingSpecificationToString());
+    EncodingSpecification.append_child(pugi::node_pcdata).set_value(cell.GetEncodingSpecificationToString().c_str());
 
     pugi::xml_node EncodingSpecificationEdication = DatasetIdentificationInformation.append_child("S100:encodingSpecificationEdition");
-    EncodingSpecificationEdication.append_child(pugi::node_pcdata).set_value(cell.GetEncodingSpecificationEditionToString());
+    EncodingSpecificationEdication.append_child(pugi::node_pcdata).set_value(cell.GetEncodingSpecificationEditionToString().c_str());
 
     pugi::xml_node productIdentifier = DatasetIdentificationInformation.append_child("S100:productIdentifier");
-    productIdentifier.append_child(pugi::node_pcdata).set_value(cell.GetProductIdentifierToString());
+    productIdentifier.append_child(pugi::node_pcdata).set_value(cell.GetProductIdentifierToString().c_str());
 
     pugi::xml_node productEdition = DatasetIdentificationInformation.append_child("S100:productEdition");
-    productEdition.append_child(pugi::node_pcdata).set_value(cell.GetProductEditionToString());
+    productEdition.append_child(pugi::node_pcdata).set_value(cell.GetProductEditionToString().c_str());
 
     pugi::xml_node applicationProfile = DatasetIdentificationInformation.append_child("S100:applicationProfile");
-    applicationProfile.append_child(pugi::node_pcdata).set_value(cell.GetApplicationProfileToString());
+    applicationProfile.append_child(pugi::node_pcdata).set_value(cell.GetApplicationProfileToString().c_str());
 
     std::string fileName(cell.GetFileName().str());
     pugi::xml_node datasetFileIdentifier = DatasetIdentificationInformation.append_child("S100:datasetFileIdentifier");
-    datasetFileIdentifier.append_child(pugi::node_pcdata).set_value(cell.GetDatasetFileIdentifierToString());
+    datasetFileIdentifier.append_child(pugi::node_pcdata).set_value(cell.GetDatasetFileIdentifierToString().c_str());
 
 
     pugi::xml_node datasetTitle = DatasetIdentificationInformation.append_child("S100:datasetTitle");
-    datasetTitle.append_child(pugi::node_pcdata).set_value(cell.GetDatasetTitleToString());
+    datasetTitle.append_child(pugi::node_pcdata).set_value(cell.GetDatasetTitleToString().c_str());
 
 
     pugi::xml_node datasetReferenceDate = DatasetIdentificationInformation.append_child("S100:datasetReferenceDate");
-    datasetReferenceDate.append_child(pugi::node_pcdata).set_value(cell.GetDatasetReferenceDataToString());
+    datasetReferenceDate.append_child(pugi::node_pcdata).set_value(cell.GetDatasetReferenceDataToString().c_str());
 
     pugi::xml_node datasetLanguage = DatasetIdentificationInformation.append_child("S100:datasetLanguage");
-    datasetLanguage.append_child(pugi::node_pcdata).set_value(cell.GetDatasetLanguageToString());
+    datasetLanguage.append_child(pugi::node_pcdata).set_value(cell.GetDatasetLanguageToString().c_str());
 
     pugi::xml_node datasetAbstract = DatasetIdentificationInformation.append_child("S100:datasetAbstract");
-    datasetAbstract.append_child(pugi::node_pcdata).set_value(cell.GetDatasetAbstractToString());
+    datasetAbstract.append_child(pugi::node_pcdata).set_value(cell.GetDatasetAbstractToString().c_str());
 
     pugi::xml_node datasetEdition = DatasetIdentificationInformation.append_child("S100:datasetEdition");
-    datasetEdition.append_child(pugi::node_pcdata).set_value(cell.GetDatasetEditionToString());
+    datasetEdition.append_child(pugi::node_pcdata).set_value(cell.GetDatasetEditionToString().c_str());
 
     pugi::xml_node datasetTopicCategory = DatasetIdentificationInformation.append_child("S100:datasetTopicCategory");
     datasetTopicCategory.append_child(pugi::node_pcdata).set_value("utilitiesCommunication");
@@ -424,7 +424,7 @@ void S101GML::SetAttributeType(pugi::xml_document* doc, pugi::xml_node parentNod
             }
 
             std::wstring attributeName = std::wstring(itor->second->m_code);
-            pugi::xml_node pElement = doc->append_child(libS101::String(attributeName).str());
+            pugi::xml_node pElement = doc->append_child(libS101::String(attributeName).c_str());
 
             attrXmlNodeMap.insert(std::unordered_map<int, pugi::xml_node>::value_type(index, pElement));
 
@@ -521,7 +521,7 @@ void S101GML::SetVectorPointsType(pugi::xml_node parentNode, SPoint* p)
     point.append_attribute("gml:id").set_value((poiontID++));
 
     pugi::xml_node pos = point.append_child("gml:pos");
-    pos.append_child(pugi::node_pcdata).set_value(libS101::String(coordinateString).str());
+    pos.append_child(pugi::node_pcdata).set_value(libS101::String(coordinateString).c_str());
 }
 
 void S101GML::SetVectorMultiPointsType(pugi::xml_node parentNode, SMultiPoint* p)
@@ -666,7 +666,7 @@ void S101GML::SetVectorCompositeCurvesType(pugi::xml_node parentNode, SComposite
         pugi::xml_node pSegments = pCurve.append_child("gml:segments");
         pugi::xml_node pLineString = pSegments.append_child("gml:LineString");
         pugi::xml_node pPosList = pLineString.append_child("gml:posList");
-        pPosList.append_child(pugi::node_pcdata).set_value(libS101::String(coordinateString).str());
+        pPosList.append_child(pugi::node_pcdata).set_value(libS101::String(coordinateString).c_str());
     }
 }
 
@@ -754,7 +754,7 @@ void S101GML::SetVectorSurfacesType(pugi::xml_node parentnode, SSurface* p)
     pugi::xml_node pExterior = pPolygonPatch.append_child("gml:exterior");
     pugi::xml_node pLinerRing = pExterior.append_child("gml:LinearRing");
     pugi::xml_node pPosList = pLinerRing.append_child("gml:posList");
-    pPosList.append_child(pugi::node_pcdata).set_value(libS101::String(outboundCoordinateString).str());
+    pPosList.append_child(pugi::node_pcdata).set_value(libS101::String(outboundCoordinateString).c_str());
 
     for (unsigned i = 0; i < inboundCoorinateStringList.size(); i++)
     {
@@ -763,6 +763,6 @@ void S101GML::SetVectorSurfacesType(pugi::xml_node parentnode, SSurface* p)
         pugi::xml_node pIterior = pPolygonPatch.append_child("gml:interior");
         pugi::xml_node pLinearRing = pIterior.append_child("gml:LinearRing");
         pugi::xml_node posList = pLinearRing.append_child("gml:posList");
-        posList.append_child(pugi::node_pcdata).set_value(libS101::String(ibc).str());
+        posList.append_child(pugi::node_pcdata).set_value(libS101::String(ibc).c_str());
     }
 }
