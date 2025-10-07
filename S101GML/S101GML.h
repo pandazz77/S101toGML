@@ -6,9 +6,11 @@
 
 class S101GML{
     public:
-        S101GML(const libS101::S101 &s101cell);
+    
+        static void ExportToGML(const libS101::S101 &s101cell, const libS101::String gmlPath);    
 
-        void Save(const libS101::String &path);
+    private:
+        S101GML(const libS101::S101 &s101cell);
 
     private:
         const libS101::S101 &cell;

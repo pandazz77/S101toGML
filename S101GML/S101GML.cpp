@@ -67,12 +67,13 @@ std::wstring S101GML::get_wstring_from_coordinate_1(int value)
 
 // ================
 
-S101GML::S101GML(const libS101::S101 &s101cell): cell(s101cell){
-
+void S101GML::ExportToGML(const libS101::S101 &s101cell, const libS101::String gmlPath){
+    S101GML exporter(s101cell);
+    exporter.GmlifileMakeByPugi(gmlPath);
 }
 
-void S101GML::Save(const libS101::String &path){
-    GmlifileMakeByPugi(path);
+S101GML::S101GML(const libS101::S101 &s101cell): cell(s101cell){
+
 }
 
 void S101GML::GmlifileMakeByPugi(libS101::String _filePath)

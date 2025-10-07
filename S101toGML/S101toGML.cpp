@@ -25,8 +25,7 @@ int main(int argc, char* argv[])
 			return -1;
 		}
 
-		S101GML gml(s101);
-		gml.Save(gmlpath);
+		S101GML::ExportToGML(s101,gmlpath);
 		std::cout << "GML export to " << gmlpath << " success" << std::endl;
 
     }
