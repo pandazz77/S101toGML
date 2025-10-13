@@ -1,6 +1,6 @@
 
 #include "S100_CD_AttributeValueType.h"
-#include "String.h"
+#include "S101String.h"
 
 namespace FCD
 {

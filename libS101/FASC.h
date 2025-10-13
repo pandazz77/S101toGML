@@ -1,6 +1,6 @@
 #pragma once
 
-#include "String.h"
+#include "S101String.h"
 
 struct FASC {
 

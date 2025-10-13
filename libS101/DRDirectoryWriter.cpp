@@ -1,7 +1,7 @@
 
 #include "DRDirectoryWriter.h"
 
-#include "String.h"
+#include "S101String.h"
 
 DRDirectoryWriter::DRDirectoryWriter()
 {

@@ -13,6 +13,8 @@
 #include "SSurface.h"
 #include "SGeometry.h"
 #include "SPoint.h"
+#include <sstream>
+
 #include <iomanip>
 #include <iostream>
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "File.h"
-#include "String.h"
+#include "S101String.h"
 
 class Field
 {

@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-#include "String.h"
+#include "S101String.h"
 
 void buf2charArr(libS101::String& dest, std::uint8_t*& buf);
 void buf2charArr(std::wstring& dest, std::uint8_t*& buf);

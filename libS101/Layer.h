@@ -3,7 +3,7 @@
 #include "Enum_S100_FileType.h"
 #include "MBR.h"
 
-#include "String.h"
+#include "S101String.h"
 
 class SpatialObject;
 class Scaler;

@@ -3,7 +3,7 @@
 #include "Namespace_GISLibrary.h"
 
 #include <string>
-#include "String.h"
+#include "S101String.h"
 
 class Layer;
 class Scaler;

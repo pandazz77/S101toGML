@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "String.h"
+#include "S101String.h"
 
 class CodeWithNumericCode
 {

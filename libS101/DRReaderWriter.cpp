@@ -1,7 +1,7 @@
 
 #include "DRReaderWriter.h"
 
-#include "String.h"
+#include "S101String.h"
 
 DRReaderWriter::DRReaderWriter(void)
 {
