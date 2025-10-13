@@ -2,6 +2,7 @@
 
 #include "File.h"
 #include "S101String.h"
+#include <cstdint>
 
 class Field
 {
