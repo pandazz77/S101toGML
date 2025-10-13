@@ -5,5 +5,5 @@ set(SRCS
     src/pugiconfig.hpp
 )
 
-add_library(${PROJECT_NAME} STATIC ${SRCS})
+add_library(${PROJECT_NAME} ${SRCS})
 target_include_directories(${PROJECT_NAME} PUBLIC src)
