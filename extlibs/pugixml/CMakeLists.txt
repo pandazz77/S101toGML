@@ -7,8 +7,23 @@ set(SRCS
 set(PUGIXML_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/pugixml.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/pugiconfig.hpp
-    PARENT_SCOPE
 )
 
-add_library(${PROJECT_NAME} ${SRCS} ${PUGIXML_HEADERS})
+add_library(${PROJECT_NAME} ${SRCS})
 target_include_directories(${PROJECT_NAME} PUBLIC src)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    PUBLIC_HEADER "${PUGIXML_HEADERS}"
+)
+
+install(TARGETS ${PROJECT_NAME}
+    LIBRARY
+        DESTINATION lib
+    COMPONENT ${PROJECT_NAME}
+    ARCHIVE
+        DESTINATION lib
+    COMPONENT ${PROJECT_NAME}
+    PUBLIC_HEADER
+        DESTINATION include/${PROJECT_NAME}
+    COMPONENT ${PROJECT_NAME}
+)
