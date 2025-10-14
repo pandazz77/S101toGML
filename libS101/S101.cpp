@@ -144,7 +144,7 @@ namespace libS101
 
 		File file;
 
-		file.open(_filepath.str(),std::ios::in);
+		file.open(_filepath.str(),std::ios::in | std::ios::binary);
 		if (file.is_open())
 		{
 			std::uint8_t* pBuf = nullptr;
