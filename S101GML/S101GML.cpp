@@ -71,17 +71,32 @@ std::wstring S101GML::get_wstring_from_coordinate_1(int value)
 
 void S101GML::ExportToGML(const libS101::S101 &s101cell, const libS101::String gmlPath){
     S101GML exporter(s101cell);
-    exporter.GmlifileMakeByPugi(gmlPath);
+    pugi::xml_document doc = exporter.GmlDocMakeByPugi();
+    try {
+        auto xmlSaveError = doc.save_file(gmlPath);
+    } catch (int e) {
+        std::cout << "Save Fail " << e << std::endl;
+    }
+}
+
+std::string S101GML::ExportToGML(const libS101::S101 &s101cell){
+    S101GML exporter(s101cell);
+    pugi::xml_document doc = exporter.GmlDocMakeByPugi();
+   
+    std::ostringstream oss;
+    doc.save(oss);
+    std::string xmlString = oss.str();
+    return xmlString;
 }
 
 S101GML::S101GML(const libS101::S101 &s101cell): cell(s101cell){
 
 }
 
-void S101GML::GmlifileMakeByPugi(libS101::String _filePath)
+pugi::xml_document S101GML::GmlDocMakeByPugi()
 {
-    pugi::xml_document* doc = new pugi::xml_document();
-    auto declarationNode = doc->append_child(pugi::node_declaration);
+    pugi::xml_document doc = pugi::xml_document();
+    auto declarationNode = doc.append_child(pugi::node_declaration);
     declarationNode.append_attribute("version") = "1.0";
     declarationNode.append_attribute("encoding") = "UTF-8";
 
@@ -89,7 +104,7 @@ void S101GML::GmlifileMakeByPugi(libS101::String _filePath)
     std::string productNamespace; // ex) S101, S124, S201 ...
 
     productNamespace = "S101";
-    root = doc->append_child("S101:DataSet");
+    root = doc.append_child("S101:DataSet");
     root.append_attribute("xmlns:S101") = "http://www.iho.int/S101/gml/1.0";
     root.append_attribute("xsi:schemaLocation") = "http://www.iho.int/S-101/gml/1.0 ../../../schemas/S101/1.0/20170430/S101.xsd";
     root.append_attribute("xmlns:xsi") = "http://www.w3.org/2001/XMLSchema-instance";
@@ -192,23 +207,15 @@ void S101GML::GmlifileMakeByPugi(libS101::String _filePath)
     coordMultFatcorZ.append_child(pugi::node_pcdata).set_value("1");
 #pragma endregion
 
-    SetInformationsType(doc, root, productNamespace);
-    SetFeaturesType(doc, root, productNamespace);
+    SetInformationsType(&doc, root, productNamespace);
+    SetFeaturesType(&doc, root, productNamespace);
 
 #pragma region RELATION
     SetFeaturesTypeRelation_v2(root);
     SetInformationsTypeRelation_v2(root);
 #pragma endregion 
 
-    try {
-        auto xmlSaveError = doc->save_file(_filePath);
-    }
-    catch (int e)
-    {
-        std::cout << "Save Fail" << std::endl;
-    }
-
-    delete doc;
+    return doc;
 }
 
 void S101GML::SetInformationsType(pugi::xml_document* doc, pugi::xml_node parentNode, std::string productNamespace)

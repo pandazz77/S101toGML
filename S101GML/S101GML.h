@@ -7,7 +7,8 @@
 class S101GML{
     public:
     
-        static void ExportToGML(const libS101::S101 &s101cell, const libS101::String gmlPath);    
+        static void ExportToGML(const libS101::S101 &s101cell, const libS101::String gmlPath);
+        static std::string ExportToGML(const libS101::S101 &s101cell);
 
     private:
         S101GML(const libS101::S101 &s101cell);
@@ -17,8 +18,9 @@ class S101GML{
         MBR invMBR; // inversed MBR
         std::unordered_map<std::string, pugi::xml_node*> objectPugiXmlElementMap;
 
+        pugi::xml_document GmlDocMakeByPugi();
+
         void SetInformationsType(pugi::xml_document* doc, pugi::xml_node parentNode, std::string productNamespace);
-		void GmlifileMakeByPugi(libS101::String _filePath);
 		void SetFeaturesType(pugi::xml_document* document, pugi::xml_node parentNode, std::string productNamespace);
 		void SetVector(pugi::xml_node parentNode, R_FeatureRecord* fr);
 		void SetVectorPointsType(pugi::xml_node parentNode, SPoint* p);
