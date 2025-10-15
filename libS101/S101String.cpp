@@ -57,7 +57,8 @@ std::string String::str() const{
 }
 
 const char *String::c_str() const{
-    static std::string temp = wstr2str(*this);
+    static std::string temp;
+    temp = wstr2str(*this);
     return temp.c_str();
 }
 
