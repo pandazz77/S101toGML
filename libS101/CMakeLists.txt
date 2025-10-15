@@ -1,5 +1,7 @@
 project(libS101)
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 # Collect libS101 sources
 file(GLOB SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
@@ -20,6 +22,9 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 install(TARGETS ${PROJECT_NAME}
     LIBRARY
         DESTINATION lib
+    COMPONENT ${PROJECT_NAME}
+    RUNTIME
+        DESTINATION bin
     COMPONENT ${PROJECT_NAME}
     ARCHIVE
         DESTINATION lib

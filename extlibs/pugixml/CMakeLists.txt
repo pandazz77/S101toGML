@@ -1,5 +1,7 @@
 project(pugixml)
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 set(SRCS
     src/pugixml.cpp
 )
@@ -19,6 +21,9 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 install(TARGETS ${PROJECT_NAME}
     LIBRARY
         DESTINATION lib
+    COMPONENT ${PROJECT_NAME}
+    RUNTIME
+        DESTINATION bin
     COMPONENT ${PROJECT_NAME}
     ARCHIVE
         DESTINATION lib
